@@ -1,6 +1,6 @@
 <?
   require_once "lib/php/meekrodb.class.php";
-  DDB::$user = 'root';
+  DB::$user = 'root';
   DB::$password = 'root';
   DB::$dbName = 'localhost';
 ?>
