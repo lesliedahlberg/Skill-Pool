@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <!-- JS -->
-    <script src=""></script>
+    <script src="lib/js/angular.min.js"></script>
 
 
   </head>
