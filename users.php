@@ -3,7 +3,7 @@
 <? require "inc/head.php"; ?>
 
 <body>
-
+<span class="glyphicon glyphicon-link logo-icon"></span>
 
 </body>
 <script src="ctrl/users.js"></script>

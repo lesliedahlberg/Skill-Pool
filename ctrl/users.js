@@ -1,3 +1,3 @@
-angular.module('users', []).controller('usersCtrl', function($scope) {
+angular.module('users', []).controller('usersCtrl', function($scope, $http) {
 
 });
