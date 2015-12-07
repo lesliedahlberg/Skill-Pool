@@ -4,7 +4,7 @@
   DB::$password = 'root';
   DB::$dbName = 'skill_pool';
 
-  DB::query("CREATE TABLE user(
+  DB::query("CREATE TABLE IF NOT EXISTS user(
     id int(11) AUTO_INCREMENT PRIMARY KEY,
     email varchar(128) NOT NULL,
     hash char(32) NOT NULL,
@@ -23,13 +23,13 @@
     about_me text
   );");
 
-  DB::query("CREATE TABLE category(
+  DB::query("CREATE TABLE IF NOT EXISTS category(
     id int(11) AUTO_INCREMENT PRIMARY KEY,
     name varchar(128) NOT NULL,
     CONSTRAINT uc_name_category UNIQUE (name)
   );");
 
-  DB::query("CREATE TABLE skill(
+  DB::query("CREATE TABLE IF NOT EXISTS skill(
     id int(11) AUTO_INCREMENT PRIMARY KEY,
     name varchar(128) NOT NULL,
     category_id int(11) NOT NULL,
@@ -37,7 +37,7 @@
     CONSTRAINT uc_name_skill UNIQUE (name)
   );");
 
-  DB::query("CREATE TABLE user_skill(
+  DB::query("CREATE TABLE IF NOT EXISTS user_skill(
     user_id int(11) NOT NULL,
     skill_id int(11) NOT NULL,
     date_added timestamp,
@@ -46,7 +46,7 @@
     PRIMARY KEY(user_id, skill_id)
   );");
 
-  DB::query("CREATE TABLE skill_message(
+  DB::query("CREATE TABLE IF NOT EXISTS skill_message(
     id int(11) PRIMARY KEY AUTO_INCREMENT ,
     skill_id int(11) NOT NULL,
     user_id int(11) NOT NULL,
@@ -57,11 +57,22 @@
     FOREIGN KEY (skill_id) REFERENCES skill(id)
   );");
 
-  DB::query("CREATE TABLE site_setting(
+  DB::query("CREATE TABLE IF NOT EXISTS site_setting(
     setting_key varchar(256) PRIMARY KEY,
     value varchar(256) NOT NULL
   );");
 
+  DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
+   VALUES('jln14010@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Jonathan', 'Larsson', '63a9f0ea7bb98050796b649e85481845', '1');")
+
+   DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
+    VALUES('elt08001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Erik', 'Liljeqvist', '63a9f0ea7bb98050796b649e85481845', '1');")
+
+    DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
+     VALUES('fln14001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Filip', 'Lagerholm', '63a9f0ea7bb98050796b649e85481845', '1');")
+
+     DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
+      VALUES('ldg14001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Leslie', 'Dahlberg', '63a9f0ea7bb98050796b649e85481845', '1');")
 
 
 
