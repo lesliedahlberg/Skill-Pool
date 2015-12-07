@@ -11,6 +11,25 @@
         <td>{{user.last_name}}</td>
       </tr>
     </table>
+    <h1>Add Post</h1>
+
+    <form role="form" ng-submit="processForm()">
+      {{formMessage}}
+      <div id="title-group" class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" name="title" id="title" ng-model="formData.title">
+        <span class="help-block" ng-show="errorTitle">{{ errorTitle }}</span>
+      </div>
+
+      <div id="text-group" class="form-group">
+        <label for="text">Text:</label>
+        <textarea class="form-control" name="text" id="text" rows="10" ng-model="formData.text"></textarea>
+        <span class="help-block" ng-show="errorText">{{ errorText }}</span>
+      </div>
+
+      <button type="submit" class="btn btn-default">Publish</button>
+
+    </form>
   </body>
   <script src="ctrl/sample.js"></script>
   <? require "inc/foot.php"; ?>
