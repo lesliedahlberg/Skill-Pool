@@ -69,7 +69,7 @@
   VALUES('elt08001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Erik', 'Liljeqvist', '63a9f0ea7bb98050796b649e85481845', '1');");
 
   DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
-  VALUES('fln14001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Filip', 'Lagerholm', '63a9f0ea7bb98050796b649e85481845', '1');");
+  VALUES('flm14001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Filip', 'Lagerholm', '63a9f0ea7bb98050796b649e85481845', '1');");
 
   DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
   VALUES('ldg14001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Leslie', 'Dahlberg', '63a9f0ea7bb98050796b649e85481845', '1');");
