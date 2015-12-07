@@ -105,7 +105,6 @@
     //
   }else{
     $result = DB::query("SELECT * FROM user LIMIT %i, %i", $offset, $elements_per_page);
-    echo json_encode($result);
   }
 
 
