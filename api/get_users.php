@@ -14,9 +14,10 @@
   $order_by = "id";
 
   //Arguments
-  if (!empty($_GET['search']))
+  if (!empty($_GET['search'])){
     $searching = true;
     $search = $_GET['search'];
+  }
 
   if (!empty($_GET['page'])){
     $page = $_GET['page'];
