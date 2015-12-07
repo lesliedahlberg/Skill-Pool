@@ -10,9 +10,11 @@
     <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
+
+
+
     <!-- JS -->
     <script src="lib/js/angular.min.js"></script>
-    <script src="lib/js/ui-bootstrap-tpls-0.14.3.min.js"></script>
 
 
   </head>

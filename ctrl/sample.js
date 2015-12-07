@@ -1,6 +1,4 @@
-//['ui.bootstrap'] måste inkluderas för att interaktiva bootstrap element ska fungera, kolla https://angular-ui.github.io/bootstrap/ för exempel på angularjs bootstrap implementationen
-
-angular.module('sample', ['ui.bootstrap']).controller('sampleCtrl', function($scope, $http) {
+angular.module('sample', []).controller('sampleCtrl', function($scope, $http) {
   $scope.getSample = function (){
     $http.get("api/get_sample.php")
     .success(function (response) {
