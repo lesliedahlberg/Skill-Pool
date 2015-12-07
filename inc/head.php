@@ -12,6 +12,7 @@
 
     <!-- JS -->
     <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/ui-bootstrap-tpls-0.14.3.min.js"></script>
 
 
   </head>
