@@ -1,3 +1,4 @@
+<? //ERIK ?>
 <? require_once "inc/session.php"; ?>
 <html ng-app="register" ng-controller="registerCtrl">
 <? require "inc/head.php"; ?>

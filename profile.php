@@ -1,3 +1,4 @@
+<? //JONATHAN ?>
 <? require_once "inc/session.php"; ?>
 <html ng-app="profile" ng-controller="profileCtrl">
 

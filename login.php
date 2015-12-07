@@ -1,3 +1,4 @@
+<? //ERIK ?>
 <? require_once "inc/session_login_page.php"; ?>
 <html ng-app="login" ng-controller="loginCtrl">
 
