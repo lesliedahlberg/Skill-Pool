@@ -10,17 +10,26 @@
 
   //Check conditions/Validation
   if (empty($_POST['skill']))
-    //$errors['title'] = 'Title is required.';
+    $errors['skill'] = 'Skill name is required.';
 
-  if (empty($_POST['text']))
-    //$errors['text'] = 'Text is required.';
+  if (empty($_POST['selected_category']))
+    $errors['text'] = 'Category for skill is required.';
+
+
+
+  $category_name = $_POST['selected_category'];
+
+
+  //Get data from DB
+  $result = DB::queryFirstRow("SELECT * FROM category WHERE category.name=%s", '$category_name');
+  $category_id = result['id'];
 
 
   //Write to db
   DB::insert('skill', array(
-      'category_id' => $_POST['chosen_category'],
-      'name' => $_POST['skill']
-    ));
+    'category_id' => $category_id,
+    'name' => $_POST['skill']
+  ));
 
   //Set return statement
   if (!empty($errors)) {

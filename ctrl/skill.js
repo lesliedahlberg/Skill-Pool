@@ -28,4 +28,16 @@ angular.module('skill', []).controller('skillCtrl', function($scope, $http) {
   }
 
 
+  $scope.getCategories = function (){
+    $http.get("api/get_categories.php")
+    .success(function (response) {
+      if(response.success == true){
+        $scope.categories = response.result;
+        $scope.categories_message = response.message;
+      }else {
+        $scope.categories_error = response.error;
+      }
+    });
+  }
+
 });
