@@ -14,12 +14,15 @@ angular.module('login', []).controller('loginCtrl', function($scope, $http) {
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
+
         if (!data.success) {
+
+
           // if not successful, bind errors to error variables
           $scope.errorEmail = data.errors.email;
           $scope.errorPass = data.errors.pass;
         } else {
-          window.location.replace("users.php");
+          location.reload();
         }
       });
   };
