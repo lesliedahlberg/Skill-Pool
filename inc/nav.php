@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#"><span class="sr-only">(current)</span>People</a></li>
         <li><a href="#">Profile</a></li>
-        <li><a href="#">Boards</a></li>
+        <li><a href="board.php">Boards</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Admin</a></li>
