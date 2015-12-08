@@ -8,8 +8,8 @@
   $data = array();
 
   //Arguments
-  if (!empty($_GET['user_id'])){
-    $user_id = $_GET['user_id'];
+  if (!empty($_SESSION['id'])){
+    $user_id = $_SESSION['id'];
   }
     $result = DB::query("SELECT * from skill where id IN(Select skill_id from user_skill where user_skill.user_id=%i)", $user_id);
 

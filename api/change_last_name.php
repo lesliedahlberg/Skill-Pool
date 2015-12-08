@@ -22,10 +22,10 @@
     $data['result'] = $result;
     //write to db
     //change to session['email']
-    $username = "jln14010@student.mdh.se";
+    $id = $_SESSION['id'];
     DB::update('user', array(
         'last_name' => $_POST['lastName']
-      ),'email=%s', $username);
+      ),'email=%s', $id);
   }
 
   //Return data

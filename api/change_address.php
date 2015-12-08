@@ -27,12 +27,12 @@
     $data['message'] = 'New address added successfully!';
     $data['result'] = $result;
     //Write to db
-    $username = "jln14010@student.mdh.se";
+    $id = $_SESSION['id'];
     DB::update('user', array(
         'zip_code' => $_POST['zipCode'],
         'city' => $_POST['city'],
         'country' => $_POST['country']
-      ),'email=%s', $username);
+      ),'email=%s', $id);
   }
 
   //Return data

@@ -1,4 +1,4 @@
-<? //require_once "inc/session.php" ?>
+<? require_once "inc/session.php" ?>
 <html ng-app="profile" ng-controller="profileCtrl" ng-init="title='Skill Pool'">
   <? require "inc/head.php"; ?>
   <body ng-init="changeAddress()">
