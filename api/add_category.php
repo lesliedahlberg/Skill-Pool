@@ -1,3 +1,4 @@
+<? //FILIP ?>
 <?
   //DB login
   require_once '../lib/php/meekrodb.class.php';
