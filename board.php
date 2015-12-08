@@ -2,8 +2,9 @@
 <? require_once "inc/session_L.php"; ?>
 <html ng-app="board" ng-controller="boardCtrl">
   <? require "inc/head.php"; ?>
-  <body ng-init="skill_id=<?if(empty($_REQUEST['skill_id'])){echo -1;}else{echo $_REQUEST['skill_id'];}?>">
-    <? require "inc/nav.php" ?>
+  <body ng-cloak ng-init="skill_id=<?if(empty($_REQUEST['skill_id'])){echo -1;}else{echo $_REQUEST['skill_id'];}?>">
+    <? $nav_current_page = "board.php";
+    require "inc/nav.php" ?>
 
     <div class="container">
 

@@ -14,13 +14,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"><span class="sr-only">(current)</span>People</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="board.php">Boards</a></li>
+        <li <? if($nav_current_page=="users.php") echo 'class="active "' ?>><a href="users.php">People</a></li>
+        <li <? if($nav_current_page=="profile.php") echo 'class="active "' ?>><a href="profile.php">Profile</a></li>
+        <li <? if($nav_current_page=="board.php") echo 'class="active "' ?>><a href="board.php">Boards</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Admin</a></li>
-        <li><a href="#">Logout</a></li>
+        <li <? if($nav_current_page=="admin.php") echo 'class="active "' ?>><a href="admin.php">Admin</a></li>
+        <li><a href="logout.php">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
