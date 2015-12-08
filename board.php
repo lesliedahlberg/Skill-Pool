@@ -9,7 +9,7 @@
     <div class="container">
 
       <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
+        <li><a href="users.php">Home</a></li>
         <li><a href="board.php">Boards</a></li>
         <li class="active" ng-if="skill != null">{{skill.name}}</li>
       </ol>
