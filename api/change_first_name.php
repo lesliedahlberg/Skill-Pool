@@ -9,29 +9,22 @@
   $data = array();
 
   //Check conditions/Validation
-  if (empty($_POST['city']))
-    $errors['city'] = 'City is required.';
-
-  if (empty($_POST['zipCode']))
-    $errors['zipCode'] = 'Zipcode is required.';
-
-  if (empty($_POST['country']))
-    $errors['country'] = 'Country is required.';
-
+  if (empty($_POST['firstName'])){
+    $errors['firstName'] = 'First name is required.';
+  }
   //Set return statement
   if (!empty($errors)) {
     $data['success'] = false;
     $data['errors']  = $errors;
   } else {
     $data['success'] = true;
-    $data['message'] = 'New address added successfully!';
+    $data['message'] = 'New first name added successfully!';
     $data['result'] = $result;
-    //Write to db
+    //write to db
+    //change to session['email']
     $username = "jln14010@student.mdh.se";
     DB::update('user', array(
-        'zip_code' => $_POST['zipCode'],
-        'city' => $_POST['city'],
-        'country' => $_POST['country']
+        'first_name' => $_POST['firstName']
       ),'email=%s', $username);
   }
 
