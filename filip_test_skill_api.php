@@ -27,7 +27,7 @@
       </div>
 
       <!-- Chosen category required for database input -->
-      <select class="pull-right" name="selected_category" id="selected_category">
+      <select class="pull-right" name="selectedcategory" id="selectedcategory">
 
         <option value="" >Choose category</option>
 

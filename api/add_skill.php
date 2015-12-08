@@ -12,24 +12,25 @@
   if (empty($_POST['skill']))
     $errors['skill'] = 'Skill name is required.';
 
-  if (empty($_POST['selected_category']))
+  if (empty($_POST['selectedcategory']))
     $errors['text'] = 'Category for skill is required.';
 
 
 
-  $category_name = $_POST['selected_category'];
+  // NÅGOT BLIR FEL HÄR - Den verkar inte få över ngt från Post
+  $category_name = $_POST['selectedcategory'];
+
 
 
   //Get data from DB
-  $result = DB::queryFirstRow("SELECT * FROM category WHERE category.name=%s", '$category_name');
-  $category_id = result['id'];
-
+  $category_id = DB::queryOneField('id', "SELECT category.id FROM category WHERE category.name=%s", '$category_name');
 
   //Write to db
   DB::insert('skill', array(
     'category_id' => $category_id,
     'name' => $_POST['skill']
   ));
+
 
   //Set return statement
   if (!empty($errors)) {
