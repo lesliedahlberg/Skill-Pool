@@ -7,6 +7,7 @@
 
 
 </body>
+
 <script src="ctrl/register.js"></script>
 
 </html>
