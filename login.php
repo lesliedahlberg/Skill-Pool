@@ -4,13 +4,11 @@
 
 <? require "inc/head.php"; ?>
 
-<script src="lib/js/jquery.min.js" type="text/javascript"></script>
-
 <link href="css/login.css" rel="stylesheet"/>
 
 <body>
   <div class="container">
-
+    {{m}}
         <form class="form-signin" ng-submit="processLoginForm()">
           <h2 class="form-signin-heading">Please sign in</h2>
           <label for="email" class="sr-only">Email address</label>
@@ -32,5 +30,5 @@
 </body>
 
 <script src="ctrl/login.js"></script>
-
+<? require "inc/foot.php"; ?>
 </html>
