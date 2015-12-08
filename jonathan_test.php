@@ -1,4 +1,4 @@
-<? require_once "inc/session.php" ?>
+<? //require_once "inc/session.php" ?>
 <html ng-app="profile" ng-controller="profileCtrl" ng-init="title='Skill Pool'">
   <? require "inc/head.php"; ?>
   <body ng-init="changeAddress()">
@@ -19,7 +19,7 @@
         <span class="help-block" ng-show="errorCountry">{{ errorCountry }}</span>
       </div>
 
-      <button type="submit" class="btn btn-default">Change</button>
+      <button type="submit" class="btn btn-default">Change Address</button>
 
     </form>
 
@@ -31,7 +31,7 @@
         <span class="help-block" ng-show="errorFirstName">{{ errorFirstName }}</span>
       </div>
 
-      <button type="submit" class="btn btn-default">Change</button>
+      <button type="submit" class="btn btn-default">Change First Name</button>
 
     </form>
 
@@ -43,7 +43,55 @@
         <span class="help-block" ng-show="errorLastName">{{ errorLastName }}</span>
       </div>
 
-      <button type="submit" class="btn btn-default">Change</button>
+      <button type="submit" class="btn btn-default">Change Last Name</button>
+
+    </form>
+
+    <form role="form" ng-submit="processFormTitle()">
+      {{ formMessageTitle }}
+      <div id="title-group" class="form-group">
+        <label for="title">New Title:</label>
+        <input type="text" class="form-control" name="title" id="title" ng-model="formData.title">
+        <span class="help-block" ng-show="errorTitle">{{ errorTitle }}</span>
+      </div>
+
+      <button type="submit" class="btn btn-default">Change Title</button>
+
+    </form>
+
+    <form role="form" ng-submit="processFormTelephone()">
+      {{ formMessageTelephone }}
+      <div id="telephone-group" class="form-group">
+        <label for="title">New Number:</label>
+        <input type="text" class="form-control" name="telephone" id="telephone" ng-model="formData.telephone">
+        <span class="help-block" ng-show="errorTelephone">{{ errorTelephone }}</span>
+      </div>
+
+      <button type="submit" class="btn btn-default">Change Number</button>
+
+    </form>
+
+    <form role="form" ng-submit="processFormHomepage()">
+      {{ formMessageHomepage }}
+      <div id="homepage-group" class="form-group">
+        <label for="title">New Homepage:</label>
+        <input type="text" class="form-control" name="homepage" id="homepage" ng-model="formData.homepage">
+        <span class="help-block" ng-show="errorHomepage">{{ errorHomepage }}</span>
+      </div>
+
+      <button type="submit" class="btn btn-default">Change Homepage</button>
+
+    </form>
+
+    <form role="form" ng-submit="processFormAboutMe()">
+      {{ formMessageAboutMe }}
+      <div id="aboutMe-group" class="form-group">
+        <label for="title">New About Me:</label>
+        <input type="text" class="form-control" name="aboutMe" id="aboutMe" ng-model="formData.aboutMe">
+        <span class="help-block" ng-show="errorAboutMe">{{ errorAboutMe }}</span>
+      </div>
+
+      <button type="submit" class="btn btn-default">Change About Me</button>
 
     </form>
   </body>
