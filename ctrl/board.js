@@ -12,6 +12,19 @@ angular.module('board', []).controller('boardCtrl', function($scope, $http) {
         $scope.skills_error = response.error;
       }
     });
+    $scope.getEmptySkills();
+  }
+
+  $scope.getEmptySkills = function (){
+    $http.get("api/get_skills_without_posts.php")
+    .success(function (response) {
+      if(response.success == true){
+        $scope.empty_skills = response.result;
+        $scope.empty_skills_message = response.message;
+      }else {
+        $scope.empty_skills_error = response.error;
+      }
+    });
   }
 
   $scope.getSkill = function (){
