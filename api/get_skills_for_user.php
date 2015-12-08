@@ -11,7 +11,6 @@
   if (!empty($_GET['user_id'])){
     $user_id = $_GET['user_id'];
   }
-  $user_id=1;
     $result = DB::query("SELECT * from skill where id IN(Select skill_id from user_skill where user_skill.user_id=%i)", $user_id);
 
 
