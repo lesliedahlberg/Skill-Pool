@@ -1,5 +1,6 @@
 <? //JONATHAN ?>
 <?
+  session_start();
   //DB login
   require_once '../lib/php/meekrodb.class.php';
   require_once "../inc/db_credentials.php";
@@ -32,7 +33,7 @@
         'zip_code' => $_POST['zipCode'],
         'city' => $_POST['city'],
         'country' => $_POST['country']
-      ),'email=%s', $id);
+      ),'id=%s', $id);
   }
 
   //Return data

@@ -4,7 +4,7 @@
   <body ng-init="changeAddress()">
     <? require "inc/nav.php" ?>
     <h1>Change Address</h1>
-
+    
     <form role="form" ng-submit="processFormAddress()">
       {{ formMessageAddress }}
       <div id="address-group" class="form-group">

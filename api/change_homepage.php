@@ -1,5 +1,6 @@
 <? //JONATHAN ?>
 <?
+  session_start();
   //DB login
   require_once '../lib/php/meekrodb.class.php';
   require_once "../inc/db_credentials.php";
@@ -25,7 +26,7 @@
     $id = $_SESSION['id'];
     DB::update('user', array(
         'homepage' => $_POST['homepage']
-      ),'email=%s', $id);
+      ),'id=%s', $id);
   }
 
   //Return data
