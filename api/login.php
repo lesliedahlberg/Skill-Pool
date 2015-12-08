@@ -60,7 +60,7 @@
     $_SESSION['id'] = $result['id'][0];
     $_SESSION['user_name'] = $result['first_name'][0];
   }
-  }
+  
 
   //Return data
   echo json_encode($data);
