@@ -6,14 +6,12 @@
   //Arrays
   $errors = array();
   $data = array();
-  //$params = json_decode(file_get_contents('php://input'),true);
 
   //Variables
   $execquery = true;
   $result = NULL;
   $email = NULL;
   $pass = NULL;
-
 
   //Check conditions/Validation
   if (empty($_POST['email']))
@@ -34,20 +32,37 @@
     $pass = $_POST['pass'];
   }
 
-
-  //Get data from DB
-  if($execquery)
-    $result = DB::query("SELECT id FROM user WHERE email=%s AND hash=%s;", $email, md5($pass));
-
-  //Set return statement
-  if (!empty($errors)) {
+  if(!$execquery)
+  {
+    if (!empty($errors))
+    {
     $data['success'] = false;
     $data['errors']  = $errors;
-  } else {
+
+    echo json_encode($data); //Return data
+    die();
+    }
+  }
+
+
+  //Get data from DB
+  $result = DB::query("SELECT id, hash, first_name FROM user WHERE email=%s;", $email);
+  $count = DB::count();
+
+  if($count == 1 && $result['hash'][0] == md5($pass))
+  {
+    //Set return statement
     $data['success'] = true;
     $data['result'] = $result;
+
+    session_start();
+    $_SESSION['logged_in'] = true;
+    $_SESSION['id'] = $result['id'][0];
+    $_SESSION['user_name'] = $result['first_name'][0];
+  }
   }
 
   //Return data
   echo json_encode($data);
+  die();
 ?>

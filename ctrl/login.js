@@ -1,9 +1,11 @@
 angular.module('login', []).controller('loginCtrl', function($scope, $http) {
   $scope.formData = {};
-  //alert(scope. formData);
-  //alert($_POST);
-  //alert();
+
   $scope.processLoginForm = function() {
+    //$param = json_decode($scope.formData);
+
+  //  var res = $.parseJSON($scope.formData);
+  //  var par = [res.email, res.pass]; // Array of the received response
 
     $http({
           method  : 'POST',
@@ -17,13 +19,9 @@ angular.module('login', []).controller('loginCtrl', function($scope, $http) {
           $scope.errorEmail = data.errors.email;
           $scope.errorPass = data.errors.pass;
         } else {
-          session_start();
-          $_SESSION['logged_in'] = true;
-          header("Location: users.php");
-          die();
+          window.location.replace("users.php");
         }
       });
-      //alert(scope. formData);
   };
 
 });
