@@ -15,14 +15,7 @@
 
   //Get data from DB
   $result = DB::query("
-    SELECT
-      *
-    FROM
-      skill_message
-    WHERE
-      skill_message.skill_id = %i
-    ORDER BY
-      date_added DESC
+    SELECT skill_id, user_id, date_added, message, skill_message.title, email, first_name, last_name, registration_date, photo_link, user.title, city, zip_code, country, telephone, homepage, about_me FROM skill_message LEFT JOIN user ON skill_message.user_id = user.id WHERE skill_id = %i ORDER BY date_added DESC
   ", $skill_id);
 
   //Set return statement

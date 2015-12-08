@@ -4,6 +4,7 @@
   <? require "inc/head.php"; ?>
   <body ng-init="skill_id=<?if(empty($_REQUEST['skill_id'])){echo -1;}else{echo $_REQUEST['skill_id'];}?>">
     <? require "inc/nav.php" ?>
+
     <ol class="breadcrumb">
       <li><a href="#">Home</a></li>
       <li><a href="board.php">Boards</a></li>
@@ -19,7 +20,7 @@
           </a>
         </div>
         <div class="media-body">
-          <h4 class="media-heading">{{post.title}}<small> {{post.date_added}} by {{post.user_id}}</small></h4>
+          <h4 class="media-heading">{{post.title}}<small> {{post.date_added}} by {{post.first_name}} {{post.last_name}}</small></h4>
             {{post.message}}
         </div>
       </div>
