@@ -6,12 +6,18 @@
 
 <body>
   <form role="form" ng-submit="processLoginForm()">
-    Email: <input type="text" name="email" id="email" placeholder="Email..." ng-model="formData.email" class="form-control"/>
-    <span class="help-block" ng-show="errorEmail">{{ errorEmail }}</span>
+    <div class="form-group">
+      Email: <input type="text" name="email" id="email" placeholder="Email..." ng-model="formData.email" class="form-control"/>
+      <span class="help-block" ng-show="errorEmail">{{ errorEmail }}</span>
+    </div>
 
-    Password: <input type="password" name="pass" id="pass" placeholder="Password..." ng-model="formData.pass" class="form-control"/>
-    <span class="help-block" ng-show="errorPass">{{ errorPass }}</span>
+    <div class="form-group">
+      Password: <input type="password" name="pass" id="pass" placeholder="Password..." ng-model="formData.pass" class="form-control"/>
+      <span class="help-block" ng-show="errorPass">{{ errorPass }}</span>
+    </div>
+
     <button type="submit" class="btn btn-default">Login</button>
+    
   </form>
 
 </body>

@@ -1,6 +1,10 @@
-angular.module('login', []).controller('loginCtrl', function($scope) {
-
+angular.module('login', []).controller('loginCtrl', function($scope, $http) {
+  $scope.formData = {};
+  //alert(scope. formData);
+  //alert($_POST);
+  //alert();
   $scope.processLoginForm = function() {
+
     $http({
           method  : 'POST',
           url     : 'api/login.php',
@@ -19,6 +23,7 @@ angular.module('login', []).controller('loginCtrl', function($scope) {
           die();
         }
       });
+      //alert(scope. formData);
   };
 
 });
