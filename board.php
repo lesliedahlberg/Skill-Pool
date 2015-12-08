@@ -1,5 +1,5 @@
 <? //LESLIE ?>
-<? require_once "inc/session_L.php"; ?>
+<? require_once "inc/session.php"; ?>
 <html ng-app="board" ng-controller="boardCtrl">
   <? require "inc/head.php"; ?>
   <body ng-cloak ng-init="skill_id=<?if(empty($_REQUEST['skill_id'])){echo -1;}else{echo $_REQUEST['skill_id'];}?>">
@@ -46,7 +46,7 @@
       </section>
 
       <section ng-init="getSkills()" ng-if="skill_id == -1">
-        <h1>Boards</h1>
+        <h1>Welcome to Boards <? echo($_SESSION['user_name'])?>!</h1>
         <ul class="list-group" >
           <li class="list-group-item" ng-repeat="skill in skills">
             <span class="badge">{{skill.post_count}}</span>
