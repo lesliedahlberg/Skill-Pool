@@ -8,13 +8,12 @@
   $errors = array();
   $data = array();
 
+  //user_id
+  $user_id = 1;
+
   //Arguments
   if (empty($_REQUEST['skill_id'])){
     $errors['skill_id'] = "A skill is required!";
-  }
-
-  if (empty($_REQUEST['user_id'])){
-    $errors['user_id'] = "A user is required!";
   }
 
   if (empty($_REQUEST['message'])){
@@ -29,7 +28,7 @@
   if(empty($errors)) {
     DB::insert('skill_message', array(
         'skill_id' => $_REQUEST['skill_id'],
-        'user_id' => $_REQUEST['user_id'],
+        'user_id' => $user_id,
         'message' => $_REQUEST['message'],
         'title' => $_REQUEST['title']
       ));
@@ -41,7 +40,7 @@
     $data['errors']  = $errors;
   } else {
     $data['success'] = true;
-    $data['message'] = 'Board retrieved!';
+    $data['message'] = 'Post added to Board!';
     $data['result'] = $result;
   }
 

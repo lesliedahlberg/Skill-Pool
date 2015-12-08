@@ -1,4 +1,7 @@
 angular.module('board', []).controller('boardCtrl', function($scope, $http) {
+
+  $scope.formData = {};
+
   $scope.getSkills = function (){
     $http.get("api/get_skills_sorted_by_recent_posts.php")
     .success(function (response) {
@@ -36,5 +39,30 @@ angular.module('board', []).controller('boardCtrl', function($scope, $http) {
       }
     });
   }
+
+  $scope.addPost = function() {
+    $scope.formData.skill_id = $scope.skill_id;
+    $http({
+          method  : 'POST',
+          url     : 'api/add_to_board_for_skill.php',
+          data    : $.param($scope.formData),
+          headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+         })
+    .success(function(data) {
+      $scope.msg = data;
+        if (!data.success) {
+          // if not successful, bind errors to error variables
+          $scope.errorTitle = data.errors.title;
+          $scope.errorMessage = data.errors.message;
+        } else {
+          $scope.formMessage = data.message;
+          $scope.errorTitle = "";
+          $scope.errorMessage = "";
+          $scope.formData = "";
+          $scope.getBoard();
+        }
+      });
+  }
+
 
 });
