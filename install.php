@@ -1,7 +1,6 @@
 <?
   require_once "lib/php/meekrodb.class.php";
   DB::$user = 'root';
-  DB::$password = 'root';
   DB::$dbName = 'skill_pool';
 
   DB::query("CREATE TABLE IF NOT EXISTS user(
@@ -58,8 +57,8 @@
   );");
 
   DB::query("CREATE TABLE IF NOT EXISTS site_setting(
-    setting_key varchar(256) PRIMARY KEY,
-    value varchar(256) NOT NULL
+    setting_key varchar(128) PRIMARY KEY,
+    value varchar(128) NOT NULL
   );");
 
   DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
