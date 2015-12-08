@@ -46,8 +46,11 @@
 
       <section ng-init="getSkills()" ng-if="skill_id == -1">
         <h1>Boards<small>(sorted by latest post)</small></h1>
-        <ul ng-repeat="skill in skills">
-          <li><a href="?skill_id={{skill.id}}">{{skill.name}}</a></li>
+        <ul class="list-group" ng-repeat="skill in skills">
+          <li class="list-group-item">
+            <span class="badge">{{skill.post_count}}</span>
+            <a href="?skill_id={{skill.id}}">{{skill.name}}</a>
+          </li>
         </ul>
       </section>
 
