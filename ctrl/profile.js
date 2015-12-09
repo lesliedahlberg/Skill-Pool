@@ -6,6 +6,15 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
       if(response.success == true){
         $scope.user = response.result;
         $scope.user_message = response.message;
+        $scope.firstNameData.firstName = $scope.user.first_name;
+        $scope.addressData.city = $scope.user.city;
+        $scope.addressData.zipCode = $scope.user.zip_code;
+        $scope.addressData.country = $scope.user.country;
+        $scope.lastNameData.lastName = $scope.user.last_name;
+        $scope.titleData.title = $scope.user.title;
+        $scope.phoneData.telephone = $scope.user.telephone;
+        $scope.aboutMeData.aboutMe = $scope.user.about_me;
+        $scope.homepageData.homepage = $scope.user.homepage;
       }else {
         $scope.user_error = response.error;
       }
@@ -32,7 +41,6 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
           $scope.errorZipCode = "";
           $scope.errorCity = "";
           $scope.errorCountry = "";
-          $scope.addressData = "";
         }
       });
   };
@@ -52,7 +60,6 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageFirstName = data.message;
           $scope.errorFirstName = "";
-          $scope.firstNameData = "";
         }
       });
   };
@@ -72,7 +79,6 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageLastName = data.message;
           $scope.errorLastName = "";
-          $scope.lastNameData = "";
         }
       });
   };
@@ -92,7 +98,6 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageTitle = data.message;
           $scope.errorTitle = "";
-          $scope.titleData = "";
         }
       });
   };
@@ -112,7 +117,6 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageTelephone = data.message;
           $scope.errorTelephone = "";
-          $scope.phoneData = "";
         }
       });
   };
@@ -132,7 +136,6 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageHomepage = data.message;
           $scope.errorHomepage = "";
-          $scope.homepageData = "";
         }
       });
   };
@@ -152,7 +155,6 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageAboutMe = data.message;
           $scope.errorAboutMe = "";
-          $scope.aboutMeData = "";
         }
       });
   };
