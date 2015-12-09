@@ -10,7 +10,7 @@ angular.module('users', []).controller('usersCtrl', function($scope, $http) {
     }
     alert(urel);
     $http({
-      url: urel,
+      url : urel;
       method: "GET"
     }).success(function (response) {
       alert(response);
