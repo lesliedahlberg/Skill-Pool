@@ -18,10 +18,9 @@
             </span>
             <div ng-show="show.firstName" class="row">
               <form role="form" ng-submit="processFormFirstName()">
-                    <input ng-init="getUser()" type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData.firstName">
+                    <input type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData.firstName">
               </form>
             </div>
-            {{firstNameData.firstName}}
           </td>
         </tr>
         <tr><td>Last Name:</td><td>{{user.last_name }}</td></tr>
