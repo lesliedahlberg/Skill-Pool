@@ -7,7 +7,15 @@
     <div class="container">
       <div class="row">
         <h1>Profile</h1>
-        <div class="col-md-2"><img ng-show="!user.photo_link" src="img/profile/default.png"/><img ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/></div>
+        <div class="col-md-2" ng-init="getUser()">
+            <img ng-show="!user.photo_link" src="img/profile/default.png"/><img ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+            <form role="form" ng-submit="processFormPhoto();" class="form-inline" enctype="multipart/form-data">
+                  <input type="file" name="photo" id="photo" />
+                  <span class="help-block" ng-show="errorPhoto">{{ errorPhoto }}</span>
+                  <span class="help-block" ng-show="formMessagePhoto">{{ formMessagePhoto }}</span>
+                  <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
         <section class="col-md-10" ng-init="getUser()">
           <table class="table">
             <tr>
