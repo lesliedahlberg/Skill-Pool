@@ -16,12 +16,12 @@
                 <span class="glyphicon glyphicon-pencil"></span>
               </a>
             </span>
-            <div ng-show="show.firstName">
+            <div ng-show="show.firstName" class="row">
               <form role="form" ng-submit="processFormFirstName()">
-                <input type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData.firstName">
-                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span></button>
+                    <input ng-init="getUser()" type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData.firstName">
               </form>
             </div>
+            {{firstNameData.firstName}}
           </td>
         </tr>
         <tr><td>Last Name:</td><td>{{user.last_name }}</td></tr>
