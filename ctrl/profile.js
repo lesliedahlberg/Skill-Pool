@@ -1,8 +1,11 @@
 angular.module('profile', []).controller('profileCtrl', function($scope, $http) {
   $scope.show = {};
+  $scope.firstNameData = {};
   $scope.getUser = function (){
+
     $http.get("api/get_logged_in_user.php")
     .success(function (response) {
+
       if(response.success == true){
         $scope.user = response.result;
         $scope.user_message = response.message;
