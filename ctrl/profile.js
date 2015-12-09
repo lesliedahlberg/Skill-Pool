@@ -41,6 +41,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
           $scope.errorZipCode = "";
           $scope.errorCity = "";
           $scope.errorCountry = "";
+          $scope.show.address = false;
           $scope.getUser();
         }
       });
@@ -61,6 +62,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageFirstName = data.message;
           $scope.errorFirstName = "";
+          $scope.show.firstName = false;
           $scope.getUser();
         }
       });
@@ -81,6 +83,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageLastName = data.message;
           $scope.errorLastName = "";
+          $scope.show.lastName = false;
           $scope.getUser();
         }
       });
@@ -101,6 +104,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageTitle = data.message;
           $scope.errorTitle = "";
+          $scope.show.title = false;
           $scope.getUser();
         }
       });
@@ -121,6 +125,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageTelephone = data.message;
           $scope.errorTelephone = "";
+          $scope.show.telephone = false;
           $scope.getUser();
         }
       });
@@ -141,6 +146,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageHomepage = data.message;
           $scope.errorHomepage = "";
+          $scope.show.homepage = false;
           $scope.getUser();
         }
       });
@@ -161,6 +167,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageAboutMe = data.message;
           $scope.errorAboutMe = "";
+          $scope.show.aboutMe = false;
           $scope.getUser();
         }
       });
