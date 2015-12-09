@@ -27,7 +27,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
           $scope.errorSkill = "";
           $scope.errorMessage = "";
           $scope.addSkill = "";
-          $scope.getSkill();
+          $scope.getSkills();
         }
       });
   }

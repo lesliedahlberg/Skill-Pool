@@ -145,8 +145,7 @@
       </div>
 
       <h1>Add Skill</h1>
-      <h2>{{msg}}</h2>
-
+      <pre>{{msg}}</pre>
       <form role="form" ng-submit="addSkill();" ng-init="getSkills();getCategories();">
         <div id="skill-group" class="form-group">
           <label for="skill">Skill name:</label>
