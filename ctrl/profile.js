@@ -41,6 +41,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
           $scope.errorZipCode = "";
           $scope.errorCity = "";
           $scope.errorCountry = "";
+          $scope.getUser();
         }
       });
   };
@@ -60,6 +61,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageFirstName = data.message;
           $scope.errorFirstName = "";
+          $scope.getUser();
         }
       });
   };
@@ -79,6 +81,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageLastName = data.message;
           $scope.errorLastName = "";
+          $scope.getUser();
         }
       });
   };
@@ -98,6 +101,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageTitle = data.message;
           $scope.errorTitle = "";
+          $scope.getUser();
         }
       });
   };
@@ -117,6 +121,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageTelephone = data.message;
           $scope.errorTelephone = "";
+          $scope.getUser();
         }
       });
   };
@@ -136,6 +141,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageHomepage = data.message;
           $scope.errorHomepage = "";
+          $scope.getUser();
         }
       });
   };
@@ -155,6 +161,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageAboutMe = data.message;
           $scope.errorAboutMe = "";
+          $scope.getUser();
         }
       });
   };
