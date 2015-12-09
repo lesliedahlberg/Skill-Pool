@@ -18,11 +18,8 @@
             </span>
             <div ng-show="show.firstName" class="row">
               <form role="form" ng-submit="processFormFirstName()">
-<<<<<<< HEAD
                     <input ng-init="getUser()" type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData">
-=======
                     <input type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData.firstName">
->>>>>>> origin/master
               </form>
             </div>
           </td>
