@@ -10,9 +10,9 @@
   $data = array();
 
   //Check conditions/Validation
-  if (empty($_POST['aboutMe'])){
-    $errors['aboutMe'] = 'About Me is required.';
-  }
+  /*  if (empty($_POST['aboutMe'])){
+      $errors['aboutMe'] = 'About Me is required.';
+    }*/
   //Set return statement
   if (!empty($errors)) {
     $data['success'] = false;

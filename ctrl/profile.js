@@ -1,5 +1,12 @@
 angular.module('profile', []).controller('profileCtrl', function($scope, $http) {
   $scope.show = {};
+  $scope.addressData = {};
+  $scope.firstNameData = {};
+  $scope.lastNameData = {};
+  $scope.titleData = {};
+  $scope.phoneData = {};
+  $scope.aboutMeData = {};
+  $scope.homepageData = {};
 
   $scope.addSkill = function() {
     $scope.addSkill.skill_id = $scope.skill_id;
@@ -59,6 +66,15 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
       if(response.success == true){
         $scope.user = response.result;
         $scope.user_message = response.message;
+        $scope.firstNameData.firstName = $scope.user.first_name;
+        $scope.addressData.city = $scope.user.city;
+        $scope.addressData.zipCode = $scope.user.zip_code;
+        $scope.addressData.country = $scope.user.country;
+        $scope.lastNameData.lastName = $scope.user.last_name;
+        $scope.titleData.title = $scope.user.title;
+        $scope.phoneData.telephone = $scope.user.telephone;
+        $scope.aboutMeData.aboutMe = $scope.user.about_me;
+        $scope.homepageData.homepage = $scope.user.homepage;
       }else {
         $scope.user_error = response.error;
       }

@@ -10,7 +10,7 @@
   $data = array();
 
   //Check conditions/Validation
-  if (empty($_POST['city']))
+  /*if (empty($_POST['city']))
     $errors['city'] = 'City is required.';
 
   if (empty($_POST['zipCode']))
@@ -18,7 +18,7 @@
 
   if (empty($_POST['country']))
     $errors['country'] = 'Country is required.';
-
+*/
   //Set return statement
   if (!empty($errors)) {
     $data['success'] = false;

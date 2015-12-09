@@ -9,10 +9,10 @@
   $errors = array();
   $data = array();
 
-  //Check conditions/Validation
+/*  //Check conditions/Validation
   if (empty($_POST['telephone'])){
     $errors['telephone'] = 'Telephonenumber is required.';
-  }
+  }*/
   //Set return statement
   if (!empty($errors)) {
     $data['success'] = false;
