@@ -19,7 +19,7 @@
             </span>
             <div ng-show="show.firstName">
               <form role="form" ng-submit="processFormFirstName();" class="form-inline">
-                    <input type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData">
+                    <input type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData.firstName">
                     <button type="submit" class="btn btn-default">Submit</button>
               </form>
             </div>
@@ -67,7 +67,7 @@
         {{ formMessageLastName }}
         <div id="lastName-group" class="form-group">
           <label for="lastName">New Last Name:</label>
-          <input type="text" class="form-control" name="lastName" id="lastName" ng-model="lastNameData">
+          <input type="text" class="form-control" name="lastName" id="lastName" ng-model="lastNameData.lastName">
           <span class="help-block" ng-show="errorLastName">{{ errorLastName }}</span>
         </div>
 
@@ -81,7 +81,7 @@
         {{ formMessageTitle }}
         <div id="title-group" class="form-group">
           <label for="title">New Title:</label>
-          <input type="text" class="form-control" name="title" id="title" ng-model="titleData">
+          <input type="text" class="form-control" name="title" id="title" ng-model="titleData.title">
           <span class="help-block" ng-show="errorTitle">{{ errorTitle }}</span>
         </div>
 
@@ -95,7 +95,7 @@
         {{ formMessageTelephone }}
         <div id="telephone-group" class="form-group">
           <label for="title">New Number:</label>
-          <input type="text" class="form-control" name="telephone" id="telephone" ng-model="phoneData">
+          <input type="text" class="form-control" name="telephone" id="telephone" ng-model="phoneData.telephone">
           <span class="help-block" ng-show="errorTelephone">{{ errorTelephone }}</span>
         </div>
 
@@ -109,7 +109,7 @@
         {{ formMessageHomepage }}
         <div id="homepage-group" class="form-group">
           <label for="title">New Homepage:</label>
-          <input type="text" class="form-control" name="homepage" id="homepage" ng-model="homepageData">
+          <input type="text" class="form-control" name="homepage" id="homepage" ng-model="homepageData.homepage">
           <span class="help-block" ng-show="errorHomepage">{{ errorHomepage }}</span>
         </div>
 
@@ -123,7 +123,7 @@
         {{ formMessageAboutMe }}
         <div id="aboutMe-group" class="form-group">
           <label for="title">New About Me:</label>
-          <input type="text" class="form-control" name="aboutMe" id="aboutMe" ng-model="aboutMeData">
+          <input type="text" class="form-control" name="aboutMe" id="aboutMe" ng-model="aboutMeData.aboutMe">
           <span class="help-block" ng-show="errorAboutMe">{{ errorAboutMe }}</span>
         </div>
 
