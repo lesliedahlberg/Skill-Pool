@@ -10,7 +10,7 @@
   $data = array();
 
   //Check conditions/Validation
-  if (empty($_POST['firstName'])){
+  if (empty($_REQUEST['firstName'])){
     $errors['firstName'] = 'First name is required.';
   }
   //Set return statement
@@ -20,12 +20,11 @@
   } else {
     $data['success'] = true;
     $data['message'] = 'New first name added successfully!';
-    $data['result'] = $result;
     //write to db
     //change to session['email']
     $id = $_SESSION['id'];
     DB::update('user', array(
-        'first_name' => $_POST['firstName']
+        'first_name' => $_REQUEST['firstName']
       ),'id=%s', $id);
   }
 
