@@ -2,7 +2,8 @@
 <html ng-app="profile" ng-controller="profileCtrl" ng-init="title='Skill Pool'">
   <? require "inc/head.php"; ?>
   <body>
-    <? require "inc/nav.php" ?>
+    <? $nav_current_page = "profile.php";
+    require "inc/nav.php" ?>
 
     <h1>Profile</h1>
 
