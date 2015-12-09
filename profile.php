@@ -18,7 +18,7 @@
               </a>
             </span>
             <div ng-show="show.firstName">
-              <form role="form" ng-submit="processFormFirstName();">
+              <form role="form" ng-submit="processFormFirstName();" class="form-inline">
                     <input type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData">
                     <button type="submit" class="btn btn-default">Submit</button>
               </form>
