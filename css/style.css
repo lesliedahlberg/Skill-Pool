@@ -1,1 +1,5 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.skill {
+  margin-right: 0.5em;
+}
