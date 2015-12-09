@@ -42,7 +42,6 @@
   } else {
     $data['success'] = true;
     $data['message'] = 'Post added to Board!';
-    $data['result'] = $result;
   }
 
   //Return data

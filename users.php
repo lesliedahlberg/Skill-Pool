@@ -35,7 +35,7 @@
             <!-- Page Features -->
             <div class="row text-center">
 
-                <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="hero-feature">
                     <div class="thumbnail">
                       <img ng-show="!user.photo_link" src="img/profile/default.png"/><img ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
                         <div class="caption">
