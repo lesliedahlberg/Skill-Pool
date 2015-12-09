@@ -8,12 +8,10 @@ angular.module('users', []).controller('usersCtrl', function($scope, $http) {
     if(search !== undefined || search != null) {
       urel = "api/get_users.php?search="+$scope.formData.search;
     }
-    alert(urel);
     $http({
       url : urel,
       method: "GET"
     }).success(function (response) {
-      alert(response);
       if(response.success == true){
         $scope.users = response.result;
         $scope.users_message = response.message;

@@ -2,6 +2,7 @@
 <? require_once "inc/session.php"; ?>
 <html ng-app="users" ng-controller="usersCtrl">
 <? require "inc/head.php"; ?>
+<link href="css/users.css" rel="stylesheet">
 
 <body ng-cloak ng-init="user_id=<?if(empty($_REQUEST['user_id'])){echo -1;}else{echo $_REQUEST['user_id'];}?>">
   <? $nav_current_page = "users.php";
@@ -31,18 +32,30 @@
       <h1>People</h1>
         <div class="row">
           <div ng-repeat="user in users" class="col-md-3">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">{{user.first_name}} {{user.last_name}}</h3>
-              </div>
-              <div class="panel-body">
-                {{user.title}} | {{user.registration_date}} | {{user.city}} | {{user.country}} | {{user.zip}} | {{user.telephone}} | {{user.homepage}} | {{user.about_me}}
-              </div>
+            <!-- Page Features -->
+            <div class="row text-center">
+
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                      <img ng-show="!user.photo_link" src="img/profile/default.png"/><img ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+                        <div class="caption">
+                            <h3>{{user.first_name}} {{user.last_name}}</h3>
+                            <p>{{user.title}} | {{user.registration_date}} | {{user.city}} | {{user.country}} | {{user.zip}} | {{user.telephone}} | {{user.homepage}} | {{user.about_me}}</p>
+                            <p>
+                                <a href="#" class="btn btn-primary">Profile!</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
           </div>
         </div>
     </section>
+
+
+
 
   </div>
 
