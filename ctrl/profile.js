@@ -59,6 +59,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
+      $scope.m = data;
         if (!data.success) {
           // if not successful, bind errors to error variables
           $scope.errorFirstName = data.errors.firstName;
