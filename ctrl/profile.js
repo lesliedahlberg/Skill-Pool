@@ -1,6 +1,12 @@
 angular.module('profile', []).controller('profileCtrl', function($scope, $http) {
   $scope.show = {};
   $scope.addressData = {};
+  $scope.firstNameData = {};
+  $scope.lastNameData = {};
+  $scope.titleData = {};
+  $scope.phoneData = {};
+  $scope.aboutMeData = {};
+  $scope.homepageData = {};
   $scope.getUser = function (){
 
     $http.get("api/get_logged_in_user.php")
@@ -9,15 +15,15 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
       if(response.success == true){
         $scope.user = response.result;
         $scope.user_message = response.message;
-        $scope.firstNameData = $scope.user.first_name;
+        $scope.firstNameData.firstName = $scope.user.first_name;
         $scope.addressData.city = $scope.user.city;
         $scope.addressData.zipCode = $scope.user.zip_code;
         $scope.addressData.country = $scope.user.country;
-        $scope.lastNameData = $scope.user.last_name;
-        $scope.titleData = $scope.user.title;
-        $scope.phoneData = $scope.user.telephone;
-        $scope.aboutMeData = $scope.user.about_me;
-        $scope.homepageData = $scope.user.homepage;
+        $scope.lastNameData.lastName = $scope.user.last_name;
+        $scope.titleData.title = $scope.user.title;
+        $scope.phoneData.telephone = $scope.user.telephone;
+        $scope.aboutMeData.aboutMe = $scope.user.about_me;
+        $scope.homepageData.homepage = $scope.user.homepage;
       }else {
         $scope.user_error = response.error;
       }
@@ -59,7 +65,6 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
-      $scope.m = data;
         if (!data.success) {
           // if not successful, bind errors to error variables
           $scope.errorFirstName = data.errors.firstName;
