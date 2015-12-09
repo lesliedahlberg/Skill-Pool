@@ -1,6 +1,7 @@
 <? //LESLIE ?>
 <?
   //DB login
+  require_once "../inc/session.php";
   require_once '../lib/php/meekrodb.class.php';
   require_once "../inc/db_credentials.php";
 
@@ -28,7 +29,7 @@
   if(empty($errors)) {
     DB::insert('skill_message', array(
         'skill_id' => $_REQUEST['skill_id'],
-        'user_id' => $user_id,
+        'user_id' => $_SESSION['id'],
         'message' => $_REQUEST['message'],
         'title' => $_REQUEST['title']
       ));
