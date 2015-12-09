@@ -9,38 +9,25 @@
 
   <div class="container">
 
-    <section ng-init="getBoard();getSkill()" ng-if="user_id != -1">
-      <h1>{{skill.name}}</h1>
-        <form role="form" ng-submit="addPost();">
-          <div id="title-group" class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" name="title" id="title" ng-model="formData.title">
-            <span class="help-block" ng-show="errorTitle">{{ errorTitle }}</span>
-          </div>
-
-          <div id="text-group" class="form-group">
-            <label for="text">Text:</label>
-            <textarea class="form-control" name="text" id="text" rows="10" ng-model="formData.message"></textarea>
-            <span class="help-block" ng-show="errorMessage">{{ errorMessage }}</span>
-          </div>
-
-          <button type="submit" class="btn btn-default">Publish</button>
-
-        </form>
-
-      <div class="panel panel-default" ng-repeat="post in board">
-        <div class="panel-heading">
-            <h3 class="panel-title">{{post.message_title}}</h3>
-          </div>
-        <div class="panel-body">
-          {{post.message}}
-        </div>
-        <div class="panel-footer">Added {{post.date_added}} by {{post.first_name}} {{post.last_name}}</div>
-      </div>
-
-    </section>
-
     <section ng-init="getUsers()" ng-if="user_id == -1">
+      <h1>Search</h1>
+
+      <form role="form" ng-submit="getUsers()">
+        <div id="user-group" class="form-group">
+          <div class="input-append ">
+            <div class="col-md-8">
+            <input type="text" class="form-control" name="search" id="search" ng-model="formData.search">
+            <span class="help-block" ng-show="errorSearch">{{errorSearch}}</span>
+            </div>
+            <div class="col-md-4">
+            <button type="submit" class="btn btn-default btn-lg">
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+            </button>
+          </div>
+          </div>
+        </div>
+      </form>
+
       <h1>People</h1>
         <div class="row">
           <div ng-repeat="user in users" class="col-md-3">
