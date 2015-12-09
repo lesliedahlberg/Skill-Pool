@@ -7,7 +7,7 @@
     {
       if($_SESSION['logged_in'] == true)
       {
-        header("Location: board.php");
+        header("Location: users.php");
         die();
       }
     }

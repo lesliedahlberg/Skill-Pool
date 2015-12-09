@@ -15,11 +15,29 @@ angular.module('register', []).controller('registerCtrl', function($scope) {
           $scope.errorEmail = data.errors.email;
           $scope.errorPass = data.errors.pass;
         } else {
-          session_start();
-          $_SESSION['logged_in'] = true;
-          header("Location: users.php");
-          die();
+          $scope.result = data.result;
         }
       });
   };
+});
+
+$('form').on('submit',function(){
+   var execsubmit = true;
+   var passerror = "";
+   var emailerror = "";
+
+   if($('#pass').val()!=$('#confirm_pass').val()){
+       passerror = 'Password must match';
+       execsubmit = false;
+   }
+   if($('#email').val()!=$('#confirm_email').val()){
+       emailerror = 'Email must match';
+       execsubmit = false;
+   }
+   if(!execsubmit)
+   {
+     alert(passerror + " " + emailerror);
+     return execsubmit;
+   }
+   return execsubmit;
 });

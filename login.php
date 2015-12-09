@@ -16,12 +16,8 @@
           <label for="pass" class="sr-only">Password</label>
           <span class="help-block" ng-show="errorEmail">{{ errorEmail }}</span>
           <input type="password" id="pass" name="pass" class="form-control" ng-model="formData.pass" placeholder="Password" required/>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <button class="btn btn-lg btn-default btn-block" type="submit" onclick="location.href='register.php'">Register</button>
         </form>
 
       </div> <!-- /container -->
