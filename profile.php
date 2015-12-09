@@ -28,7 +28,7 @@
                 </span>
                 <span ng-show="show.firstName">
                   <form role="form" ng-submit="processFormFirstName();" class="form-inline">
-                        <input type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData.firstName">
+                        <input type="text" class="form-control" name="firstName" id="firstName" ng-model="user.first_name">
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                 </span>
@@ -44,7 +44,7 @@
                 </span>
                 <span ng-show="show.lastName">
                   <form role="form" ng-submit="processFormLastName();" class="form-inline">
-                        <input type="text" class="form-control" name="lastName" id="lastName" ng-model="lastNameData.lastName">
+                        <input type="text" class="form-control" name="lastName" id="lastName" ng-model="user.last_name">
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                 </span>
@@ -70,7 +70,7 @@
                 </span>
                 <span ng-show="show.title">
                   <form role="form" ng-submit="processFormTitle();" class="form-inline">
-                        <input type="text" class="form-control" name="title" id="title" ng-model="titleData.title">
+                        <input type="text" class="form-control" name="title" id="title" ng-model="user.title">
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                 </span>
@@ -86,9 +86,9 @@
                 </span>
                 <span ng-show="show.address">
                   <form role="form" ng-submit="processFormAddress();" class="form-inline">
-                        <input type="text" class="form-control" name="city" id="city" ng-model="addressData.city">
-                        <input type="text" class="form-control" name="zipCode" id="zipCode" ng-model="addressData.zipCode">
-                        <input type="text" class="form-control" name="country" id="country" ng-model="addressData.country">
+                        <input type="text" class="form-control" name="city" id="city" ng-model="user.city">
+                        <input type="text" class="form-control" name="zipCode" id="zipCode" ng-model="user.zip_code">
+                        <input type="text" class="form-control" name="country" id="country" ng-model="user.country">
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                 </span>
@@ -104,7 +104,7 @@
                 </span>
                 <span ng-show="show.telephone">
                   <form role="form" ng-submit="processFormTelephone();" class="form-inline">
-                        <input type="text" class="form-control" name="telephone" id="telephone" ng-model="phoneData.telephone">
+                        <input type="text" class="form-control" name="telephone" id="telephone" ng-model="user.telephone">
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                 </span>
@@ -120,7 +120,7 @@
                 </span>
                 <span ng-show="show.homepage">
                   <form role="form" ng-submit="processFormHomepage();" class="form-inline">
-                        <input type="text" class="form-control" name="homepage" id="homepage" ng-model="homepageData.homepage">
+                        <input type="text" class="form-control" name="homepage" id="homepage" ng-model="user.homepage">
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                 </span>
@@ -136,7 +136,7 @@
                 </span>
                 <span ng-show="show.aboutMe">
                   <form role="form" ng-submit="processFormAboutMe();" class="form-inline">
-                        <textarea rows="5" type="text" class="form-control" name="aboutMe" id="aboutMe" ng-model="aboutMeData.aboutMe"></textarea>
+                        <textarea rows="5" type="text" class="form-control" name="aboutMe" id="aboutMe" ng-model="user.about_me"></textarea>
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                 </span>
