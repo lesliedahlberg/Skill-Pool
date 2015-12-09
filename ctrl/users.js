@@ -5,12 +5,12 @@ angular.module('users', []).controller('usersCtrl', function($scope, $http) {
   $scope.getUsers = function (){
     var urel = "api/get_users.php";
     var search = $scope.formData.search;
-    if(search !== undefined) {
-      urel = "api/get_users.php?search[]="+$scope.formData.search;
+    if(search !== undefined || search != null) {
+      urel = "api/get_users.php?search="+$scope.formData.search;
     }
     alert(urel);
     $http({
-      url : urel;
+      url : urel,
       method: "GET"
     }).success(function (response) {
       alert(response);
