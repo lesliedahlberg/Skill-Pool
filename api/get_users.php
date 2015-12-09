@@ -12,6 +12,7 @@
   $elements_per_page = 5;
   $offset = 0;
   $order_by = "id";
+  $searching = false;
 
   //Arguments
   if (!empty($_GET['search'])){
