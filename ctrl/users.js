@@ -3,8 +3,10 @@ angular.module('users', []).controller('usersCtrl', function($scope, $http) {
   $scope.formData = {};
 
   $scope.getUsers = function (){
-    $http.get("api/get_users.php")
-    .success(function (response) {
+    $http({
+      url: "api/get_users.php?",
+      method: "GET"
+    }).success(function (response) {
       if(response.success == true){
         $scope.users = response.result;
         $scope.users_message = response.message;
