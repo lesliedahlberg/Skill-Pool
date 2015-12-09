@@ -1,5 +1,5 @@
 angular.module('profile', []).controller('profileCtrl', function($scope, $http) {
-
+  $scope.show = {};
   $scope.getUser = function (){
     $http.get("api/get_logged_in_user.php")
     .success(function (response) {
