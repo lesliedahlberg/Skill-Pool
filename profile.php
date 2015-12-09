@@ -3,6 +3,13 @@
   <? require "inc/head.php"; ?>
   <body>
     <? require "inc/nav.php" ?>
+    <h1>Profile</h1>
+    <pre ng-init="getUser()">
+      {{user.email}} |
+      {{user.first_name}} |
+      {{user.last_name}} |
+    </pre>
+
     <h1>Change Address</h1>
 
     <form role="form" ng-submit="processFormAddress()">
@@ -94,6 +101,7 @@
       <button type="submit" class="btn btn-default">Change About Me</button>
 
     </form>
+
   </body>
   <script src="ctrl/profile.js"></script>
   <? require "inc/foot.php"; ?>
