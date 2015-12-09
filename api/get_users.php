@@ -31,7 +31,7 @@
 
   //Get data from DB
   if($searching == true){
-    //
+    /*
     $search_query_sql = "WHERE ";
 
     $i=0;
@@ -42,8 +42,11 @@
       $search_query_sql .= "t1.search LIKE '%$keyword%'";
       $i++;
 
-    }
+    }*/
     $result = DB::query("
+      SELECT * FROM user WHERE first_name LIKE %s OR last_name LIKE %s
+    ", $search, $search);
+    /*$result = DB::query("
       SELECT
         user.id,
         user.email,
@@ -103,7 +106,7 @@
         user
       WHERE
       user.id = t2.id
-    ");
+    ");*/
     //
   }else{
     $result = DB::query("SELECT * FROM user LIMIT %i, %i", $offset, $elements_per_page);
