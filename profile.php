@@ -128,7 +128,7 @@
                 </span>
                 <span ng-show="show.aboutMe">
                   <form role="form" ng-submit="processFormAboutMe();" class="form-inline">
-                        <input type="text" class="form-control" name="aboutMe" id="aboutMe" ng-model="aboutMeData.aboutMe">
+                        <textarea rows="5" type="text" class="form-control" name="aboutMe" id="aboutMe" ng-model="aboutMeData.aboutMe"></textarea>
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                 </span>
@@ -137,7 +137,42 @@
           </table>
         </section>
       </div>
+
+      <h1>Skills</h1>
+      <div ng-init="getSkills()">
+        <a ng-repeat="skill in skills" href="board.php?skill_id={{skill.id}}" class="skill btn btn-primary">{{skill.name}}</a>
+
+      </div>
+
+      <h1>Add Skill</h1>
+      <h2>{{msg}}</h2>
+
+      <form role="form" ng-submit="addSkill();" ng-init="getSkills();getCategories();">
+        <div id="skill-group" class="form-group">
+          <label for="skill">Skill name:</label>
+          <input type="text" class="form-control" name="skill" id="skill" ng-model="addSkill.skill">
+          <span class="help-block" ng-show="errorSkill">{{ errorSkill }}</span>
+        </div>
+
+        <!-- Chosen category required for database input -->
+        <select class="pull-right" name="selectedcategory" id="selectedcategory" ng-model="addSkill.selectedcategory">
+
+          <option value="" >Choose category</option>
+
+            <option ng-repeat="category in categories">{{category.name}}</option>
+
+        </select>
+
+
+
+        <button type="submit" class="btn btn-default">Add</button>
+
+      </form>
+
+
   </div>
+
+
 
   </body>
   <script src="ctrl/profile.js"></script>
