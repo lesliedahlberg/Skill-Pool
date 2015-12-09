@@ -3,7 +3,7 @@
 <html ng-app="skill" ng-controller="skillCtrl" ng-init="title='Skill Pool'">
   <? require "inc/head.php"; ?>
   <body ng-init="getSkills();getCategories();">
-    <? //require "inc/nav.php" ?>
+    <? require "inc/nav.php" ?>
     <table class="table">
       <tr ng-repeat="skill in skills">
         <td>{{skill.id}}</td>
@@ -17,7 +17,7 @@
 
     <!-- Test of Add skill -->
     <h1>Add Skill</h1>
-
+    <h2>{{msg}}</h2>
 
     <form role="form" ng-submit="addSkill();">
       <div id="skill-group" class="form-group">
@@ -27,13 +27,11 @@
       </div>
 
       <!-- Chosen category required for database input -->
-      <select class="pull-right" name="selectedcategory" id="selectedcategory">
+      <select class="pull-right" name="selectedcategory" id="selectedcategory" ng-model="formData.selectedcategory">
 
         <option value="" >Choose category</option>
 
-          <option ng-repeat="category in categories">
-            {{ category.name }}
-          </option>
+          <option ng-repeat="category in categories">{{category.name}}</option>
 
       </select>
 

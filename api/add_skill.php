@@ -9,27 +9,33 @@
   $data = array();
 
   //Check conditions/Validation
-  if (empty($_POST['skill']))
+  if (empty($_REQUEST['skill']))
     $errors['skill'] = 'Skill name is required.';
 
-  if (empty($_POST['selectedcategory']))
+  if (empty($_REQUEST['selectedcategory']))
     $errors['text'] = 'Category for skill is required.';
 
 
 
   // NÅGOT BLIR FEL HÄR - Den verkar inte få över ngt från Post
-  $category_name = $_POST['selectedcategory'];
-
-
+  $category_name = $_REQUEST['selectedcategory'];
 
   //Get data from DB
-  $category_id = DB::queryOneField('id', "SELECT category.id FROM category WHERE category.name=%s", '$category_name');
+  $category_id = DB::queryFirstRow("SELECT * FROM category WHERE name = %s",$category_name);
 
-  //Write to db
-  DB::insert('skill', array(
-    'category_id' => $category_id,
-    'name' => $_POST['skill']
-  ));
+
+  if (empty($errors)) {
+    if($category_id != NULL){
+      //Write to db
+      DB::insert('skill', array(
+        'category_id' => $category_id['id'],
+        'name' => $_REQUEST['skill']
+      ));
+    }else{
+      $errors['category_id'] = "Category required!";
+    }
+  }
+
 
 
   //Set return statement
