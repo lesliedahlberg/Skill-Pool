@@ -6,7 +6,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
     $http({
           method  : 'POST',
           url     : 'api/change_address.php',
-          data    : $.param($scope.formData),
+          data    : $.param($scope.addressData),
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
@@ -20,7 +20,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
           $scope.errorZipCode = "";
           $scope.errorCity = "";
           $scope.errorCountry = "";
-          $scope.formData = "";
+          $scope.addressData = "";
         }
       });
   };
@@ -30,7 +30,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
     $http({
           method  : 'POST',
           url     : 'api/change_first_name.php',
-          data    : $.param($scope.formData),
+          data    : $.param($scope.firstNameData),
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
@@ -40,7 +40,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageFirstName = data.message;
           $scope.errorFirstName = "";
-          $scope.formData = "";
+          $scope.firstNameData = "";
         }
       });
   };
@@ -50,7 +50,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
     $http({
           method  : 'POST',
           url     : 'api/change_last_name.php',
-          data    : $.param($scope.formData),
+          data    : $.param($scope.lastNameData),
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
@@ -60,7 +60,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageLastName = data.message;
           $scope.errorLastName = "";
-          $scope.formData = "";
+          $scope.lastNameData = "";
         }
       });
   };
@@ -70,7 +70,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
     $http({
           method  : 'POST',
           url     : 'api/change_title.php',
-          data    : $.param($scope.formData),
+          data    : $.param($scope.titleData),
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
@@ -80,7 +80,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageTitle = data.message;
           $scope.errorTitle = "";
-          $scope.formData = "";
+          $scope.titleData = "";
         }
       });
   };
@@ -90,7 +90,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
     $http({
           method  : 'POST',
           url     : 'api/change_telephone_number.php',
-          data    : $.param($scope.formData),
+          data    : $.param($scope.phoneData),
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
@@ -100,7 +100,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageTelephone = data.message;
           $scope.errorTelephone = "";
-          $scope.formData = "";
+          $scope.phoneData = "";
         }
       });
   };
@@ -110,7 +110,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
     $http({
           method  : 'POST',
           url     : 'api/change_homepage.php',
-          data    : $.param($scope.formData),
+          data    : $.param($scope.homepageData),
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
@@ -120,7 +120,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageHomepage = data.message;
           $scope.errorHomepage = "";
-          $scope.formData = "";
+          $scope.homepageData = "";
         }
       });
   };
@@ -130,7 +130,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
     $http({
           method  : 'POST',
           url     : 'api/change_about_me.php',
-          data    : $.param($scope.formData),
+          data    : $.param($scope.aboutMeData),
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
@@ -140,7 +140,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
         } else {
           $scope.formMessageAboutMe = data.message;
           $scope.errorAboutMe = "";
-          $scope.formData = "";
+          $scope.aboutMeData = "";
         }
       });
   };
