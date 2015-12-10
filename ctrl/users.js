@@ -38,4 +38,18 @@ angular.module('users', []).controller('usersCtrl', function($scope, $http) {
     });
   }
 
+  $scope.getSkills = function (){
+
+    $http.get("api/get_skills_for_show_user.php?user_id="+$scope.user_id)
+    .success(function (response) {
+      if(response.success == true){
+        $scope.skills = response.result;
+        $scope.user_message = response.message;
+      }else {
+        $scope.user_error = response.error;
+      }
+
+    });
+  }
+
 });

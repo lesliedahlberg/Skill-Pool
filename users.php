@@ -71,18 +71,86 @@
           </div>
         </div>
     </section>
+    </div>
 
     <section ng-init="getUser()" ng-if="user_id != -1">
 
     <!-- Show selected user profile here -->
+    <div class="container">
+      <div class="row">
+        <h1>Profile</h1>
+        <div class="col-md-2" ng-init="getUser()">
+            <img ng-show="!user.photo_link" src="img/profile/default.png"/><img ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+        </div>
+        <section class="col-md-10" ng-init="getUser()">
+          <table class="table">
+            <tr>
+              <td>First Name:</td>
+              <td>
+                {{user.first_name }}
+              </td>
+            </tr>
+            <tr>
+              <td>Last Name:</td>
+              <td>
+                {{user.last_name }}
+              </td>
+            </tr>
+            <tr>
+              <td>E-mail:</td>
+              <td>{{user.email }}
+              </td>
+            </tr>
+            <tr>
+              <td>Registered since:</td>
+              <td>{{user.registration_date }}
+              </td>
+            </tr>
+            <tr>
+              <td>Title:</td>
+              <td>
+                {{user.title }}
+              </td>
+            </tr>
+            <tr>
+              <td>Address:</td>
+              <td>
+                {{user.city }}, {{user.zip_code}}, {{user.country}}
+              </td>
+            </tr>
+            <tr>
+              <td>Telephone:</td>
+              <td>
+                {{user.telephone }}
+              </td>
+            </tr>
+            <tr>
+              <td>Homepage:</td>
+              <td>
+                {{user.homepage }}
+              </td>
+            </tr>
+            <tr>
+              <td>About Me:</td>
+              <td>
+                {{user.about_me }}
+              </td>
+            </tr>
+          </table>
+        </section>
+      </div>
 
-
-
-    </section>
-
+      <h1>Skills</h1>
+      <div ng-init="getSkills()">
+        <a ng-repeat="skill in skills" href="board.php?skill_id={{skill.id}}" class="skill btn btn-primary">{{skill.name}}</a>
+      </div>
 
 
   </div>
+
+
+
+</section>
 
 </body>
 <script src="ctrl/users.js"></script>
