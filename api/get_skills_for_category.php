@@ -7,6 +7,7 @@
   //Arrays
   $errors = array();
   $data = array();
+  $category_id = 0;
 
   //Arguments
   if (!empty($_GET['category_id'])){

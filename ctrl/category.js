@@ -40,8 +40,23 @@ angular.module('category', []).controller('categoryCtrl', function($scope, $http
       });
   }
 
+  $scope.getSkills = function (id){
 
 
+    $scope.id = id;
+    
+    $http({
+      url : "api/get_skills_for_category.php?category_id="+$scope.id,
+      method : "POST"
+    }).success(function (response) {
+      if(response.success == true){
+        $scope.skills = response.result;
+        $scope.skills_message = response.message;
+      }else {
+        $scope.skills_error = response.error;
+      }
+    });
+  }
 
 
 });

@@ -16,8 +16,6 @@
     $errors['text'] = 'Category for skill is required.';
 
 
-
-  // NÅGOT BLIR FEL HÄR - Den verkar inte få över ngt från Post
   $category_name = $_REQUEST['selectedcategory'];
 
   //Get data from DB

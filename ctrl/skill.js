@@ -40,4 +40,16 @@ angular.module('skill', []).controller('skillCtrl', function($scope, $http) {
     });
   }
 
+  $scope.getSkills = function (){
+    $http.get("api/get_skills_for_category.php")
+    .success(function (response) {
+      if(response.success == true){
+        $scope.skills = response.result;
+        $scope.skills_message = response.message;
+      }else {
+        $scope.skills_error = response.error;
+      }
+    });
+  }
+
 });
