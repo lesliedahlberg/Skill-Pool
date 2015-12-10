@@ -26,8 +26,10 @@
         <div class="panel-body">
 
         <!-- get skill for each category here -->
-        <h1>Skills</h1>
-        <div ng-init="getSkills()" data-toggle="modal" data-id="{{category.id}}">
+        <h4>Available skills in this category:</h4>
+
+        <div ng-init="getSkills(1)"> <!-- testat skicka in {{categories.id}} vilket logiskt sett är rätt, men det fungerar inte -->
+
           <a ng-repeat="skill in skills" href="" class="skill btn btn-primary glyphicon glyphicon-remove text-danger">{{skill.name}}</a>
 
         </div>

@@ -40,13 +40,14 @@ angular.module('category', []).controller('categoryCtrl', function($scope, $http
       });
   }
 
-  $scope.getSkills = function (){
+  $scope.getSkills = function (id){
 
-    var catId = $(this).data('id');
-    alert(catId);
+
+    $scope.id = id;
+    
     $http({
-      url : "api/get_skills_for_category.php?category_id="+id,
-      method : "GET"
+      url : "api/get_skills_for_category.php?category_id="+$scope.id,
+      method : "POST"
     }).success(function (response) {
       if(response.success == true){
         $scope.skills = response.result;
@@ -56,7 +57,6 @@ angular.module('category', []).controller('categoryCtrl', function($scope, $http
       }
     });
   }
-
 
 
 });
