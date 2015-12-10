@@ -9,11 +9,17 @@
         <h1>Profile</h1>
         <div class="col-md-2" ng-init="getUser()">
             <img ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+            <span ng-show="!show.photoLink">
+              <a href="" ng-click="show.photoLink=!show.photoLink">
+                <span class="glyphicon glyphicon-camera"></span>
+              </a>
+            </span>
+            <span ng-show="show.photoLink">
             <form action="api/change_photo.php" method="post" enctype="multipart/form-data">
-                Select image to upload:
                 <input type="file" name="fileToUpload" id="fileToUpload">
-                <input type="submit" value="Upload Image" name="submit">
+                <button type="submit" class="btn btn-default">Submit</button>
             </form>
+            </span>
         </div>
         <section class="col-md-10" ng-init="getUser()">
           <table class="table">
