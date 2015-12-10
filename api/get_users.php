@@ -24,9 +24,6 @@
     // split search string into array of strings
     $search_pieces = explode(" ", $search);
 
-    // mysql select where IN needs comma separated array
-    //$variables_imploded = implode(",",$search_pieces);
-
   }
 
   if (!isset($search_pieces)){
@@ -57,7 +54,9 @@
 
     }*/
 
-      $result = DB::query("SELECT * FROM user WHERE first_name IN ($search_pieces) OR last_name IN ($search_pieces)");
+
+
+      $result = DB::query("SELECT * FROM user WHERE first_name IN (" . implode(",", $search_pieces) . ") OR last_name IN (" . implode(",", $search_pieces) . ")");
 
 
 
