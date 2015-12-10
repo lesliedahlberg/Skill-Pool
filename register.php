@@ -3,7 +3,7 @@
 <html ng-app="register" ng-controller="registerCtrl" ng-init="title='Register'">
 <? require "inc/head.php"; ?>
 
-<body id="body" ng-init="m='Ready'">
+<body id="body">
   <div class="container" id="container">
       <div class="row">
           <form class="form-signin" role="form" id="reg_form" ng-submit="processRegForm()">
