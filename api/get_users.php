@@ -55,8 +55,10 @@
     }*/
 
 
+      //$result = DB::query("SELECT * FROM user WHERE first_name IN (" . implode(",", $search_pieces) . ") OR last_name IN (" . implode(",", $search_pieces) . ")");
 
-      $result = DB::query("SELECT * FROM user WHERE first_name IN (" . implode(",", $search_pieces) . ") OR last_name IN (" . implode(",", $search_pieces) . ")");
+      $imploded_search_pieces = implode(",", $search_pieces);
+      $result = DB::query("SELECT * FROM user WHERE first_name IN (%ls) OR last_name IN (%ls)", $imploded_search_pieces, $imploded_search_pieces);
 
 
 
