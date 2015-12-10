@@ -21,7 +21,7 @@
     $search = $_GET['search'];
 
     // split search string into array of strings
-    $search_pieces = explode(",", $search);
+    $search_pieces = explode(" ", $search);
 
   }
 
@@ -54,7 +54,8 @@
               user.status,
               user.telephone,
               user.homepage,
-              user.about_me FROM user
+              user.about_me
+                            FROM user
                             RIGHT JOIN user_skill
                             ON user.id=user_skill.user_id
                             RIGHT JOIN skill
