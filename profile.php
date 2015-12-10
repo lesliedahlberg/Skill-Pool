@@ -8,12 +8,11 @@
       <div class="row">
         <h1>Profile</h1>
         <div class="col-md-2" ng-init="getUser()">
-            <img ng-show="!user.photo_link" src="img/profile/default.png"/><img ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
-            <form role="form" ng-submit="processFormPhoto();" class="form-inline" enctype="multipart/form-data">
-                  <input type="file" name="photo" id="photo" file-model="photo"/>
-                  <span class="help-block" ng-show="errorPhoto">{{ errorPhoto }}</span>
-                  <span class="help-block" ng-show="formMessagePhoto">{{ formMessagePhoto }}</span>
-                  <button type="submit" class="btn btn-default">Submit</button>
+            <img ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+            <form action="api/change_photo.php" method="post" enctype="multipart/form-data">
+                Select image to upload:
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload Image" name="submit">
             </form>
         </div>
         <section class="col-md-10" ng-init="getUser()">
