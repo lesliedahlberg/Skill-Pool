@@ -234,7 +234,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
   };
 
   $scope.processFormPhoto = function() {
-    var file = $scope.myFile;
+    var file = $scope.photo;
     var uploadUrl = 'api/change_photo.php';
     fileUpload.uploadFileToUrl(file, uploadUrl);
   };
