@@ -22,7 +22,7 @@
     $search = $_GET['search'];
 
     // split search string into array of strings
-    $search_pieces = explode(" ", $search);
+    $search_pieces = explode(",", $search);
 
   }
 
@@ -57,10 +57,15 @@
 
       //$result = DB::query("SELECT * FROM user WHERE first_name IN (" . implode(",", $search_pieces) . ") OR last_name IN (" . implode(",", $search_pieces) . ")");
 
-      $imploded_search_pieces = implode(",", $search_pieces);
-      $result = DB::query("SELECT * FROM user WHERE first_name IN (%ls) OR last_name IN (%ls)", $imploded_search_pieces, $imploded_search_pieces);
+      //$imploded_search_pieces = implode(",", $search_pieces);
+      $result = DB::query("SELECT * FROM user WHERE first_name IN %ls OR last_name IN %ls", $search_pieces, $search_pieces);
 
-
+      $result += DB::query("SELECT * FROM user
+                            RIGHT JOIN user_skill
+                            ON user.id=user_skill.user_id
+                            RIGHT JOIN skill
+                            ON skill.id=user_skill.skill_id
+                            WHERE skill.name IN %ls", $search_pieces);
 
     /*$result = DB::query("
       SELECT
