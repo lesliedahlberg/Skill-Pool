@@ -234,14 +234,15 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
   };
 
   $scope.processFormPhoto = function() {
-
     $http({
           method  : 'POST',
           url     : 'api/change_photo.php',
           data    : $.param($scope.photoData),
-          headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+          headers : {'Content-Type': undefined}
          })
     .success(function(data) {
+      alert("hej");
+      $scope.m = data;
         if (!data.success) {
           // if not successful, bind errors to error variables
           $scope.errorPhoto = data.errors.photo;

@@ -10,11 +10,12 @@
         <div class="col-md-2" ng-init="getUser()">
             <img ng-show="!user.photo_link" src="img/profile/default.png"/><img ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
             <form role="form" ng-submit="processFormPhoto();" class="form-inline" enctype="multipart/form-data">
-                  <input type="file" name="photo" id="photo" />
+                  <input type="file" name="photo" id="photo" file-model="photo"/>
                   <span class="help-block" ng-show="errorPhoto">{{ errorPhoto }}</span>
                   <span class="help-block" ng-show="formMessagePhoto">{{ formMessagePhoto }}</span>
                   <button type="submit" class="btn btn-default">Submit</button>
             </form>
+            {{m}}
         </div>
         <section class="col-md-10" ng-init="getUser()">
           <table class="table">
