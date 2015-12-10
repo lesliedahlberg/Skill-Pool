@@ -9,7 +9,6 @@
 <body ng-cloak ng-init="user_id=<?if(empty($_REQUEST['user_id'])){echo -1;}else{echo $_REQUEST['user_id'];}?>">
   <? $nav_current_page = "users.php";
   require "inc/nav.php" ?>
-
   <div class="container">
 
     <section ng-init="getUsers()" ng-if="user_id == -1">
