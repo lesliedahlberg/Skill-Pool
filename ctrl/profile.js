@@ -235,6 +235,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
 
   $scope.processFormPhoto = function() {
     var file = $scope.photo;
+    $scope.message = file;
     var uploadUrl = 'api/change_photo.php';
     fileUpload.uploadFileToUrl(file, uploadUrl);
   };
@@ -263,7 +264,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
         })
-        .success(function(){
+        .success(function(data){
           alert("YES");
         })
         .error(function(){

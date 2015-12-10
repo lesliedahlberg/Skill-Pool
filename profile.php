@@ -15,7 +15,6 @@
                   <span class="help-block" ng-show="formMessagePhoto">{{ formMessagePhoto }}</span>
                   <button type="submit" class="btn btn-default">Submit</button>
             </form>
-            {{m}}
         </div>
         <section class="col-md-10" ng-init="getUser()">
           <table class="table">
