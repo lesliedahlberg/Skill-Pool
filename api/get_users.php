@@ -13,11 +13,18 @@
   $offset = 0;
   $order_by = "id";
   $searching = false;
+  $search_pieces = array();
+
 
   //Arguments
   if (!empty($_GET['search'])){
     $searching = true;
     $search = $_GET['search'];
+
+    // if search is a string that contains spaces, for example with multiple skills or users, I split it into an array
+    $search_pieces = explode(" ", $search);
+    //echo $search_pieces[0]; // piece1
+    //echo $search_pieces[1]; // piece2
   }
 
   if (!empty($_GET['page'])){
@@ -43,9 +50,11 @@
       $i++;
 
     }*/
-    $result = DB::query("
-      SELECT * FROM user WHERE first_name LIKE %s OR last_name LIKE %s
-    ", $search, $search);
+
+      $result = DB::query("SELECT * FROM user WHERE first_name IN ('$search_pieces') OR last_name IN ($search_pieces)");
+
+
+
     /*$result = DB::query("
       SELECT
         user.id,
@@ -109,6 +118,7 @@
     ");*/
     //
   }else{
+    // If not searching, just show all users
     $result = DB::query("SELECT * FROM user LIMIT %i, %i", $offset, $elements_per_page);
   }
 
