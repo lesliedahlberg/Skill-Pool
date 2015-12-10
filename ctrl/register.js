@@ -36,7 +36,8 @@ $('form').on('submit',function(){
    }
    if(!execsubmit)
    {
-     alert(passerror + " " + emailerror);
+     $('#head_message').html(passerror + " " + emailerror);
+     //alert(passerror + " " + emailerror);
      return execsubmit;
    }
    return execsubmit;

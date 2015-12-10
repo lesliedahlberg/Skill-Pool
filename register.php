@@ -9,7 +9,7 @@
           <form class="form-signin" role="form" id="reg_form" ng-submit="processRegForm()">
             <div class="col-md-3"></div>
               <div class="col-md-6">
-                <h2 class="form-signin-heading">Enter below to register</h2>
+                <h2 class="form-signin-heading" name="head_message" id="head_message">Enter below to register</h2>
                   <div class="well well-sm"><strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong></div>
                   <div class="form-group">
                       <label for="InputName">Enter first name</label>
