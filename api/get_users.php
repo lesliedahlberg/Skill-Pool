@@ -41,26 +41,27 @@
   if($searching == true){
 
       $result = DB::query("SELECT DISTINCT
-              user.id,
-              user.email,
-              user.first_name,
-              user.last_name,
-              user.registration_date,
-              user.photo_link,
-              user.title,
-              user.city,
-              user.country,
-              user.zip_code,
-              user.status,
-              user.telephone,
-              user.homepage,
-              user.about_me
+                            user.id,
+                            user.email,
+                            user.first_name,
+                            user.last_name,
+                            user.registration_date,
+                            user.photo_link,
+                            user.title,
+                            user.city,
+                            user.country,
+                            user.zip_code,
+                            user.status,
+                            user.telephone,
+                            user.homepage,
+                            user.about_me
                             FROM user
                             RIGHT JOIN user_skill
                             ON user.id=user_skill.user_id
                             RIGHT JOIN skill
                             ON skill.id=user_skill.skill_id
-                            WHERE skill.name IN %ls OR user.first_name IN %ls OR user.last_name IN %ls", $search_pieces, $search_pieces, $search_pieces);
+                            WHERE skill.name IN %ls OR user.first_name IN %ls
+                            OR user.last_name IN %ls", $search_pieces, $search_pieces, $search_pieces);
 
   }else{
     // If not searching, just show all users

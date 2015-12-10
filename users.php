@@ -30,7 +30,6 @@
         </div>
       </form>
       <br><br>
-      {{n_error}}
       <h1>People</h1>
       <div class="row text-center">
           <div ng-repeat="user in users" class="col-md-3 col-sm-6 hero-feature">
@@ -42,7 +41,7 @@
                             <h3>{{user.first_name}} {{user.last_name}}</h3>
                             <p>Registred {{user.registration_date}}</p>
                             <p>
-                                <a href="#" class="btn btn-primary">Profile</a> <a href="mailto:{{user.email}}" class="btn btn-default" data-toggle="modal" data-target="#modal_{{user.id}}">Contact</a>
+                                <a href="users.php?user_id={{user.id}}" class="btn btn-primary">Profile</a> <a href="mailto:{{user.email}}" class="btn btn-default" data-toggle="modal" data-target="#modal_{{user.id}}">Contact</a>
                             </p>
                         </div>
                     </div>
@@ -73,6 +72,13 @@
         </div>
     </section>
 
+    <section ng-init="getUser()" ng-if="user_id != -1">
+
+    <!-- Show selected user profile here -->
+
+
+
+    </section>
 
 
 
