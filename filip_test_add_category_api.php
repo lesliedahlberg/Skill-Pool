@@ -3,8 +3,12 @@
 <html ng-app="category" ng-controller="categoryCtrl" ng-init="title='Skill Pool'">
   <? require "inc/head.php"; ?>
   <body ng-init="getCategories()">
-    <? //require "inc/nav.php" ?>
+
+    <? $nav_current_page = "filip_test_add_category.php";
+    require "inc/nav.php" ?>
+
     <table class="table">
+
       <tr ng-repeat="category in categories">
         <td>{{category.id}}</td>
         <td>{{category.name}}</td>
