@@ -153,13 +153,30 @@
 
       </div>
 
-      <h1>Add Skill</h1>
+      <h1>Add Skill {{addSkill.skill.title}}</h1>
+
+
+      <angucomplete-alt id="skillsAddInput"
+              placeholder="Search members"
+              pause="400"
+              selected-object="addSkill.skill"
+              remote-url="autocomplete_for_add_skills.php?search="
+              remote-url-data-field="result"
+              title-field="name"
+              description-field="id"
+              image-field="profilePic"
+              input-class="form-control form-control-small"/>
+
+
       <pre>{{msg}}</pre>
       <form role="form" ng-submit="addSkill();" ng-init="getSkills();getCategories();">
+
+
         <div id="skill-group" class="form-group">
           <label for="skill">Skill name:</label>
           <input type="text" class="form-control" name="skill" id="skill" ng-model="addSkill.skill">
           <span class="help-block" ng-show="errorSkill">{{ errorSkill }}</span>
+
         </div>
 
         <!-- Chosen category required for database input -->
@@ -183,6 +200,11 @@
 
 
   </body>
-  <script src="ctrl/profile.js"></script>
+
+<script src="lib/js/angucomplete-alt.js"></script>
+  <script src="ctrl/profile_test.js"></script>
+
+
+
   <? require "inc/foot.php"; ?>
 </html>
