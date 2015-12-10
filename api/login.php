@@ -1,7 +1,6 @@
 <? //ERIK ?>
 <?
   session_start();
-  $_SESSION['logged_in'] = false;
   require_once '../lib/php/meekrodb.class.php';
   require_once "../inc/db_credentials.php";
 
@@ -9,6 +8,7 @@
   $errors = array();
   $errors['email'] = null;
   $errors['pass'] = null;
+  $errors['invalid'] = null;
 
   $data = array();
 
@@ -52,28 +52,33 @@
 
 
   //Get data from DB
-  $result = DB::queryFirstRow("SELECT id, hash, first_name FROM user WHERE email=%s;", $email);
+  $result = DB::queryFirstRow("SELECT id, hash, first_name, status FROM user WHERE email=%s;", $email);
   $count = DB::count();
-  if($result['hash'] == md5($pass))
+
+  if($count == 0)
   {
-    //Set return statement
-    $success = true;
-    $data['success'] = $success;
-    $data['result'] = $result;
-    $data['errors']  = $errors;
-
-    $_SESSION['logged_in'] = true;
-    $_SESSION['id'] = $result['id'];
-    $_SESSION['user_name'] = $result['first_name'];
-  } else {
-    $data['success'] = $success;
-    $data['result'] = $result;
-    $data['errors'] = $errors;
+    $errors['invalid'] = "Input email is not registered. ";
   }
+  if($result['status'] == 0)
+  {
+    $errors['invalid'] .= "This account needs to be verified before it can be accessed, please check your email.";
+  }else{ // if status == verified
 
+    if($result['hash'] == md5($pass))
+    {
+      //Set return statement
+      $success = true;
+
+      $_SESSION['logged_in'] = true;
+      $_SESSION['id'] = $result['id'];
+      $_SESSION['user_name'] = $result['first_name'];
+    }
+  }
+  $data['success'] = $success;
+  $data['result'] = $result;
+  $data['errors'] = $errors;
 
   //Return data
-//  echo $_SESSION['logged_in'];
   echo json_encode($data);
   die();
 ?>

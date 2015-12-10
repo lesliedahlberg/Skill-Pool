@@ -12,6 +12,9 @@ angular.module('login', []).controller('loginCtrl', function($scope, $http) {
           if(data.success == true){
             location.reload();
           }
+          else{
+            $scope.error = data.errors.invalid;
+          }
         }
       );
 }
