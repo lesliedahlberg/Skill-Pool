@@ -21,10 +21,16 @@
     $searching = true;
     $search = $_GET['search'];
 
-    // if search is a string that contains spaces, for example with multiple skills or users, I split it into an array
+    // split search string into array of strings
     $search_pieces = explode(" ", $search);
-    //echo $search_pieces[0]; // piece1
-    //echo $search_pieces[1]; // piece2
+
+    // mysql select where IN needs comma separated array
+    //$variables_imploded = implode(",",$search_pieces);
+
+  }
+
+  if (!isset($search_pieces)){
+    $errors['search_variables'] = "Nothing to search for";
   }
 
   if (!empty($_GET['page'])){
@@ -51,7 +57,7 @@
 
     }*/
 
-      $result = DB::query("SELECT * FROM user WHERE first_name IN ('$search_pieces') OR last_name IN ($search_pieces)");
+      $result = DB::query("SELECT * FROM user WHERE first_name IN ($search_pieces) OR last_name IN ($search_pieces)");
 
 
 
@@ -127,10 +133,12 @@
   if (!empty($errors)) {
     $data['success'] = false;
     $data['errors']  = $errors;
+
   } else {
     $data['success'] = true;
     $data['message'] = 'Users retrieved!';
     $data['result'] = $result;
+
   }
 
   //Return data

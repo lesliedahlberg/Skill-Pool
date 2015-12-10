@@ -30,7 +30,7 @@
         </div>
       </form>
       <br><br>
-
+      {{n_error}}
       <h1>People</h1>
       <div class="row text-center">
           <div ng-repeat="user in users" class="col-md-3 col-sm-6 hero-feature">
