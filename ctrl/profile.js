@@ -234,25 +234,40 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
   };
 
   $scope.processFormPhoto = function() {
-    $http({
-          method  : 'POST',
-          url     : 'api/change_photo.php',
-          data    : $.param($scope.photoData),
-          headers : {'Content-Type': undefined}
-         })
-    .success(function(data) {
-      alert("hej");
-      $scope.m = data;
-        if (!data.success) {
-          // if not successful, bind errors to error variables
-          $scope.errorPhoto = data.errors.photo;
-        } else {
-          $scope.formMessagePhoto = data.message;
-          $scope.errorPhoto = "";
-          $scope.show.photo = false;
-          $scope.getUser();
-        }
-      });
+    var file = $scope.myFile;
+    var uploadUrl = 'api/change_photo.php';
+    fileUpload.uploadFileToUrl(file, uploadUrl);
   };
 
-});
+})
+.directive('fileModel', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
+
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+}])
+.service('fileUpload', ['$http', function ($http) {
+    this.uploadFileToUrl = function(file, uploadUrl){
+        var fd = new FormData();
+        fd.append('file', file);
+        $http.post(uploadUrl, fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
+        .success(function(){
+          alert("YES");
+        })
+        .error(function(){
+          alert("NO");
+        });
+    }
+}]);
