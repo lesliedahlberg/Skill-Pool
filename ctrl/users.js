@@ -12,11 +12,14 @@ angular.module('users', []).controller('usersCtrl', function($scope, $http) {
       url : urel,
       method: "GET"
     }).success(function (response) {
+
       if(response.success == true){
         $scope.users = response.result;
         $scope.users_message = response.message;
       }else {
-        $scope.users_error = response.error;
+          //alert("error");
+          $scope.search_error = response.search_variables;
+          $scope.users_error = response.error;
       }
     });
   }

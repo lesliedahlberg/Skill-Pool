@@ -8,7 +8,7 @@ require_once "../inc/db_credentials.php";
 //Arrays
 $errors = array();
 $data = array();
-
+echo json_encode($_FILES);
 //Check conditions/Validation
 if (empty($_FILES)){
   $errors['photo'] = 'Photo is required.';

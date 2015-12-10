@@ -30,7 +30,6 @@
         </div>
       </form>
       <br><br>
-
       <h1>People</h1>
       <div class="row text-center">
           <div ng-repeat="user in users" class="col-md-3 col-sm-6 hero-feature">
@@ -42,15 +41,44 @@
                             <h3>{{user.first_name}} {{user.last_name}}</h3>
                             <p>Registred {{user.registration_date}}</p>
                             <p>
-                                <a href="#" class="btn btn-primary">Profile</a> <a href="mailto:{{user.email}}" class="btn btn-default">Contact</a>
+                                <a href="users.php?user_id={{user.id}}" class="btn btn-primary">Profile</a> <a href="mailto:{{user.email}}" class="btn btn-default" data-toggle="modal" data-target="#modal_{{user.id}}">Contact</a>
                             </p>
                         </div>
+                    </div>
+
+
+                    <div id="modal_{{user.id}}" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">{{user.first_name}} {{user.last_name}}</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Telephone: {{user.telephone}}</p>
+                            <p>E-mail: {{user.email}}</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+
+                      </div>
                     </div>
 
           </div>
         </div>
     </section>
 
+    <section ng-init="getUser()" ng-if="user_id != -1">
+
+    <!-- Show selected user profile here -->
+
+
+
+    </section>
 
 
 

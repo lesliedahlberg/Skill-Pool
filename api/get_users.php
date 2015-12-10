@@ -13,11 +13,20 @@
   $offset = 0;
   $order_by = "id";
   $searching = false;
+  $search_pieces = array();
 
   //Arguments
   if (!empty($_GET['search'])){
     $searching = true;
     $search = $_GET['search'];
+
+    // split search string into array of strings
+    $search_pieces = explode(" ", $search);
+
+  }
+
+  if (!isset($search_pieces)){
+    $errors['search_variables'] = "Nothing to search for";
   }
 
   if (!empty($_GET['page'])){
@@ -28,87 +37,34 @@
   }
 
 
-
   //Get data from DB
   if($searching == true){
-    /*
-    $search_query_sql = "WHERE ";
 
-    $i=0;
-    foreach ($search as $keyword) {
-      if($i>0){
-        $search_query_sql .= " OR ";
-      }
-      $search_query_sql .= "t1.search LIKE '%$keyword%'";
-      $i++;
+      $result = DB::query("SELECT DISTINCT
+                            user.id,
+                            user.email,
+                            user.first_name,
+                            user.last_name,
+                            user.registration_date,
+                            user.photo_link,
+                            user.title,
+                            user.city,
+                            user.country,
+                            user.zip_code,
+                            user.status,
+                            user.telephone,
+                            user.homepage,
+                            user.about_me
+                            FROM user
+                            RIGHT JOIN user_skill
+                            ON user.id=user_skill.user_id
+                            RIGHT JOIN skill
+                            ON skill.id=user_skill.skill_id
+                            WHERE skill.name IN %ls OR user.first_name IN %ls
+                            OR user.last_name IN %ls", $search_pieces, $search_pieces, $search_pieces);
 
-    }*/
-    $result = DB::query("
-      SELECT * FROM user WHERE first_name LIKE %s OR last_name LIKE %s
-    ", $search, $search);
-    /*$result = DB::query("
-      SELECT
-        user.id,
-        user.email,
-        user.first_name,
-        user.last_name,
-        user.registration_date,
-        user.photo_link,
-        user.title,
-        user.city,
-        user.country,
-        user.zip_code,
-        user.status,
-        user.telephone,
-        user.homepage,
-        user.about_me
-        FROM
-        (
-          SELECT
-            t1.id as id
-          FROM
-            (
-              SELECT
-                user.id as id,
-                CONCAT(
-                  COALESCE(user.first_name,''),
-                  ', ',
-                  COALESCE(user.last_name,''),
-                  ', ',
-                  COALESCE(user.email,''),
-                  ', ',
-                  COALESCE(user.zip_code,''),
-                  ', ',
-                  COALESCE(user.city,''),
-                  ', ',
-                  COALESCE(user.country,''),
-                  ', ',
-                  COALESCE(GROUP_CONCAT(skill.name SEPARATOR ', '),'')
-                ) as search
-              FROM
-                user_skill,
-                user,
-                skill
-              WHERE
-                user.id = user_skill.user_id AND
-                user_skill.skill_id = skill.id
-              GROUP BY
-                user.id,
-                user.first_name,
-                user.last_name,
-                user.email,
-                user.zip_code,
-                user.country,
-                user.city
-            ) AS t1 ".
-          $search_query_sql
-        .") as t2,
-        user
-      WHERE
-      user.id = t2.id
-    ");*/
-    //
   }else{
+    // If not searching, just show all users
     $result = DB::query("SELECT * FROM user LIMIT %i, %i", $offset, $elements_per_page);
   }
 
@@ -117,10 +73,12 @@
   if (!empty($errors)) {
     $data['success'] = false;
     $data['errors']  = $errors;
+
   } else {
     $data['success'] = true;
     $data['message'] = 'Users retrieved!';
     $data['result'] = $result;
+
   }
 
   //Return data

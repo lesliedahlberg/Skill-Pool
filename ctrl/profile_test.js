@@ -1,4 +1,4 @@
-angular.module('profile', []).controller('profileCtrl', function($scope, $http) {
+angular.module('profile', ['angucomplete-alt']).controller('profileCtrl', function($scope, $http) {
   $scope.show = {};
   $scope.addressData = {};
   $scope.firstNameData = {};
@@ -7,6 +7,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
   $scope.phoneData = {};
   $scope.aboutMeData = {};
   $scope.homepageData = {};
+
 
   $scope.addSkill = function() {
     $scope.addSkill.skill_id = $scope.skill_id;
@@ -234,7 +235,7 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
   };
 
   $scope.processFormPhoto = function() {
-    var file = $scope.photo;
+    var file = $scope.myFile;
     var uploadUrl = 'api/change_photo.php';
     fileUpload.uploadFileToUrl(file, uploadUrl);
   };
