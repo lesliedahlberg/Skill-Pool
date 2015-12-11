@@ -8,7 +8,7 @@
       <div class="row">
         <h1>Profile</h1>
         <div class="col-md-2" ng-init="getUser()">
-            <img ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+            <img ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive img-circle" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
             <span ng-show="!show.photoLink">
               <a href="" ng-click="show.photoLink=!show.photoLink">
                 <span class="glyphicon glyphicon-camera"></span>
@@ -22,9 +22,9 @@
             </span>
         </div>
         <section class="col-md-10" ng-init="getUser()">
-          <table class="table">
+          <table class="table table-hover">
             <tr>
-              <td class="col-md-1">First Name:</td>
+              <th class="col-md-1">First Name:</th>
               <td class="col-md-4">
                 <span ng-show="!show.firstName"><span ng-click="show.firstName=!show.firstName" class="click-to-edit">{{user.first_name}}</span>
                   <a href="" ng-click="show.firstName=!show.firstName">
@@ -46,7 +46,7 @@
               </td>
             </tr>
             <tr>
-              <td>Last Name:</td>
+              <th>Last Name:</th>
               <td>
                 <span ng-show="!show.lastName"><span ng-click="show.lastName=!show.lastName" class="click-to-edit">{{user.last_name }}</span>
                   <a href="" ng-click="show.lastName=!show.lastName">
@@ -66,17 +66,17 @@
               </td>
             </tr>
             <tr>
-              <td>E-mail:</td>
+              <th>E-mail:</th>
               <td>{{user.email }}
               </td>
             </tr>
             <tr>
-              <td>Registered since:</td>
+              <th>Registered since:</th>
               <td>{{user.registration_date }}
               </td>
             </tr>
             <tr>
-              <td>Title:</td>
+              <th>Title:</th>
               <td>
                 <span ng-show="!show.title"><span ng-click="show.title=!show.title" class="click-to-edit">{{user.title }}</span>
                   <a href="" ng-click="show.title=!show.title">
@@ -98,7 +98,7 @@
               </td>
             </tr>
             <tr>
-              <td>Address:</td>
+              <th>Address:</th>
               <td>
                 <span ng-show="!show.address"><span ng-click="show.address=!show.address" class="click-to-edit">{{user.city }}, {{user.zip_code}}, {{user.country}}</span>
                   <a href="" ng-click="show.address=!show.address">
@@ -116,7 +116,7 @@
               </td>
             </tr>
             <tr>
-              <td>Telephone:</td>
+              <th>Telephone:</th>
               <td>
                 <span ng-show="!show.telephone"><span ng-click="show.telephone=!show.telephone" class="click-to-edit">{{user.telephone }}</span>
                   <a href="" ng-click="show.telephone=!show.telephone">
@@ -137,7 +137,7 @@
               </td>
             </tr>
             <tr>
-              <td>Homepage:</td>
+              <th>Homepage:</th>
               <td>
                 <span ng-show="!show.homepage"><span ng-click="show.homepage=!show.homepage" class="click-to-edit">{{user.homepage }}</span>
                   <a href="" ng-click="show.homepage=!show.homepage">
@@ -159,7 +159,7 @@
               </td>
             </tr>
             <tr>
-              <td>About Me:</td>
+              <th>About Me:</th>
               <td>
                 <span ng-show="!show.aboutMe"><span ng-click="show.aboutMe=!show.aboutMe" class="click-to-edit">{{user.about_me}}</span>
                   <a href="" ng-click="show.aboutMe=!show.aboutMe">
