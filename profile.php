@@ -8,7 +8,7 @@
       <div class="row">
         <h1>Profile</h1>
         <div class="col-md-2" ng-init="getUser()">
-            <img ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+            <img ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive img-circle" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
             <span ng-show="!show.photoLink">
               <a href="" ng-click="show.photoLink=!show.photoLink">
                 <span class="glyphicon glyphicon-camera"></span>
@@ -22,69 +22,85 @@
             </span>
         </div>
         <section class="col-md-10" ng-init="getUser()">
-          <table class="table">
+          <table class="table table-hover">
             <tr>
-              <td>First Name:</td>
-              <td>
-                <span ng-show="!show.firstName">{{user.first_name }}
+              <th class="col-md-1">First Name:</th>
+              <td class="col-md-4">
+                <span ng-show="!show.firstName"><span ng-click="show.firstName=!show.firstName" class="click-to-edit">{{user.first_name}}</span>
                   <a href="" ng-click="show.firstName=!show.firstName">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
                 </span>
                 <span ng-show="show.firstName">
-                  <form role="form" ng-submit="processFormFirstName();" class="form-inline">
-                        <input type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData.firstName">
-                        <button type="submit" class="btn btn-default">Submit</button>
-                  </form>
+
+                    <form role="form" ng-submit="processFormFirstName();">
+                      <div class="input-group">
+                          <input type="text" class="form-control" name="firstName" id="firstName" ng-model="firstNameData.firstName">
+                          <span class="input-group-btn">
+                               <button type="submit" class="btn btn-default">Submit</button>
+                          </span>
+                      </div>
+                    </form>
+
                 </span>
               </td>
             </tr>
             <tr>
-              <td>Last Name:</td>
+              <th>Last Name:</th>
               <td>
-                <span ng-show="!show.lastName">{{user.last_name }}
+                <span ng-show="!show.lastName"><span ng-click="show.lastName=!show.lastName" class="click-to-edit">{{user.last_name }}</span>
                   <a href="" ng-click="show.lastName=!show.lastName">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
                 </span>
                 <span ng-show="show.lastName">
-                  <form role="form" ng-submit="processFormLastName();" class="form-inline">
+                  <form role="form" ng-submit="processFormLastName();" >
+                    <div class="input-group">
                         <input type="text" class="form-control" name="lastName" id="lastName" ng-model="lastNameData.lastName">
+                        <span class="input-group-btn">
                         <button type="submit" class="btn btn-default">Submit</button>
+                        </span>
+                      </div>
                   </form>
                 </span>
               </td>
             </tr>
             <tr>
-              <td>E-mail:</td>
+              <th>E-mail:</th>
               <td>{{user.email }}
               </td>
             </tr>
             <tr>
-              <td>Registered since:</td>
+              <th>Registered since:</th>
               <td>{{user.registration_date }}
               </td>
             </tr>
             <tr>
-              <td>Title:</td>
+              <th>Title:</th>
               <td>
-                <span ng-show="!show.title">{{user.title }}
+                <span ng-show="!show.title"><span ng-click="show.title=!show.title" class="click-to-edit">{{user.title }}</span>
                   <a href="" ng-click="show.title=!show.title">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
                 </span>
                 <span ng-show="show.title">
-                  <form role="form" ng-submit="processFormTitle();" class="form-inline">
+                  <form role="form" ng-submit="processFormTitle();" >
+                    <div class="input-group">
+
                         <input type="text" class="form-control" name="title" id="title" ng-model="titleData.title">
+                        <span class="input-group-btn">
+
                         <button type="submit" class="btn btn-default">Submit</button>
+                      </span>
+                      </div>
                   </form>
                 </span>
               </td>
             </tr>
             <tr>
-              <td>Address:</td>
+              <th>Address:</th>
               <td>
-                <span ng-show="!show.address">{{user.city }}, {{user.zip_code}}, {{user.country}}
+                <span ng-show="!show.address"><span ng-click="show.address=!show.address" class="click-to-edit">{{user.city }}, {{user.zip_code}}, {{user.country}}</span>
                   <a href="" ng-click="show.address=!show.address">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
@@ -100,41 +116,52 @@
               </td>
             </tr>
             <tr>
-              <td>Telephone:</td>
+              <th>Telephone:</th>
               <td>
-                <span ng-show="!show.telephone">{{user.telephone }}
+                <span ng-show="!show.telephone"><span ng-click="show.telephone=!show.telephone" class="click-to-edit">{{user.telephone }}</span>
                   <a href="" ng-click="show.telephone=!show.telephone">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
                 </span>
                 <span ng-show="show.telephone">
-                  <form role="form" ng-submit="processFormTelephone();" class="form-inline">
+
+                  <form role="form" ng-submit="processFormTelephone();" >
+                    <div class="input-group">
                         <input type="text" class="form-control" name="telephone" id="telephone" ng-model="phoneData.telephone">
-                        <button type="submit" class="btn btn-default">Submit</button>
+                        <span class="input-group-btn">
+
+                          <button type="submit" class="btn btn-default">Submit</button>
+                        </span>
                   </form>
                 </span>
               </td>
             </tr>
             <tr>
-              <td>Homepage:</td>
+              <th>Homepage:</th>
               <td>
-                <span ng-show="!show.homepage">{{user.homepage }}
+                <span ng-show="!show.homepage"><span ng-click="show.homepage=!show.homepage" class="click-to-edit">{{user.homepage }}</span>
                   <a href="" ng-click="show.homepage=!show.homepage">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
                 </span>
                 <span ng-show="show.homepage">
-                  <form role="form" ng-submit="processFormHomepage();" class="form-inline">
+
+                  <form role="form" ng-submit="processFormHomepage();" >
+                    <div class="input-group">
                         <input type="text" class="form-control" name="homepage" id="homepage" ng-model="homepageData.homepage">
+                        <span class="input-group-btn">
+
                         <button type="submit" class="btn btn-default">Submit</button>
+                      </span>
+                      </div>
                   </form>
                 </span>
               </td>
             </tr>
             <tr>
-              <td>About Me:</td>
+              <th>About Me:</th>
               <td>
-                <span ng-show="!show.aboutMe">{{user.about_me }}
+                <span ng-show="!show.aboutMe"><span ng-click="show.aboutMe=!show.aboutMe" class="click-to-edit">{{user.about_me}}</span>
                   <a href="" ng-click="show.aboutMe=!show.aboutMe">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
