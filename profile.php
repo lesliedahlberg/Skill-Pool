@@ -26,7 +26,7 @@
             <tr>
               <td class="col-md-1">First Name:</td>
               <td class="col-md-4">
-                <span ng-show="!show.firstName">{{user.first_name }}
+                <span ng-show="!show.firstName"><span ng-click="show.firstName=!show.firstName" class="click-to-edit">{{user.first_name}}</span>
                   <a href="" ng-click="show.firstName=!show.firstName">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
@@ -48,7 +48,7 @@
             <tr>
               <td>Last Name:</td>
               <td>
-                <span ng-show="!show.lastName">{{user.last_name }}
+                <span ng-show="!show.lastName"><span ng-click="show.lastName=!show.lastName" class="click-to-edit">{{user.last_name }}</span>
                   <a href="" ng-click="show.lastName=!show.lastName">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
@@ -78,7 +78,7 @@
             <tr>
               <td>Title:</td>
               <td>
-                <span ng-show="!show.title">{{user.title }}
+                <span ng-show="!show.title"><span ng-click="show.title=!show.title" class="click-to-edit">{{user.title }}</span>
                   <a href="" ng-click="show.title=!show.title">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
@@ -100,7 +100,7 @@
             <tr>
               <td>Address:</td>
               <td>
-                <span ng-show="!show.address">{{user.city }}, {{user.zip_code}}, {{user.country}}
+                <span ng-show="!show.address"><span ng-click="show.address=!show.address" class="click-to-edit">{{user.city }}, {{user.zip_code}}, {{user.country}}</span>
                   <a href="" ng-click="show.address=!show.address">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
@@ -118,7 +118,7 @@
             <tr>
               <td>Telephone:</td>
               <td>
-                <span ng-show="!show.telephone">{{user.telephone }}
+                <span ng-show="!show.telephone"><span ng-click="show.telephone=!show.telephone" class="click-to-edit">{{user.telephone }}</span>
                   <a href="" ng-click="show.telephone=!show.telephone">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
@@ -139,7 +139,7 @@
             <tr>
               <td>Homepage:</td>
               <td>
-                <span ng-show="!show.homepage">{{user.homepage }}
+                <span ng-show="!show.homepage"><span ng-click="show.homepage=!show.homepage" class="click-to-edit">{{user.homepage }}</span>
                   <a href="" ng-click="show.homepage=!show.homepage">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
@@ -161,7 +161,7 @@
             <tr>
               <td>About Me:</td>
               <td>
-                <span ng-show="!show.aboutMe">{{user.about_me }}
+                <span ng-show="!show.aboutMe"><span ng-click="show.aboutMe=!show.aboutMe" class="click-to-edit">{{user.about_me}}</span>
                   <a href="" ng-click="show.aboutMe=!show.aboutMe">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>

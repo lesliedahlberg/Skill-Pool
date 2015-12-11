@@ -3,3 +3,7 @@
 .skill {
   margin-right: 0.5em;
 }
+
+.click-to-edit{
+  cursor: pointer;
+}
