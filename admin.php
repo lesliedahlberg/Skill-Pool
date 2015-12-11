@@ -10,9 +10,9 @@
 
 <div class="col-md-3"></div>
 
-<div class="panel-group col-md-6 center" id="accordion" role="tablist" aria-multiselectable="true">
+<div class="panel-group col-md-6" id="accordion" role="tablist" aria-multiselectable="true">
   <h1>Manage categories and skills</h1>
-
+  <h5>Click a category to expand</h5>
   <div class="panel panel-default" ng-repeat="category in categories">
     <div class="panel-heading" role="tab" id="heading{{category.id}}">
       <h4 class="panel-title">
@@ -24,7 +24,6 @@
           <span class="glyphicon glyphicon-remove text-danger pull-right"></span>
         </a>
 
-        <span class="text-danger pull-right" ng-show="category_error">{{ category_error }}</span>
 
       </h4>
     </div>
@@ -37,40 +36,33 @@
         <div>
           <a ng-repeat="skill in skills" ng-click="removeSkill(skill.id, category.id)" class="skill btn btn-primary glyphicon glyphicon-remove text-danger">{{skill.name}}</a>
         </div>
-        <span class="text-danger" ng-show="skill_error">{{ skill_error }}</span>
+
+      </div>
+    </div>
+  </div>
+  <span class="text-danger pull-right" ng-show="category_error">{{ category_error }}</span>
+  <span class="text-danger pull-right" ng-show="skill_error">{{ skill_error }}</span>
+  <br>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab">
+        <h4 class="panel-title">Add Category</h4>
+        <form role="form" ng-submit="addCategory()">
+          <div id="category-group" class="form-group">
+            <label for="category">Name:</label>
+            <input type="text" class="form-control" name="category" id="category" ng-model="formData.category">
+            <span class="help-block" ng-show="errorCategory">{{ errorCategory }}</span>
+          </div>
+          <button type="submit" class="btn btn-default">Add</button>
+        </form>
       </div>
     </div>
   </div>
 
-  <div class="panel-heading" role="tab" id="heading{{category.id}}">
-    <h4 class="panel-title">
-      Add Category
-    </h4>
-
-  <form role="form" ng-submit="addCategory()">
-    <div id="category-group" class="form-group">
-      <label for="category">Category name:</label>
-      <input type="text" class="form-control" name="category" id="category" ng-model="formData.category">
-      <span class="help-block" ng-show="errorCategory">{{ errorCategory }}</span>
-    </div>
-
-    <button type="submit" class="btn btn-default">Add</button>
-
-  </form>
-
 </div>
-
-
-
-</div>
-
-
-
-
-
-
 
 <div class="col-md-3"></div>
+
 
 
 </body>
