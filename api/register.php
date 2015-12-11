@@ -5,6 +5,9 @@
   require_once "../inc/db_credentials.php";
   require_once '../lib/php/class.phpmailer.php';
 
+  //Change this depending on your host (Just change port for localhost)
+  $host = '127.0.0.1:8080';
+
   //Arrays
   $errors = array();
   $errors['email'] = null;
@@ -109,7 +112,7 @@
   Thanks for signing up!
 
   Please click this link to activate your account:
-  http://127.0.0.1:8080/projects/skill-pool/verify.php?email='.$email.'&hash='.$vericode; // Our message above including the link
+  http://'.$host.'/projects/skill-pool/verify.php?email='.$email.'&hash='.$vericode; // Our message above including the link
 
   $mail = new PHPMailer();
 
