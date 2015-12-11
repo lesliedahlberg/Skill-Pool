@@ -41,7 +41,34 @@
       </div>
     </div>
   </div>
+
+  <div class="panel-heading" role="tab" id="heading{{category.id}}">
+    <h4 class="panel-title">
+      Add Category
+    </h4>
+
+  <form role="form" ng-submit="addCategory()">
+    <div id="category-group" class="form-group">
+      <label for="category">Category name:</label>
+      <input type="text" class="form-control" name="category" id="category" ng-model="formData.category">
+      <span class="help-block" ng-show="errorCategory">{{ errorCategory }}</span>
+    </div>
+
+    <button type="submit" class="btn btn-default">Add</button>
+
+  </form>
+
 </div>
+
+
+
+</div>
+
+
+
+
+
+
 
 <div class="col-md-3"></div>
 
