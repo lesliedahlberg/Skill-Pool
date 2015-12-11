@@ -1,7 +1,6 @@
 angular.module('verify', []).controller('verifyCtrl', function($scope, $http) {
   $scope.success = false;
   var get = QueryString();//window.location.href //creates associative array of $_GET
-//  alert(get.email + " " + get.hash);
   var url = "api/verify_registration.php?email=" + get['email'] + "&hash=" + get['hash'];
 
   $scope.processVerification = function(){
@@ -55,4 +54,4 @@ function getUrlParameters(b) { //Made by Google (?)
     }
   }
     return query_string;
-}();
+}

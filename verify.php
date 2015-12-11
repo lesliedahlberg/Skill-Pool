@@ -2,12 +2,11 @@
 <? require_once "inc/session_login_page.php"; ?>
 <html ng-app="verify" ng-controller="verifyCtrl" ng-init="title='Verify'">
 <? require "inc/head.php"; ?>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
 
 <body id="body">
   <div class="container" id="container">
       <div class="row">
-        <form role="form" id="ver_form" ng-submit="processVerification()">
+        <form role="form" id="ver_form" ng-init="processVerification()">
             <div class="col-md-3"></div>
             <div class="col-md-6" ng-if="success">
               <h2 class="heading" name="verify_message" id="verify_message">Congratulations!<br/> <br/>You can now login using your account<br/> <br/</h2>
@@ -22,5 +21,6 @@
       </div>
   </div>
 </body>
+<script src="ctrl/verify.js"></script>
 <? require "inc/foot.php"; ?>
 </html>

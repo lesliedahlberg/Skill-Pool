@@ -1,12 +1,19 @@
 <? //ERIK ?>
 <?
-  require_once 'lib/php/meekrodb.class.php';
-  require_once "inc/db_credentials.php";
-
+//DB login
+require_once '../lib/php/meekrodb.class.php';
+require_once "../inc/db_credentials.php";
   //Arrays
   $data = array();
   $success = false;
   $error = "GET not set";
+  if(!isset($_GET['email'])){
+    echo "no email";
+  }
+
+  if(!isset($_GET['hash'])){
+    echo "no hash";
+  }
 
   if(isset($_GET))
   {
@@ -20,7 +27,8 @@
 
       if($count == 0)
       {
-        $error = "Email or hash invalid";
+        //$error = "Email or hash invalid";
+        echo "Email or hash invalid";
         $success = false;
       }
       else {
