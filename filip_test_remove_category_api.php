@@ -17,22 +17,25 @@
           <a class="collapsed" ng-click="getSkills(category.id)" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{category.id}}" aria-expanded="true" aria-controls="collapse{{category.id}}">
             Category: {{category.id}} - {{category.name}}
           </a>
-          <a href="" ng-click="removeCategory()"> <!-- ska fixa detta -->
+
+          <a href="" ng-click="removeCategory(category.id)">
             <span class="glyphicon glyphicon-remove text-danger pull-right"></span>
           </a>
+
+          <span class="text-danger pull-right" ng-show="category_error">{{ category_error }}</span>
+
         </h4>
       </div>
       <div id="collapse{{category.id}}" class="panel-collapse collapse " role="tabpanel" aria-labelledby="heading{{category.id}}">
         <div class="panel-body">
 
-        <!-- get skill for each category here -->
-        <h4>Available skills in this category:</h4>
+          <!-- get skill for each category here -->
+          <h4>Available skills in this category:</h4>
 
-        <div> <!-- testat skicka in {{categories.id}} vilket logiskt sett är rätt, men det fungerar inte -->
-          <a ng-repeat="skill in skills" href="" class="skill btn btn-primary glyphicon glyphicon-remove text-danger">{{skill.name}}</a>
-
-        </div>
-
+          <div>
+            <a ng-repeat="skill in skills" ng-click="removeSkill(skill.id, category.id)" class="skill btn btn-primary glyphicon glyphicon-remove text-danger">{{skill.name}}</a>
+          </div>
+          <span class="text-danger" ng-show="skill_error">{{ skill_error }}</span>
         </div>
       </div>
     </div>

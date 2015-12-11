@@ -42,9 +42,8 @@ angular.module('category', []).controller('categoryCtrl', function($scope, $http
 
   $scope.getSkills = function (id){
 
-
     $scope.id = id;
-    
+
     $http({
       url : "api/get_skills_for_category.php?category_id="+$scope.id,
       method : "POST"
@@ -57,6 +56,62 @@ angular.module('category', []).controller('categoryCtrl', function($scope, $http
       }
     });
   }
+
+  $scope.removeCategory = function (id){
+
+    $scope.id = id;
+
+    $http({
+      url : "api/remove_category.php?category_id="+$scope.id,
+      method : "POST"
+    }).success(function (response) {
+      if(response.success == true){
+        $scope.category = response.result;
+        $scope.category_message = response.message;
+        $scope.getCategories(); // för att visa nytt resultat efter borttagning av kategori
+        $scope.category_error = "";
+      }else {
+        $scope.category_error = response.errors.exists;
+      }
+    });
+  }
+  $scope.removeSkill = function (skillId, catId){
+
+    $scope.sId = skillId;
+    $scope.cId = catId;
+
+    $http({
+      url : "api/remove_skill.php?skill_id="+$scope.sId,
+      method : "POST"
+    }).success(function (response) {
+      if(response.success == true){
+        $scope.skill = response.result;
+        $scope.skill_message = response.message;
+        $scope.getSkills($scope.cId); // för att visa nytt resultat efter borttagning av en skill
+        $scope.skill_error = "";
+      }else {
+        $scope.skill_error = response.errors.exists;
+      }
+    });
+  }
+
+  /*
+
+  $scope.msg = data;
+    if (!data.success) {
+      // if not successful, bind errors to error variables
+      $scope.errorTitle = data.errors.title;
+      $scope.errorMessage = data.errors.message;
+    } else {
+      $scope.formMessage = data.message;
+      $scope.errorTitle = "";
+      $scope.errorMessage = "";
+      $scope.formData = "";
+      $scope.getBoard();
+    }
+  });
+
+  */
 
 
 });

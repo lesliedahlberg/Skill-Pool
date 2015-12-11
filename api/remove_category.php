@@ -39,7 +39,7 @@
 
     echo json_encode($data); //Return data
     die();
-  }
+  }  
 
   // Delte from db
   DB::delete('category', "id=%s", $_REQUEST['category_id']);

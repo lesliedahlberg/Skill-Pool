@@ -40,7 +40,7 @@
   $skill_related_to_user = DB::query("SELECT * FROM user_skill WHERE user_skill.skill_id = %i", $skill_id);
   if(DB::count() > 0)
   {
-    $errors['exists'] = "Some users has this skill, please delete them first"; // perhaps return a list of these users here
+    $errors['exists'] = "Some users has this skill, unable to delete"; // perhaps return a list of these users here
     $data['errors'] = $errors;
 
     echo json_encode($data); //Return data

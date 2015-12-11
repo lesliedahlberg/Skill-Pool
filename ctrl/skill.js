@@ -52,4 +52,22 @@ angular.module('skill', []).controller('skillCtrl', function($scope, $http) {
     });
   }
 
+  $scope.removeSkill = function (id){
+
+    $scope.id = id;
+
+    $http({
+      url : "api/remove_skill.php?skill_id="+$scope.id,
+      method : "POST"
+    }).success(function (response) {
+      if(response.success == true){
+        $scope.skill = response.result;
+        $scope.skill_message = response.message;
+      }else {
+        $scope.skill_error = response.error;
+      }
+    });
+  }
+
+
 });
