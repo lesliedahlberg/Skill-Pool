@@ -156,18 +156,6 @@
       <h1>Add Skill {{addSkill.skill.title}}</h1>
 
 
-      <angucomplete-alt id="skillsAddInput"
-              placeholder="Search members"
-              pause="400"
-              selected-object="addSkill.skill"
-              remote-url="autocomplete_for_add_skills.php?search="
-              remote-url-data-field="result"
-              title-field="name"
-              description-field="id"
-              image-field="profilePic"
-              input-class="form-control form-control-small"/>
-
-
       <pre>{{msg}}</pre>
       <form role="form" ng-submit="addSkill();" ng-init="getSkills();getCategories();">
 
@@ -201,9 +189,19 @@
 
   </body>
 
-<script src="lib/js/angucomplete-alt.js"></script>
-  <script src="ctrl/profile_test.js"></script>
 
+  <script src="ctrl/profile_test.js"></script>
+  <script>
+  var options = {
+  url: function(phrase) {
+    return "api/autocomplete_for_add_skills.php?search=" + phrase + "&format=json";
+  },
+
+  getValue: "name"
+  };
+
+  $("#skill").easyAutocomplete(options);
+  </script>
 
 
   <? require "inc/foot.php"; ?>

@@ -188,5 +188,16 @@
 
   </body>
   <script src="ctrl/profile.js"></script>
+  <script>
+  var options = {
+  url: function(phrase) {
+    return "api/autocomplete_for_add_skills.php?search=" + phrase + "&format=json";
+  },
+
+  getValue: "name"
+  };
+
+  $("#skill").easyAutocomplete(options);
+  </script>
   <? require "inc/foot.php"; ?>
 </html>

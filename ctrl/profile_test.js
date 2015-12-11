@@ -1,4 +1,4 @@
-angular.module('profile', ['angucomplete-alt']).controller('profileCtrl', function($scope, $http) {
+angular.module('profile', []).controller('profileCtrl', function($scope, $http) {
   $scope.show = {};
   $scope.addressData = {};
   $scope.firstNameData = {};
@@ -10,7 +10,6 @@ angular.module('profile', ['angucomplete-alt']).controller('profileCtrl', functi
 
 
   $scope.addSkill = function() {
-    $scope.addSkill.skill_id = $scope.skill_id;
     $http({
           method  : 'POST',
           url     : 'api/add_skill_for_user.php',

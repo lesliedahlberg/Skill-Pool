@@ -9,13 +9,14 @@
     <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="lib/css/angucomplete-alt.css">
+    <link rel="stylesheet" type="text/css" href="lib/css/easy-autocomplete.css">
 
 
 
 
     <!-- JS -->
     <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/jquery.easy-autocomplete.min.js"></script>
 
 
   </head>
