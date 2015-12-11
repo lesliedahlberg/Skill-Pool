@@ -95,23 +95,5 @@ angular.module('category', []).controller('categoryCtrl', function($scope, $http
     });
   }
 
-  /*
-
-  $scope.msg = data;
-    if (!data.success) {
-      // if not successful, bind errors to error variables
-      $scope.errorTitle = data.errors.title;
-      $scope.errorMessage = data.errors.message;
-    } else {
-      $scope.formMessage = data.message;
-      $scope.errorTitle = "";
-      $scope.errorMessage = "";
-      $scope.formData = "";
-      $scope.getBoard();
-    }
-  });
-
-  */
-
 
 });
