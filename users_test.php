@@ -14,17 +14,19 @@
     <section ng-init="getUsers()" ng-if="user_id == -1">
       <h1>Search</h1>
 
-      <form role="form" ng-submit="getUsers()">
-        <div class="input-group">
-          <input type="text" class="form-control" name="search" id="search" ng-model="formData.search">
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">
-              <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
-            </button>
-          </span>
-        </div>
-      </form>
+    <form role="form" ng-submit="getUsers()">
+      <div class="input-group">
+        <input type="text" class="form-control" name="search" id="search" ng-model="formData.search">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+          </button>
+        </span>
+      </div>
+    </form>
 
+
+      <br><br>
       <h1>People</h1>
       <div class="row text-center">
           <div ng-repeat="user in users" class="col-md-3 col-sm-6 hero-feature">
