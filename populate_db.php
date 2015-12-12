@@ -120,6 +120,7 @@
   DB::update('user', array(
     'about_me' => "Student of Computer Science",
     'city' => "Västerås",
+    'email' => "flm14001@student.mdh.se",
     'country' => "Sweden",
     'homepage' => "www.student.mdh.se",
     'photo_link' => "1449879613_8.png",
