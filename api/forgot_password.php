@@ -19,7 +19,7 @@
     {
       $email = $_GET['email'];
 
-      $result = DB::queryFirstRow("SELECT verification_code FROM user WHERE email=%s", $email);
+      $result = DB::queryFirstRow("SELECT hash FROM user WHERE email=%s", $email);
       $count = DB::count();
 
       if($count == 0)
@@ -32,12 +32,12 @@
 
         $error = null;
 
-        $vericode = $result['verification_code'];
+        $passcode = $result['hash'];
 
         $body = '
 
         Please click this link to enter a new password for your account:
-        http://'.$host.'/projects/skill-pool/change_password.php?email='.$email.'&hash='.$vericode; // Our message above including the link
+        http://'.$host.'/projects/skill-pool/change_password.php?email='.$email.'&hash='.$passcode; // Our message above including the link
 
         $mail = new PHPMailer();
 
