@@ -89,6 +89,7 @@ angular.module('category', []).controller('categoryCtrl', function($scope, $http
         $scope.skill_message = response.message;
         $scope.getSkills($scope.cId); // för att visa nytt resultat efter borttagning av en skill
         $scope.skill_error = "";
+
       }else {
         $scope.skill_error = response.errors.exists;
       }

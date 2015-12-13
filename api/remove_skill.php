@@ -50,6 +50,10 @@
   // Delte from db
   DB::delete('skill', "id=%s", $_REQUEST['skill_id']);
 
+  // Also delete all related posts from skill_message
+  DB::delete('skill_message', "skill_id=%s", $_REQUEST['skill_id']);
+
+
   //Set return statement
   if (!empty($errors)) {
     $data['success'] = false;
