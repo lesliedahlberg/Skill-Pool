@@ -91,11 +91,14 @@
     die();
   }
 
+  $rand_int = rand(); //Generates random int //cant get this:  random_int(PHP_INT_MIN, PHP_INT_MAX); to work
+  $hash = md5(strval($rand_int)); //Creates hash of the random int
+
   //Insert into DB, apperantly MeekroDB's errorhandler handles inserts errors
   DB::insert('user', array(
                       'email' => $email,
                       'hash' => md5($pass),
-                      'verification_code' => md5($pass),
+                      'verification_code' => $hash,
                       'first_name' => $first_name,
                       'last_name' => $last_name,
                       'status' => 0
