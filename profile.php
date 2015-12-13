@@ -8,7 +8,7 @@
       <div class="row">
         <h1>Profile</h1>
         <div class="col-md-2" ng-init="getUser()">
-            <img ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive img-circle" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+            <img ng-show="!user.photo_link" class="img-responsive img-circle" src="img/profile/default.png"/><img class="img-responsive img-circle" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
             <span ng-show="!show.photoLink">
               <a href="" ng-click="show.photoLink=!show.photoLink">
                 <span class="glyphicon glyphicon-camera"></span>
