@@ -57,6 +57,29 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
     });
   }
 
+  $scope.removeSkill = function (skillId, userId){
+
+    $scope.sId = skillId;
+    $scope.usrId = userId;
+
+    $http({
+      url : "api/remove_skill_for_user.php?skill_id="+$scope.sId+"&user_id="+$scope.usrId,
+      method : "POST"
+    }).success(function (response) {
+      if(response.success == true){
+        $scope.skill = response.result;
+        $scope.skill_message = response.message;
+        $scope.getSkills($scope.cId); // för att visa nytt resultat efter borttagning av en skill
+        $scope.skill_error = "";
+        $scope.category_error = "";
+
+      }else {
+        $scope.skill_error = response.errors.exists;
+        $scope.skill_e = true;
+      }
+    });
+  }
+
 
   $scope.getUser = function (){
 

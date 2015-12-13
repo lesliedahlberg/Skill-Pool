@@ -179,9 +179,18 @@
       </div>
 
       <h1>Skills</h1>
-      <div ng-init="getSkills()">
+      <div ng-show="!show.skill" ng-init="getSkills()">
         <a ng-repeat="skill in skills" href="board.php?skill_id={{skill.id}}" class="skill btn btn-primary">{{skill.name}}</a>
+        <a href="" ng-click="show.skill=!show.skill">
+          <span class="glyphicon glyphicon-pencil pull-right"></span>
+        </a>
+      </div>
 
+      <div ng-show="show.skill" ng-init="getSkills()">
+        <a href="" ng-repeat="skill in skills" ng-click="removeSkill(skill.id, user.id)" class="skill btn btn-danger">{{skill.name}} <span class="glyphicon glyphicon-remove"></span></a>
+        <a href="" ng-click="show.skill=!show.skill">
+          <span class="glyphicon glyphicon-pencil pull-right"></span>
+        </a>
       </div>
 
       <h1>Add Skill</h1>
