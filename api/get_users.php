@@ -9,7 +9,7 @@
   $data = array();
 
   //Defaults
-  $elements_per_page = 5;
+  $elements_per_page = 8;
   $offset = 0;
   $order_by = "id";
   $searching = false;

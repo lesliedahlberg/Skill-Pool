@@ -31,7 +31,7 @@
 
 
                     <div class="thumbnail">
-                      <img ng-show="!user.photo_link" src="img/profile/default.png"/><img ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+                      <img class="img-responsive img-circle" ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive img-circle" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
                         <div class="caption">
                             <h3>{{user.first_name}} {{user.last_name}}</h3>
                             <p>Registred {{user.registration_date}}</p>
@@ -65,6 +65,9 @@
 
           </div>
         </div>
+        <ul ng-init="getPageCount()" class="pagination">
+          <li ng-repeat="page in pages"><a href="" ng-click="getUsers(page);">{{page}}</a></li>
+        </ul>
     </section>
     </div>
 

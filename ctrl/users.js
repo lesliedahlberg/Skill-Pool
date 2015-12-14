@@ -2,11 +2,11 @@ angular.module('users', []).controller('usersCtrl', function($scope, $http) {
 
   $scope.formData = {};
 
-  $scope.getUsers = function (){
-    var urel = "api/get_users.php";
+  $scope.getUsers = function (page){
+    var urel = "api/get_users.php?page="+page;
     var search = $scope.formData.search;
     if(search !== undefined || search != null) {
-      urel = "api/get_users.php?search="+$scope.formData.search;
+      urel = "api/get_users.php?search="+$scope.formData.search+"&page="+page;
     }
     $http({
       url : urel,
@@ -23,6 +23,30 @@ angular.module('users', []).controller('usersCtrl', function($scope, $http) {
       }
     });
   }
+
+  $scope.getPageCount = function (){
+    var urel = "api/get_number_of_pages.php?per_page=8.php";
+    $http({
+      url : urel,
+      method: "GET"
+    }).success(function (response) {
+      if(response.success == true){
+        $scope.pages = range(1,response.result);
+        $scope.users_message = response.message;
+      }else {
+        $scope.search_error = response.search_variables;
+        $scope.users_error = response.error;
+      }
+    });
+  }
+
+  function range(start, end) {
+    var foo = [];
+    for (var i = start; i <= end; i++) {
+        foo.push(i);
+    }
+    return foo;
+}
 
   $scope.getUser = function (){
 

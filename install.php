@@ -1,7 +1,7 @@
 <?
   require_once "lib/php/meekrodb.class.php";
   DB::$user = 'root';
-  DB::$password = '';
+  DB::$password = 'root';
   DB::$dbName = 'skill_pool';
 
   /*  OBS! För att använda:
