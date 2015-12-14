@@ -28,6 +28,7 @@ angular.module('admin', []).controller('adminCtrl', function($scope, $http) {
           // if not successful, bind errors to error variables
           $scope.errorCategory = data.errors.category;
           $scope.errorMessage = data.errors.message;
+
         } else {
           $scope.formMessage = data.message;
           $scope.errorCategory = "";
@@ -36,6 +37,7 @@ angular.module('admin', []).controller('adminCtrl', function($scope, $http) {
           $scope.getCategory();
         }
       });
+      $scope.getCategories();
   }
 
   $scope.getSkills = function (id){

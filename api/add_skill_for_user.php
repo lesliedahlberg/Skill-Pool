@@ -21,6 +21,7 @@
 
   //Get data from DB
   $skill_id = DB::queryFirstRow("SELECT * FROM skill WHERE name = %s",$skill_name);
+  $extra['first_skill_id'] = $skill_id;
   $category_id = DB::queryFirstRow("SELECT * FROM category WHERE name = %s",$category_name);
 
   if (empty($errors)) {
@@ -33,7 +34,8 @@
           'name' => $_REQUEST['skill']
         ));
 
-        $skill_id = DB::queryFirstRow("SELECT LAST_INSERT_ID()");
+        $skill_id = DB::queryFirstRow("SELECT LAST_INSERT_ID() as id");
+
 
       }
 
@@ -57,9 +59,11 @@
   if (!empty($errors)) {
     $data['success'] = false;
     $data['errors']  = $errors;
+    $data['extra'] = $extra;
   } else {
     $data['success'] = true;
     $data['message'] = 'Success!';
+    $data['extra'] = $extra;
   }
 
   //Return data
