@@ -71,6 +71,14 @@ angular.module('users', ['mgcrea.ngStrap']).controller('usersCtrl', function($sc
     });
   }
 
+  $scope.getUserSkills = function(id) {
+    var params = {user_id: id};
+    return $http.get('api/get_skills_for_show_user.php', {params: params})
+    .then(function(res) {
+      return res.data.result;
+    });
+  };
+
   $scope.getSkills = function (){
 
     $http.get("api/get_skills_for_show_user.php?user_id="+$scope.user_id)

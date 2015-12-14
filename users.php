@@ -37,6 +37,7 @@
                         <div class="caption">
                             <h3>{{user.first_name}} {{user.last_name}}</h3>
                             <p>Registred {{user.registration_date}}</p>
+                              <code ng-show="user.skills">{{user.skills}}</code>
                             <p>
                                 <a href="users.php?user_id={{user.id}}" class="btn btn-primary">Profile</a> <a href="mailto:{{user.email}}" class="btn btn-default" data-toggle="modal" data-target="#modal_{{user.id}}">Contact</a>
                             </p>

@@ -67,7 +67,7 @@
             </tr>
             <tr>
               <th>E-mail:</th>
-              <td>{{user.email }}
+              <td><a href="mailto:{{user.email }}">{{user.email }}</a>
               </td>
             </tr>
             <tr>
@@ -107,9 +107,9 @@
                 </span>
                 <span ng-show="show.address">
                   <form role="form" ng-submit="processFormAddress();" class="form-inline">
-                        <input type="text" class="form-control" name="city" id="city" ng-model="addressData.city">
-                        <input type="text" class="form-control" name="zipCode" id="zipCode" ng-model="addressData.zipCode">
-                        <input type="text" class="form-control" name="country" id="country" ng-model="addressData.country">
+                        <input type="text" class="form-control" placeholder="City" name="city" id="city" ng-model="addressData.city">
+                        <input type="text" class="form-control" placeholder="Zip Code" name="zipCode" id="zipCode" ng-model="addressData.zipCode">
+                        <input type="text" class="form-control" placeholder="Country" name="country" id="country" ng-model="addressData.country">
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                 </span>
@@ -139,7 +139,7 @@
             <tr>
               <th>Homepage:</th>
               <td>
-                <span ng-show="!show.homepage"><span ng-click="show.homepage=!show.homepage" class="click-to-edit">{{user.homepage }}</span>
+                <span ng-show="!show.homepage"><span ng-click="show.homepage=!show.homepage" class="click-to-edit"><a href="{{user.homepage }}">{{user.homepage }}</a></span>
                   <a href="" ng-click="show.homepage=!show.homepage">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
