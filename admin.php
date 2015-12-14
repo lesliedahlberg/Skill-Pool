@@ -164,11 +164,11 @@
         <td>{{user.registration_date}}</td>
         <td>{{user.email}}</td>
         <td>
-          <a href="" data-toggle="modal" data-target="#remove_user_modal_{{user.id}}{{user.first_name}}{{user.last_name}}" class="user">
+          <a href="" data-toggle="modal" data-target="#remove_user_modal_{{user.id}}" class="user">
             <span class="glyphicon glyphicon-remove text-danger"></span>
           </a>
 
-          <div id="remove_user_modal_{{user.id}}{{user.first_name}}{{user.last_name}}" class="modal fade" data-backdrop="" role="dialog">
+          <div id="remove_user_modal_{{user.id}}" class="modal fade" data-backdrop="" role="dialog">
             <div class="modal-dialog">
 
               <!-- Modal content-->

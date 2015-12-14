@@ -235,6 +235,107 @@
     'zip_code' => "750 23"
   ));
 
+  $rand_int = rand(); //Generates random int
+  $hash = md5(strval($rand_int)); //Creates hash of the random int
+
+  DB::insert('user', array(
+    'about_me' => "Ask me about computers and the world wide web",
+    'city' => "Örebro",
+    'country' => "Sweden",
+    'email' => "selena@gomez.se",
+    'first_name' => "Selena",
+    'hash' => "63a9f0ea7bb98050796b649e85481845",
+    'homepage' => "www.selenagomez.se",
+    'last_name' => "Gomez",
+    'photo_link' => "1450124192_766.png",
+    'status' => "1",
+    'telephone' => "1135-1641461",
+    'title' => "Developer",
+    'verification_code' => $hash,
+    'zip_code' => "713 13"
+  ));
+
+  $rand_int = rand(); //Generates random int
+  $hash = md5(strval($rand_int)); //Creates hash of the random int
+
+  DB::insert('user', array(
+    'about_me' => "How can I help you?",
+    'city' => "Stockholm",
+    'country' => "Sweden",
+    'email' => "customer.service@skillpool.se",
+    'first_name' => "Tiffany",
+    'hash' => "63a9f0ea7bb98050796b649e85481845",
+    'homepage' => "www.skillpool.com/support",
+    'last_name' => "Hillburg",
+    'photo_link' => "1450124198_292.png",
+    'status' => "1",
+    'telephone' => "0771-141414",
+    'title' => "Customer Support",
+    'verification_code' => $hash,
+    'zip_code' => "713 13"
+  ));
+
+  $rand_int = rand(); //Generates random int
+  $hash = md5(strval($rand_int)); //Creates hash of the random int
+
+  DB::insert('user', array(
+    'about_me' => "This user has nothing to say",
+    'city' => "Stockholm",
+    'country' => "Sweden",
+    'email' => "mac.lover@apple-luuv.com",
+    'first_name' => "Gregory",
+    'hash' => "63a9f0ea7bb98050796b649e85481845",
+    'homepage' => "www2.apple4life.com",
+    'last_name' => "Marshall",
+    'photo_link' => "1450124205_274.png",
+    'status' => "1",
+    'telephone' => "31513-1515",
+    'title' => "CSS Programmer",
+    'verification_code' => $hash,
+    'zip_code' => "714 18"
+  ));
+
+  $rand_int = rand(); //Generates random int
+  $hash = md5(strval($rand_int)); //Creates hash of the random int
+
+  DB::insert('user', array(
+    'about_me' => "I love my orange shirt.",
+    'city' => "Bedum",
+    'country' => "Netherlands",
+    'email' => "arjen@bmunchen.com",
+    'first_name' => "Arya",
+    'hash' => "63a9f0ea7bb98050796b649e85481845",
+    'homepage' => "www.bmunchen.com",
+    'last_name' => "Robin",
+    'photo_link' => "1450124211_859.png",
+    'status' => "1",
+    'telephone' => "31513-1515",
+    'title' => "Soccer player",
+    'verification_code' => $hash,
+    'zip_code' => "9781"
+  ));
+
+  $rand_int = rand(); //Generates random int
+  $hash = md5(strval($rand_int)); //Creates hash of the random int
+
+  DB::insert('user', array(
+    'about_me' => "I love my orange shirt.",
+    'city' => "Rosario",
+    'country' => "Argentina",
+    'email' => "messi@notbmunchen.com",
+    'first_name' => "Lion",
+    'hash' => "63a9f0ea7bb98050796b649e85481845",
+    'homepage' => "www.notbmunchen.com",
+    'last_name' => "El Messy",
+    'photo_link' => "1450124236_183.png",
+    'status' => "1",
+    'telephone' => "1547-1515",
+    'title' => "Soccer player",
+    'verification_code' => $hash,
+    'zip_code' => "1609"
+  ));
+
+
   DB::update('user', array(
     'about_me' => "Student of Computer Science",
     'city' => "Västerås",

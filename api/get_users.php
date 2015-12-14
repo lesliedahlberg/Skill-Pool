@@ -15,7 +15,27 @@
   $searching = false;
   $search_pieces = array();
 
+
+
+
   //Arguments
+  if (!empty($_GET['all'])) {
+    $result = DB::query("SELECT * FROM user");
+    //Set return statement
+    if (!empty($errors)) {
+      $data['success'] = false;
+      $data['errors']  = $errors;
+    } else {
+      $data['success'] = true;
+      $data['message'] = 'Users retrieved!';
+      $data['result'] = $result;
+    }
+    //Return data and die
+    echo json_encode($data);
+    die();
+
+  }
+
   if (!empty($_GET['search'])){
     $searching = true;
     //$search = urlencode($_GET['search']);

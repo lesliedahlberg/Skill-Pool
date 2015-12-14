@@ -127,8 +127,9 @@ angular.module('admin', []).controller('adminCtrl', function($scope, $http) {
 
 
   $scope.getUsers = function (){
+
     $http({
-      url : "api/get_users.php",
+      url : "api/get_users.php?all=true",
       method: "GET"
     }).success(function (response) {
       $scope.m = response;
