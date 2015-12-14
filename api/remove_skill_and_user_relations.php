@@ -7,20 +7,18 @@
   //variables
   $errors = array();
   $data = array();
-  $skill_existing = array();
-  $skill_related_to_user = array();
+
   $skill_id = 0;
 
   //Arguments
-  if (!empty($_REQUEST['skill_id'])){
+  if ( !empty($_REQUEST['skill_id'])){
     $skill_id = $_REQUEST['skill_id'];
   }
 
   //Check conditions/Validation
-  if (empty($_REQUEST['skill_id'])) {
-    $errors['skill_id'] = 'Skill is required.';
+  if ( empty($_REQUEST['skill_id']) ) {
+    $errors['skill_id'] = 'Skill ID required';
     $data['errors'] = $errors;
-
     echo json_encode($data); //Return data
     die();
   }
@@ -36,24 +34,14 @@
     die();
   }
 
-  // look for matches in relation database user_skill
-  $skill_related_to_user = DB::query("SELECT * FROM user_skill WHERE user_skill.skill_id = %i", $skill_id);
-  $num_users_for_skill = DB::count();
-  if($num_users_for_skill > 0)
-  {
-    $errors['exists'] = "$num_users_for_skill users has this skill. Click delete again to confirm."; // perhaps return a list of these users here
-    $data['errors'] = $errors;
+  // Delte from relationdatabase user_skill
+  DB::query("DELETE FROM `user_skill` WHERE skill_id=%s", $_REQUEST['skill_id']);
 
-    echo json_encode($data); //Return data
-    die();
-  }
-
-  // Delte from db
+  // Delete skill aswell
   DB::delete('skill', "id=%s", $_REQUEST['skill_id']);
 
   // Also delete all related posts from skill_message
   DB::delete('skill_message', "skill_id=%s", $_REQUEST['skill_id']);
-
 
   //Set return statement
   if (!empty($errors)) {
@@ -61,7 +49,7 @@
     $data['errors']  = $errors;
   } else {
     $data['success'] = true;
-    $data['message'] = 'Removed!';
+    $data['message'] = 'Deleted skill from all users';
   }
 
   //Return data

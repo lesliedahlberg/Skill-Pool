@@ -91,12 +91,51 @@ angular.module('admin', []).controller('adminCtrl', function($scope, $http) {
         $scope.getSkills($scope.cId); // för att visa nytt resultat efter borttagning av en skill
         $scope.skill_error = "";
         $scope.category_error = "";
+        $scope.skillIsUsed = false;
 
       }else {
         $scope.skill_error = response.errors.exists;
-        $scope.skill_e = true;
+        $scope.skillIsUsed = true;
       }
     });
   }
+
+  $scope.removeSkillAndUserRelations = function (skillId, catId){
+
+    $scope.sId = skillId;
+    $scope.cId = catId;
+
+    $http({
+      url : "api/remove_skill_and_user_relations.php?skill_id="+$scope.sId,
+      method : "POST"
+    }).success(function (response) {
+      if(response.success == true){
+        $scope.skill = response.result;
+        $scope.skill_message = response.message;
+        $scope.skill_error = "";
+        $scope.category_error = "";
+        $scope.getSkills($scope.cId); // för att visa nytt resultat efter borttagning av en skill
+        $scope.skillIsUsed = false;
+
+      }else {
+        $scope.skill_error = response.errors.exists;
+      }
+    });
+
+
+  }
+
+
+
+
+
+
+  $scope.resetErrorMessages = function (){
+    $scope.skill_error = "";
+    $scope.category_error = "";
+    $scope.skillIsUsed = false;
+  }
+
+
 
 });
