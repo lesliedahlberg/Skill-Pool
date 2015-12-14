@@ -12,7 +12,7 @@ angular.module('users', []).controller('usersCtrl', function($scope, $http) {
       url : urel,
       method: "GET"
     }).success(function (response) {
-
+      $scope.m = response;
       if(response.success == true){
         $scope.users = response.result;
         $scope.users_message = response.message;

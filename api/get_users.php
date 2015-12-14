@@ -18,10 +18,11 @@
   //Arguments
   if (!empty($_GET['search'])){
     $searching = true;
-    $search = urlencode($_GET['search']);
+    //$search = urlencode($_GET['search']);
+    $search = $_GET['search'];
 
     // split search string into array of strings
-    $search_pieces = explode(" ", $search);
+    $search_pieces = preg_split('/\s+/', $search);
 
   }
 
@@ -40,7 +41,50 @@
   //Get data from DB
   if($searching == true){
 
-      $result = DB::query("SELECT DISTINCT
+      $sql = "SELECT DISTINCT
+                            user.id,
+                            user.email,
+                            user.first_name,
+                            user.last_name,
+                            user.registration_date,
+                            user.photo_link,
+                            user.title,
+                            user.city,
+                            user.country,
+                            user.zip_code,
+                            user.telephone,
+                            user.homepage
+                            FROM user
+                            LEFT JOIN user_skill
+                            ON user.id=user_skill.user_id
+                            LEFT JOIN skill
+                            ON skill.id=user_skill.skill_id";
+
+        $sql .= " WHERE ";
+        $i = 0;
+        foreach ($search_pieces as $value) {
+          if($i != 0){
+            $sql .= " OR ";
+          }
+          $sql .= "skill.name LIKE '%".$value."%' OR
+                    user.first_name LIKE '%".$value."%' OR
+                    user.last_name  LIKE '%".$value."%' OR
+                    user.title  LIKE '%".$value."%' OR
+                    user.city  LIKE '%".$value."%' OR
+                    user.country  LIKE '%".$value."%' OR
+                    user.zip_code LIKE '%".$value."%' OR
+                    user.telephone LIKE '%".$value."%' OR
+                    user.homepage LIKE '%".$value."%'
+                    ";
+          $i++;
+        }
+
+        $data['sql'] = $sql;
+
+
+        $result = DB::query($sql);
+
+      /*$result = DB::query("SELECT DISTINCT
                             user.id,
                             user.email,
                             user.first_name,
@@ -53,15 +97,14 @@
                             user.zip_code,
                             user.status,
                             user.telephone,
-                            user.homepage,
-                            user.about_me
+                            user.homepage
                             FROM user
-                            RIGHT JOIN user_skill
+                            LEFT JOIN user_skill
                             ON user.id=user_skill.user_id
-                            RIGHT JOIN skill
+                            LEFT JOIN skill
                             ON skill.id=user_skill.skill_id
-                            WHERE skill.name IN %ls OR user.first_name IN %ls
-                            OR user.last_name IN %ls", $search_pieces, $search_pieces, $search_pieces);
+                            WHERE skill.name LIKE %ls OR user.first_name IN %ls
+                            OR user.last_name IN %ls", $search_pieces, $search_pieces, $search_pieces);*/
 
   }else{
     // If not searching, just show all users
@@ -78,6 +121,7 @@
     $data['success'] = true;
     $data['message'] = 'Users retrieved!';
     $data['result'] = $result;
+
 
   }
 

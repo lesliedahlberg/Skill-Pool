@@ -13,7 +13,6 @@
 
     <section ng-init="getUsers()" ng-if="user_id == -1">
       <h1>Search</h1>
-
       <form role="form" ng-submit="getUsers()">
         <div class="input-group">
           <input type="text" class="form-control" name="search" id="search" ng-model="formData.search">
