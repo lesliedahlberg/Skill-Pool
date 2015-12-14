@@ -18,7 +18,7 @@
       <form role="form" ng-submit="getUsers()">
         <div class="input-group">
           <!--<input type="text" placeholder="Enter state" bs-options="address.geometry as address.geometry for address in getAddress2($viewValue)" bs-typeahead class="form-control" name="search" id="search" ng-model="formData.search">-->
-          <input type="text" placeholder="Enter state" bs-options="skill.name as skill.name for skill in getSuggestion($viewValue)" bs-typeahead class="form-control" name="search" id="search" ng-model="formData.search">
+          <input type="text" placeholder="Enter state" bs-options="skill.name as skill.name for skill in getSuggestion($viewValue)" bs-typeahead class="form-control" name="search" id="search" ng-model="formData.search" ng-keyup="getUsers()">
           <span class="input-group-btn">
             <button type="submit" class="btn btn-default">
               <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
@@ -29,9 +29,7 @@
 
       <h1>People</h1>
       <div class="row text-center">
-          <div ng-repeat="user in users" class="col-md-3 col-sm-6 hero-feature">
-
-
+          <div ng-repeat="user in users" class="col-md-3 col-md-6 hero-feature">
                     <div class="thumbnail">
                       <img class="img-responsive img-circle" ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive img-circle" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
                         <div class="caption">
