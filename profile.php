@@ -67,7 +67,7 @@
             </tr>
             <tr>
               <th>E-mail:</th>
-              <td>{{user.email }}
+              <td><a href="mailto:{{user.email }}">{{user.email }}</a>
               </td>
             </tr>
             <tr>
@@ -107,9 +107,9 @@
                 </span>
                 <span ng-show="show.address">
                   <form role="form" ng-submit="processFormAddress();" class="form-inline">
-                        <input type="text" class="form-control" name="city" id="city" ng-model="addressData.city">
-                        <input type="text" class="form-control" name="zipCode" id="zipCode" ng-model="addressData.zipCode">
-                        <input type="text" class="form-control" name="country" id="country" ng-model="addressData.country">
+                        <input type="text" class="form-control" placeholder="City" name="city" id="city" ng-model="addressData.city">
+                        <input type="text" class="form-control" placeholder="Zip Code" name="zipCode" id="zipCode" ng-model="addressData.zipCode">
+                        <input type="text" class="form-control" placeholder="Country" name="country" id="country" ng-model="addressData.country">
                         <button type="submit" class="btn btn-default">Submit</button>
                   </form>
                 </span>
@@ -139,7 +139,7 @@
             <tr>
               <th>Homepage:</th>
               <td>
-                <span ng-show="!show.homepage"><span ng-click="show.homepage=!show.homepage" class="click-to-edit">{{user.homepage }}</span>
+                <span ng-show="!show.homepage"><span ng-click="show.homepage=!show.homepage" class="click-to-edit"><a href="{{user.homepage }}">{{user.homepage }}</a></span>
                   <a href="" ng-click="show.homepage=!show.homepage">
                     <span class="glyphicon glyphicon-pencil pull-right"></span>
                   </a>
@@ -194,10 +194,10 @@
       </div>
 
       <h1>Add Skill</h1>
-      <form role="form" ng-submit="addSkill();" ng-init="getSkills();getCategories();">
+      <form name="formName" role="form" ng-submit="addSkill(formName);" ng-init="getSkills();getCategories();">
         <div id="skill-group" class="form-group">
           <label for="skill">Skill name:</label>
-          <input type="text" class="form-control" name="skill" id="skill" ng-model="addSkill.skill">
+          <input bs-options="skill.name as skill.name for skill in getSuggestion($viewValue)" bs-typeahead type="text" class="form-control" name="skill" id="skill" ng-model="addSkill.skill">
           <span class="help-block" ng-show="errorSkill">{{ errorSkill }}</span>
         </div>
 
@@ -223,16 +223,5 @@
 
   </body>
   <script src="ctrl/profile.js"></script>
-  <script>
-  var options = {
-  url: function(phrase) {
-    return "api/autocomplete_for_add_skills.php?search=" + phrase + "&format=json";
-  },
-
-  getValue: "name"
-  };
-
-  $("#skill").easyAutocomplete(options);
-  </script>
   <? require "inc/foot.php"; ?>
 </html>

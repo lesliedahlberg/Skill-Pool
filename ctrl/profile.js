@@ -1,4 +1,4 @@
-angular.module('profile', []).controller('profileCtrl', function($scope, $http) {
+angular.module('profile', ['mgcrea.ngStrap']).controller('profileCtrl', function($scope, $http) {
   $scope.show = {};
   $scope.addressData = {};
   $scope.firstNameData = {};
@@ -8,7 +8,17 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
   $scope.aboutMeData = {};
   $scope.homepageData = {};
 
-  $scope.addSkill = function() {
+
+  $scope.getSuggestion = function(viewValue) {
+    var params = {search: viewValue, sensor: false};
+    return $http.get('api/autocomplete_for_add_skills.php', {params: params})
+    .then(function(res) {
+      return res.data;
+    });
+  };
+
+  $scope.addSkill = function(formName) {
+    $scope.myForm = formName;
     $scope.addSkill.skill_id = $scope.skill_id;
     $http({
           method  : 'POST',
@@ -23,11 +33,12 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
           $scope.errorSkill = data.errors.skill;
           $scope.errorMessage = data.errors.message;
         } else {
+          $scope.getSkills();
+          $scope.myForm.unbind('submit');
           $scope.formMessage = data.message;
           $scope.errorSkill = "";
           $scope.errorMessage = "";
           $scope.addSkill = "";
-          $scope.getSkills();
         }
       });
   }

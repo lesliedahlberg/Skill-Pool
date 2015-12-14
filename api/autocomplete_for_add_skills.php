@@ -21,7 +21,7 @@
 
 
 
-  $result = DB::query("SELECT *  FROM `skill`".$query_add_on);
+  $result = DB::query("SELECT name  FROM `skill`".$query_add_on);
 
 
 
@@ -37,5 +37,5 @@
   }
 
   //Return data
-  echo json_encode($data);
+  echo json_encode($data['result']);
 ?>

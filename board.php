@@ -16,7 +16,7 @@
 
       <section ng-init="getBoard();getSkill()" ng-if="skill_id != -1">
         <h1>{{skill.name}}</h1>
-          <form role="form" ng-submit="addPost();">
+          <form name="formName" role="form" ng-submit="addPost(formName);">
             <div id="title-group" class="form-group">
               <label for="title">Title:</label>
               <input type="text" class="form-control" name="title" id="title" ng-model="formData.title">

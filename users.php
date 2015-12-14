@@ -9,13 +9,16 @@
 <body ng-cloak ng-init="user_id=<?if(empty($_REQUEST['user_id'])){echo -1;}else{echo $_REQUEST['user_id'];}?>">
   <? $nav_current_page = "users.php";
   require "inc/nav.php" ?>
-  <div class="container">
+  <div class="container typeahead-demo">
 
-    <section ng-init="getUsers()" ng-if="user_id == -1">
+    <section ng-init="getUsers();" ng-if="user_id == -1">
       <h1>Search</h1>
+
+
       <form role="form" ng-submit="getUsers()">
         <div class="input-group">
-          <input type="text" class="form-control" name="search" id="search" ng-model="formData.search">
+          <!--<input type="text" placeholder="Enter state" bs-options="address.geometry as address.geometry for address in getAddress2($viewValue)" bs-typeahead class="form-control" name="search" id="search" ng-model="formData.search">-->
+          <input type="text" placeholder="Enter state" bs-options="skill.name as skill.name for skill in getSuggestion($viewValue)" bs-typeahead class="form-control" name="search" id="search" ng-model="formData.search" ng-keyup="getUsers()">
           <span class="input-group-btn">
             <button type="submit" class="btn btn-default">
               <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
@@ -26,14 +29,13 @@
 
       <h1>People</h1>
       <div class="row text-center">
-          <div ng-repeat="user in users" class="col-md-3 col-sm-6 hero-feature">
-
-
+          <div ng-repeat="user in users" class="col-md-3 col-md-6 hero-feature">
                     <div class="thumbnail">
                       <img class="img-responsive img-circle" ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive img-circle" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
                         <div class="caption">
                             <h3>{{user.first_name}} {{user.last_name}}</h3>
                             <p>Registred {{user.registration_date}}</p>
+                              <code ng-show="user.skills">{{user.skills}}</code>
                             <p>
                                 <a href="users.php?user_id={{user.id}}" class="btn btn-primary">Profile</a> <a href="mailto:{{user.email}}" class="btn btn-default" data-toggle="modal" data-target="#modal_{{user.id}}">Contact</a>
                             </p>
@@ -151,5 +153,16 @@
 
 </body>
 <script src="ctrl/users.js"></script>
+<script>
+var options = {
+	url: function(phrase) {
+		return "api/autocomplete_for_add_skills.php?search=" + phrase + "&format=json";
+	},
+
+  listLocation: "result",
+	getValue: "name"
+};
+
+$("#search").easyAutocomplete(options);</script>
 <? require "inc/foot.php" ?>
 </html>

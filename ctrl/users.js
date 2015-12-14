@@ -1,6 +1,15 @@
-angular.module('users', []).controller('usersCtrl', function($scope, $http) {
+angular.module('users', ['mgcrea.ngStrap']).controller('usersCtrl', function($scope, $http) {
 
   $scope.formData = {};
+
+  $scope.getSuggestion = function(viewValue) {
+    var params = {search: viewValue, sensor: false};
+    return $http.get('api/autocomplete_for_add_skills.php', {params: params})
+    .then(function(res) {
+      return res.data;
+    });
+  };
+
 
   $scope.getUsers = function (page){
     var urel = "api/get_users.php?page="+page;
@@ -61,6 +70,14 @@ angular.module('users', []).controller('usersCtrl', function($scope, $http) {
 
     });
   }
+
+  $scope.getUserSkills = function(id) {
+    var params = {user_id: id};
+    return $http.get('api/get_skills_for_show_user.php', {params: params})
+    .then(function(res) {
+      return res.data.result;
+    });
+  };
 
   $scope.getSkills = function (){
 
