@@ -41,7 +41,7 @@
                       <img class="img-responsive img-circle" ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive img-circle" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
                         <div class="caption">
                             <h3>{{user.first_name}} {{user.last_name}}</h3>
-                            <p>Registred {{user.registration_date}}</p>
+
                               <code ng-show="user.skills">{{user.skills}}</code>
                             <p>
                                 <a href="users.php?user_id={{user.id}}" class="btn btn-primary">Profile</a> <a href="mailto:{{user.email}}" class="btn btn-default" data-toggle="modal" data-target="#modal_{{user.id}}">Contact</a>
@@ -61,7 +61,7 @@
                           </div>
                           <div class="modal-body">
                             <p>Telephone: {{user.telephone}}</p>
-                            <p>E-mail: {{user.email}}</p>
+                            <p>E-mail: <a href="mailto:{{user.email}}">{{user.email}}</a></p>
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -104,7 +104,7 @@
             </tr>
             <tr>
               <td>E-mail:</td>
-              <td>{{user.email }}
+              <td><a href="mailto:{{user.email}}">{{user.email }}</a>
               </td>
             </tr>
             <tr>
@@ -133,7 +133,7 @@
             <tr>
               <td>Homepage:</td>
               <td>
-                {{user.homepage }}
+                <a href="{{user.homepage}}">{{user.homepage }}</a>
               </td>
             </tr>
             <tr>
