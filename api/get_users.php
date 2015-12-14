@@ -18,7 +18,7 @@
   //Arguments
   if (!empty($_GET['search'])){
     $searching = true;
-    $search = $_GET['search'];
+    $search = urlencode($_GET['search']);
 
     // split search string into array of strings
     $search_pieces = explode(" ", $search);
