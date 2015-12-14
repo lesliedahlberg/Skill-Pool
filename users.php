@@ -18,7 +18,7 @@
       <form role="form" ng-submit="getUsers()">
         <div class="input-group">
           <!--<input type="text" placeholder="Enter state" bs-options="address.geometry as address.geometry for address in getAddress2($viewValue)" bs-typeahead class="form-control" name="search" id="search" ng-model="formData.search">-->
-          <input type="text" placeholder="Enter state" bs-options="skill.name as skill.name for skill in getSuggestion($viewValue)" bs-typeahead class="form-control" name="search" id="search" ng-model="formData.search" ng-keyup="getUsers()">
+          <input type="text" placeholder="Enter state" bs-options="skill.name as skill.name for skill in getSuggestion($viewValue)" bs-typeahead class="form-control" name="search" id="search" ng-model="formData.search" ng-keyup="getUsers();getDidYouMean()">
           <span class="input-group-btn">
             <button type="submit" class="btn btn-default">
               <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
@@ -27,7 +27,14 @@
         </div>
       </form>
 
-      <h1>People</h1>
+      <h1 ng-show="users[0]">People</h1>
+      <div ng-show="!users[0]">
+        <span class="h1">Did You Mean: </span>
+        <a class="skill btn btn-primary" href="" ng-repeat="tag in didYouMean" ng-click="formData.search=tag;getUsers()">{{tag}}</a>
+
+
+
+      </div>
       <div class="row text-center">
           <div ng-repeat="user in users" class="col-md-3 col-md-6 hero-feature">
                     <div class="thumbnail">

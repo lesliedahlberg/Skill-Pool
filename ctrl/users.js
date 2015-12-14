@@ -11,6 +11,15 @@ angular.module('users', ['mgcrea.ngStrap']).controller('usersCtrl', function($sc
   };
 
 
+  $scope.getDidYouMean = function() {
+    var params = {search: $scope.formData.search};
+    return $http.get('api/get_query.php', {params: params})
+    .then(function(res) {
+      $scope.didYouMean = res.data.result;
+    });
+  };
+
+
   $scope.getUsers = function (page){
     var urel = "api/get_users.php?page="+page;
     var search = $scope.formData.search;
