@@ -4,6 +4,9 @@
   DB::$password = 'root';
   DB::$dbName = 'skill_pool';
 
+  //Variables to change depending on company information, maybe make an installation form of it
+  $domain = "/@.*mdh\\.se$/"; //Should be @something.mdh.se or @mdh.se
+
   /*  OBS! För att använda:
 
       Ta bort hela databasen, kör install.php.
@@ -67,9 +70,16 @@
   );");
 
   DB::query("CREATE TABLE IF NOT EXISTS site_setting(
-    setting_key varchar(128) PRIMARY KEY,
+    skey varchar(128) PRIMARY KEY,
     value varchar(128) NOT NULL
   );");
+
+  DB::query("INSERT INTO site_setting(skey, value) VALUES('domain', '".$domain."');");
+
+/*  DB::insert('site_setting', array(
+  'skey' => 'domain',
+  'value' => $domain) // $domain() is evaluated by MySQL
+);*/
 
   $rand_int = rand(); //Generates random int //cant get this:  random_int(PHP_INT_MIN, PHP_INT_MAX); to work
   $hash = md5(strval($rand_int)); //Creates hash of the random int

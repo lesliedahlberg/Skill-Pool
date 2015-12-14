@@ -16,6 +16,7 @@
   $errors['last_name'] = null;
   $errors['exists'] = null;
   $errors['mail'] = null;
+  $errors['domain'] = null;
 
   $data = array();
 
@@ -67,6 +68,7 @@
     $last_name = $_REQUEST['last_name'];
   }
 
+
   if(!$execquery) //If data not recieved exit
   {
     if (!empty($errors))
@@ -77,6 +79,21 @@
     echo json_encode($data); //Return data
     die();
     }
+  }
+
+  //Check if email is part of domain
+  $result = DB::queryFirstRow("SELECT value FROM site_setting WHERE skey='domain'");
+  $domain = $result['value'];
+
+  if(preg_match ($domain, $email) != 1)
+  {
+    //Didn't match or Error
+    $errors['domain'] = "Does not match company domain";
+    $data['success'] = false;
+    $data['errors'] = $errors;
+
+    echo json_encode($data); //Return data
+    die();
   }
 
   //Check if email already registered return error if exists

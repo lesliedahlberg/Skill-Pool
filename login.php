@@ -17,7 +17,7 @@
           <span class="help-block" ng-show="errorEmail">{{errorEmail}}</span>
           <input type="password" id="pass" name="pass" class="form-control" ng-model="formData.pass" placeholder="Password" required/>
           <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-          <button class="btn btn-lg btn-default btn-block" type="submit" onclick="location.href='register.php'">Register</button>
+          <button class="btn btn-lg btn-default btn-block" onclick="location.href='register.php'">Register</button>
           <span ng-show="error" class="text-danger"><br/>{{error}}</span>
         </form>
 

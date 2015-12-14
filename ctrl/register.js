@@ -1,7 +1,9 @@
 angular.module('register', []).controller('registerCtrl', function($scope, $http) {
   $scope.formData = {};
   $scope.registered = false;
+  errormsg = "";
   $scope.processRegForm = function() {
+    $('#body').css("background-color", 'white');
     $http({
           method  : 'POST',
           url     : 'api/register.php',
@@ -15,14 +17,21 @@ angular.module('register', []).controller('registerCtrl', function($scope, $http
           {
             if(data.errors != undefined)
             {
-              $('#head_message').html(data.errors.exists + data.errors.email + data.errors.pass + data.errors.first_name + data.errors.last_name);
+              for(error in data.errors)
+              {
+                  if(error != null)
+                  {
+                    if (data.errors.hasOwnProperty(error))
+                        errormsg = errormsg + (data.errors[error] || "");
+                  }
+              }
+              $('#head_message').html(errormsg);
               $('#body').css("background-color", '#ff4d4d');
             }
           }
           if(data == undefined){$scope.m = "data undefined";}
           $scope.registered = false;
         } else {
-          $scope.m = data.errors.mail;
           $scope.registered = true;
         }
       });
