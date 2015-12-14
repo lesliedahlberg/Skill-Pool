@@ -52,7 +52,7 @@
 
 
   //Get data from DB
-  $result = DB::queryFirstRow("SELECT id, hash, first_name, status FROM user WHERE email=%s;", $email);
+  $result = DB::queryFirstRow("SELECT id, hash, first_name, status, email FROM user WHERE email=%s;", $email);
   $count = DB::count();
 
   if($count == 0)
@@ -72,6 +72,7 @@
       $_SESSION['logged_in'] = true;
       $_SESSION['id'] = $result['id'];
       $_SESSION['user_name'] = $result['first_name'];
+      $_SESSION['email'] = $result['email'];
     }
   }
   $data['success'] = $success;

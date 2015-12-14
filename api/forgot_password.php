@@ -37,7 +37,7 @@
         $body = '
 
         Please click this link to enter a new password for your account:
-        http://'.$host.'/projects/skill-pool/change_password.php?email='.$email.'&hash='.$passcode; // Our message above including the link
+        http://'.$host.'/projects/skill-pool/change_password_forgot.php?email='.$email.'&hash='.$passcode; // Our message above including the link
 
         $mail = new PHPMailer();
 

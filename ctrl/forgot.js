@@ -1,8 +1,8 @@
-angular.module('forgot', []).controller('forgotCtrl', function($scope) {
+angular.module('forgot', []).controller('forgotCtrl', function($scope, $http) {
   $scope.success = false;
   $scope.formData = {};
 
-  $scope.processVerification = function(){
+  $scope.processForgotForm = function(){
     $http.get("api/forgot_password.php?email=" + $scope.formData.email)
     .success(function (response) {
       if(response.success == true){
