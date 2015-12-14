@@ -74,6 +74,11 @@
       $_SESSION['user_name'] = $result['first_name'];
       $_SESSION['email'] = $result['email'];
     }
+    else
+    {
+        $errors['pass'] = "Incorrect password. "
+        $success = false;
+    }
   }
   $data['success'] = $success;
   $data['result'] = $result;

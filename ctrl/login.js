@@ -1,4 +1,5 @@
 angular.module('login', []).controller('loginCtrl', function($scope, $http) {
+  errormsg = "";
   $scope.processLoginForm = function() {
 
     $http({
@@ -8,12 +9,19 @@ angular.module('login', []).controller('loginCtrl', function($scope, $http) {
           headers : {'Content-Type': 'application/x-www-form-urlencoded'}
          })
     .success(function(data) {
-          $scope.m = data;
           if(data.success == true){
             location.reload();
           }
           else{
-            $scope.error = data.errors.invalid;
+            for(error in data.errors)
+            {
+                if(error != null)
+                {
+                  if (data.errors.hasOwnProperty(error))
+                      errormsg = errormsg + (data.errors[error] || "");
+                }
+            }
+            $scope.error = errormsg;
           }
         }
       );

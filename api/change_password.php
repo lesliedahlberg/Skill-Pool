@@ -13,6 +13,8 @@
   $email = null;
   $old = null;
   $new = null;
+  $oldhash = null;
+  $newhash = null;
   $result = null;
   $forgot = null; //Flag for telling whether request is forgot or change
   $verification_hash = null;
@@ -32,14 +34,17 @@
     {
       $old = $_REQUEST['old'];
       $new = $_REQUEST['new'];
-      $email = $_REQUEST['email'];
+      $email = $_SESSION['email'];
 
-      $result = DB::query("SELECT hash FROM user WHERE email=%s", $email);
+      $result = DB::queryFirstRow("SELECT hash FROM user WHERE email=%s", $email);
+
+      $oldhash = md5($old);
+      $newhash = md5($new);
 
       //Check if old pass matches and update if they match
-      if(md5($old) == md5($result['hash']))
+      if($oldhash == $result['hash'])
       {
-        DB::update('user', array('hash' => md5($new)), "email=%s", $email);
+        DB::update('user', array('hash' => $newhash), "email=%s", $email);
         $data['success'] = true;
       }
       else

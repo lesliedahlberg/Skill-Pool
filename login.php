@@ -11,10 +11,8 @@
         <form class="form-signin" ng-submit="processLoginForm()">
           <h2 class="form-signin-heading">Please sign in</h2>
           <label for="email" class="sr-only">Email address</label>
-          <span ng-show="errorPass">{{errorPass}}</span>
           <input type="email" id="email" name="email" class="form-control" ng-model="formData.email" placeholder="Email address" required autofocus/>
           <label for="pass" class="sr-only">Password</label>
-          <span class="help-block" ng-show="errorEmail">{{errorEmail}}</span>
           <input type="password" id="pass" name="pass" class="form-control" ng-model="formData.pass" placeholder="Password" required/>
           <div class="label">
             <a href="forgot.php" id="forgot" name="forgot">Forgot password</a>

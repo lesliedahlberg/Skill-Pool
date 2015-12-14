@@ -21,6 +21,29 @@ angular.module('changepassforgot', []).controller('changepassforgotCtrl', functi
   }
 });
 
+angular.module('changepassloggedin', []).controller('changepassloggedinCtrl', function($scope, $http) {
+  $scope.success = false;
+  $scope.formData = {};
+  var get = QueryString();//creates associative array of $_GET
+  $scope.processChangePasswordLoggedIn = function(){
+  $http({
+        method  : 'POST',
+        url     : 'api/change_password.php',
+        data    : $.param($scope.formData),
+        headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+       })
+  .success(function(data) {
+        if(data.success == true){
+          $scope.success = true;
+        }
+        else{
+        //  $scope.error = data.errors.pass;
+        }
+      }
+    );
+  }
+});
+
 $('form').on('submit',function(){
    var execsubmit = true;
    var passerror = "";
