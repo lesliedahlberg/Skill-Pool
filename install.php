@@ -6,6 +6,7 @@
 
   //Variables to change depending on company information, maybe make an installation form of it
   $domain = "/@.*mdh\\.se$/"; //Should be @something.mdh.se or @mdh.se
+  $domain = "/@.*mdh\\.se$/"; //Should be @something.mdh.se or @mdh.se //Problem escaping . in the database, could potentially pose a security risk
 
   /*  OBS! För att använda:
 
