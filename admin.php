@@ -3,15 +3,13 @@
 <html ng-app="admin" ng-controller="adminCtrl">
 
 <? require "inc/head.php"; ?>
-<body ng-init="getCategories()">
+<body ng-init="getCategories();getUsers()">
 
   <? $nav_current_page = "admin.php";
   require "inc/nav.php" ?>
 
-<div class="col-md-3"></div>
-
 <div class="panel-group col-md-6" id="accordion" role="tablist" aria-multiselectable="true">
-  <h1>Manage categories and skills</h1>
+  <h2>Categories and skills</h2>
   <div class="panel panel-default" ng-repeat="category in categories">
     <div class="panel-heading" role="tab" id="heading{{category.id}}">
       <h4 class="panel-title">
@@ -80,7 +78,7 @@
                   <div ng-hide="!skillIsUsed" class="ng-hide">
 
                     <div class="modal-footer">
-<strong><span class="text-danger" ng-show="skill_error">{{ skill_error }}</span><strong>
+                      <strong><span class="text-danger" ng-show="skill_error">{{ skill_error }}</span><strong>
                       <button ng-click="resetErrorMessages()" type="button" class="btn btn-default" data-dismiss="modal" ng-click="getUsersFor(category.id)">Close</button>
                       <button ng-click="removeSkillAndUserRelations(skill.id, category.id)" type="button" class="btn btn-danger">Delete</button>
 
@@ -134,7 +132,91 @@
 
 </div>
 
-<div class="col-md-3"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container panel-group col-md-6">
+  <h2>Users</h2>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Full name</th>
+        <th>Created</th>
+        <th>Email</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="user in users" >
+      <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.first_name}} {{user.last_name}}</td>
+        <td>{{user.registration_date}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <a href="" data-toggle="modal" data-target="#remove_user_modal_{{user.id}}{{user.first_name}}{{user.last_name}}" class="user">
+            <span class="glyphicon glyphicon-remove text-danger"></span>
+          </a>
+
+          <div id="remove_user_modal_{{user.id}}{{user.first_name}}{{user.last_name}}" class="modal fade" data-backdrop="" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Delete user</h4>
+                </div>
+                <div class="modal-body">
+                  <p><strong>Warning!</strong></p>
+                  <p>Do you really want to delete user <strong>{{user.first_name}} {{user.last_name}} (ID: ({{user.id}}))</strong>?</p>
+
+                </div>
+                <div class="modal-footer">
+                  <span class="text-danger" ng-show="del_user_error">{{del_user_error}}</span>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button ng-click="removeUser(user.id)" type="button" class="btn btn-danger">Delete</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+        </td>
+
+      </tr>
+
+
+
+
+
+
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

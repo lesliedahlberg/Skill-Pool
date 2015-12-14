@@ -126,7 +126,41 @@ angular.module('admin', []).controller('adminCtrl', function($scope, $http) {
   }
 
 
+  $scope.getUsers = function (){
+    $http({
+      url : "api/get_users.php",
+      method: "GET"
+    }).success(function (response) {
+      $scope.m = response;
+      if(response.success == true){
+        $scope.users = response.result;
+        $scope.users_message = response.message;
+      }else {
+          //alert("error");
+          $scope.search_error = response.search_variables;
+          $scope.users_error = response.error;
+      }
+    });
+  }
 
+
+  $scope.removeUser = function (id){
+
+    $scope.id = id;
+    $http({
+      url : "api/remove_user.php?user_id="+$scope.id,
+      method : "POST"
+    }).success(function (response) {
+      if(response.success == true){
+        $scope.user = response.result;
+        $scope.user_message = response.message;
+        $scope.getUsers(); // för att visa nytt resultat efter borttagning av användare
+        $scope.del_user_error = "";
+      }else {
+        $scope.del_user_error = response.errors.exists;
+      }
+    });
+  }
 
 
 
