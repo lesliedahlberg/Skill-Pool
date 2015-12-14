@@ -2,10 +2,6 @@ angular.module('users', ['mgcrea.ngStrap']).controller('usersCtrl', function($sc
 
   $scope.formData = {};
 
-  $scope.states = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
-
-
-
   $scope.getSuggestion = function(viewValue) {
     var params = {search: viewValue, sensor: false};
     return $http.get('api/autocomplete_for_add_skills.php', {params: params})

@@ -197,7 +197,7 @@
       <form name="formName" role="form" ng-submit="addSkill(formName);" ng-init="getSkills();getCategories();">
         <div id="skill-group" class="form-group">
           <label for="skill">Skill name:</label>
-          <input type="text" class="form-control" name="skill" id="skill" ng-model="addSkill.skill">
+          <input bs-options="skill.name as skill.name for skill in getSuggestion($viewValue)" bs-typeahead type="text" class="form-control" name="skill" id="skill" ng-model="addSkill.skill">
           <span class="help-block" ng-show="errorSkill">{{ errorSkill }}</span>
         </div>
 
@@ -223,16 +223,5 @@
 
   </body>
   <script src="ctrl/profile.js"></script>
-  <script>
-  var options = {
-  url: function(phrase) {
-    return "api/autocomplete_for_add_skills.php?search=" + phrase + "&format=json";
-  },
-
-  getValue: "name"
-  };
-
-  $("#skill").easyAutocomplete(options);
-  </script>
   <? require "inc/foot.php"; ?>
 </html>
