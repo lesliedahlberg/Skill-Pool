@@ -53,7 +53,8 @@ angular.module('board', []).controller('boardCtrl', function($scope, $http) {
     });
   }
 
-  $scope.addPost = function() {
+  $scope.addPost = function(formName) {
+    $scope.myForm = formName;
     $scope.formData.skill_id = $scope.skill_id;
     $http({
           method  : 'POST',
@@ -68,11 +69,12 @@ angular.module('board', []).controller('boardCtrl', function($scope, $http) {
           $scope.errorTitle = data.errors.title;
           $scope.errorMessage = data.errors.message;
         } else {
+          $scope.getBoard();
+          $scope.myForm.unbind('submit');
           $scope.formMessage = data.message;
           $scope.errorTitle = "";
           $scope.errorMessage = "";
           $scope.formData = "";
-          $scope.getBoard();
         }
       });
   }

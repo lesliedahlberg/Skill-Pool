@@ -8,7 +8,8 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
   $scope.aboutMeData = {};
   $scope.homepageData = {};
 
-  $scope.addSkill = function() {
+  $scope.addSkill = function(formName) {
+    $scope.myForm = formName;
     $scope.addSkill.skill_id = $scope.skill_id;
     $http({
           method  : 'POST',
@@ -23,11 +24,12 @@ angular.module('profile', []).controller('profileCtrl', function($scope, $http) 
           $scope.errorSkill = data.errors.skill;
           $scope.errorMessage = data.errors.message;
         } else {
+          $scope.getSkills();
+          $scope.myForm.unbind('submit');
           $scope.formMessage = data.message;
           $scope.errorSkill = "";
           $scope.errorMessage = "";
           $scope.addSkill = "";
-          $scope.getSkills();
         }
       });
   }

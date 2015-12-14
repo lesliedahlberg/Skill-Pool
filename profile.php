@@ -194,7 +194,7 @@
       </div>
 
       <h1>Add Skill</h1>
-      <form role="form" ng-submit="addSkill();" ng-init="getSkills();getCategories();">
+      <form name="formName" role="form" ng-submit="addSkill(formName);" ng-init="getSkills();getCategories();">
         <div id="skill-group" class="form-group">
           <label for="skill">Skill name:</label>
           <input type="text" class="form-control" name="skill" id="skill" ng-model="addSkill.skill">
