@@ -1,7 +1,7 @@
 angular.module('login', []).controller('loginCtrl', function($scope, $http) {
   errormsg = "";
+  $scope.formData = {};
   $scope.processLoginForm = function() {
-
     $http({
           method  : 'POST',
           url     : 'api/login.php',

@@ -76,7 +76,7 @@
     }
     else
     {
-        $errors['pass'] = "Incorrect password. "
+        $errors['pass'] = "Incorrect password. ";
         $success = false;
     }
   }
