@@ -38,7 +38,7 @@
       <div class="row text-center">
           <div ng-repeat="user in users" class="col-md-3 col-md-6 hero-feature">
                     <div class="thumbnail">
-                      <img class="img-responsive img-circle" ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-responsive img-circle" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+                      <img class="img-rounded img-responsive" ng-show="!user.photo_link" src="img/profile/default.png"/><img class="img-rounded img-responsive" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
                         <div class="caption">
                             <h3>{{user.first_name}} {{user.last_name}}</h3>
 
