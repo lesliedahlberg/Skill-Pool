@@ -21,6 +21,8 @@
     <script src="lib/js/angular-strap.min.js"></script>
     <script src="lib/js/angular-strap.tpl.min.js"></script>
 
-
+    <? if ($_REQUEST["joke"] == true) :?>
+    <link rel="stylesheet" type="text/css" href="css/joke.css">
+  <? endif; ?>
 
   </head>

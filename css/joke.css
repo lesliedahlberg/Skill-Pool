@@ -1,0 +1,18 @@
+body{
+  background: red;
+  color:green;
+  font-family: "times new roman";
+  font-size:2em;
+}
+
+* {
+  background: red;
+  color:green;
+  font-family: "times new roman";
+  border:1px dashed purple;
+}
+
+h1,h2,h3,h4,h5 {
+  font-family: "Comic Sans MS";
+  color:yellow;
+}
