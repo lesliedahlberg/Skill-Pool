@@ -85,26 +85,29 @@
   $rand_int = rand(); //Generates random int //cant get this:  random_int(PHP_INT_MIN, PHP_INT_MAX); to work
   $hash = md5(strval($rand_int)); //Creates hash of the random int
 
-  DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
-  VALUES('jln14010@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Jonathan', 'Larsson', '$hash', '1');");
+  DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status, admin)
+  VALUES('jln14010@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Jonathan', 'Larsson', '$hash', '1', '0');");
 
   $rand_int = rand(); //Generates random int
   $hash = md5(strval($rand_int)); //Creates hash of the random int
 
-  DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
-  VALUES('elt08001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Erik', 'Liljeqvist', '$hash', '1');");
+  DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status, admin)
+  VALUES('elt08001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Erik', 'Liljeqvist', '$hash', '1', '0');");
 
   $rand_int = rand(); //Generates random int
   $hash = md5(strval($rand_int)); //Creates hash of the random int
 
-  DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
-  VALUES('flm14001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Filip', 'Lagerholm', '$hash', '1');");
+  DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status, admin)
+  VALUES('flm14001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Filip', 'Lagerholm', '$hash', '1', '0');");
 
   $rand_int = rand(); //Generates random int
   $hash = md5(strval($rand_int)); //Creates hash of the random int
 
-  DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status)
-  VALUES('ldg14001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Leslie', 'Dahlberg', '$hash', '1');");
+  DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status, admin)
+  VALUES('ldg14001@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Leslie', 'Dahlberg', '$hash', '1', '0');");
+
+  DB::query("INSERT INTO user(email, hash, first_name, last_name, verification_code, status, admin)
+  VALUES('admin@student.mdh.se', '63a9f0ea7bb98050796b649e85481845', 'Admin', 'Adminsson', '$hash', '1', '1');");
 
   /*  OBS! För att använda:
 
@@ -133,7 +136,8 @@
     'telephone' => "202-456-1111",
     'title' => "President of the United States",
     'verification_code' => $hash,
-    'zip_code' => "20500"
+    'zip_code' => "20500",
+    'admin' => '0'
   ));
 
   $rand_int = rand(); //Generates random int
@@ -153,7 +157,8 @@
     'telephone' => "201-241-351",
     'title' => "Problem solver, Phoenix Foundation",
     'verification_code' => $hash,
-    'zip_code' => "20300"
+    'zip_code' => "20300",
+    'admin' => '0'
   ));
 
   $rand_int = rand(); //Generates random int
@@ -173,7 +178,8 @@
     'telephone' => "08-258714",
     'title' => "Programmer",
     'verification_code' => $hash,
-    'zip_code' => "72347"
+    'zip_code' => "72347",
+    'admin' => '0'
   ));
 
   $rand_int = rand(); //Generates random int
@@ -193,7 +199,8 @@
     'telephone' => "08-114457",
     'title' => "Web developer",
     'verification_code' => $hash,
-    'zip_code' => "72347"
+    'zip_code' => "72347",
+    'admin' => '0'
   ));
 
   $rand_int = rand(); //Generates random int
@@ -213,7 +220,8 @@
     'telephone' => "021-151351",
     'title' => "Server engineer",
     'verification_code' => $hash,
-    'zip_code' => "72347"
+    'zip_code' => "72347",
+    'admin' => '0'
   ));
 
   $rand_int = rand(); //Generates random int
@@ -233,7 +241,8 @@
     'telephone' => "0714-135116",
     'title' => "Web app master",
     'verification_code' => $hash,
-    'zip_code' => "750 23"
+    'zip_code' => "750 23",
+    'admin' => '0'
   ));
 
   $rand_int = rand(); //Generates random int
@@ -253,7 +262,8 @@
     'telephone' => "1135-1641461",
     'title' => "Developer",
     'verification_code' => $hash,
-    'zip_code' => "713 13"
+    'zip_code' => "713 13",
+    'admin' => '0'
   ));
 
   $rand_int = rand(); //Generates random int
@@ -273,7 +283,8 @@
     'telephone' => "0771-141414",
     'title' => "Customer Support",
     'verification_code' => $hash,
-    'zip_code' => "713 13"
+    'zip_code' => "713 13",
+    'admin' => '0'
   ));
 
   $rand_int = rand(); //Generates random int
@@ -293,7 +304,8 @@
     'telephone' => "31513-1515",
     'title' => "CSS Programmer",
     'verification_code' => $hash,
-    'zip_code' => "714 18"
+    'zip_code' => "714 18",
+    'admin' => '0'
   ));
 
   $rand_int = rand(); //Generates random int
@@ -313,7 +325,8 @@
     'telephone' => "31513-1515",
     'title' => "Soccer player",
     'verification_code' => $hash,
-    'zip_code' => "9781"
+    'zip_code' => "9781",
+    'admin' => '0'
   ));
 
   $rand_int = rand(); //Generates random int
@@ -333,7 +346,8 @@
     'telephone' => "1547-1515",
     'title' => "Soccer player",
     'verification_code' => $hash,
-    'zip_code' => "1609"
+    'zip_code' => "1609",
+    'admin' => '0'
   ));
 
 
