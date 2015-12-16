@@ -21,6 +21,6 @@
     <script src="lib/js/angular-strap.min.js"></script>
     <script src="lib/js/angular-strap.tpl.min.js"></script>
 
-
+  
 
   </head>
