@@ -43,13 +43,13 @@ angular.module('users', ['mgcrea.ngStrap']).controller('usersCtrl', function($sc
   }
 
   $scope.getPageCount = function (){
-    var urel = "api/get_number_of_pages.php?per_page=8.php";
+    var urel = "api/get_number_of_pages.php";
     $http({
       url : urel,
       method: "GET"
     }).success(function (response) {
       if(response.success == true){
-        $scope.pages = range(1,response.result);
+        $scope.pages = range(1,Math.ceil(response.result/8));
         $scope.users_message = response.message;
       }else {
         $scope.search_error = response.search_variables;

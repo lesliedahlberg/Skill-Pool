@@ -9,7 +9,7 @@
   $data = array();
 
   //Get data from DB
-  $result = DB::queryFirstColumn("SELECT count(id)/%i FROM user", $_GET['per_page']);
+  $result = DB::queryFirstColumn("SELECT count(id) FROM user");
 
   //Set return statement
   if (!empty($errors)) {
