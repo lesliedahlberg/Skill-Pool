@@ -171,6 +171,32 @@ angular.module('admin', []).controller('adminCtrl', function($scope, $http) {
     $scope.skillIsUsed = false;
   }
 
+  $scope.processLoginForm = function() {
+    $http({
+          method  : 'POST',
+          url     : 'api/login_admin.php',
+          data    : $.param($scope.formData),
+          headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+         })
+    .success(function(data) {
+          if(data.success == true){
+            location.reload();
+          }
+          else{
+            for(error in data.errors)
+            {
+                if(error != null)
+                {
+                  if (data.errors.hasOwnProperty(error))
+                      errormsg = errormsg + (data.errors[error] || "");
+                }
+            }
+            $scope.error = errormsg;
+          }
+        }
+      );
+}
+
 
 
 });

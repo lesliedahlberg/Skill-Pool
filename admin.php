@@ -1,5 +1,5 @@
 <? //FILIP ?>
-<? require_once "inc/session.php"; ?>
+<? require_once "inc/session_admin.php"; ?>
 <html ng-app="admin" ng-controller="adminCtrl">
 
 <? require "inc/head.php"; ?>
