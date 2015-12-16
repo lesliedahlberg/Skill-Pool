@@ -32,7 +32,8 @@
     status tinyint(1) NOT NULL,
     telephone varchar(128),
     homepage varchar(128),
-    about_me text
+    about_me text,
+    admin tinyint(1) NOT NULL
   );");
 
   DB::query("CREATE TABLE IF NOT EXISTS category(
