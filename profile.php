@@ -174,6 +174,16 @@
                 </span>
               </td>
             </tr>
+            <tr>
+              <th>Change password:</th>
+              <td>
+                <span ng-show="!show.aboutMe"><span onclick="location.href='change_password_logged_in.php'" class="click-to-edit">**********</span>
+                  <a href="change_password_logged_in.php">
+                    <span class="glyphicon glyphicon-pencil pull-right"></span>
+                  </a>
+                </span>
+              </td>
+            </tr>
           </table>
         </section>
       </div>
