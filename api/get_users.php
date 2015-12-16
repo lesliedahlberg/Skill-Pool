@@ -8,6 +8,7 @@
   $errors = array();
   $data = array();
 
+
   //Defaults
   $elements_per_page = 8;
   $offset = 0;
@@ -15,6 +16,9 @@
   $searching = false;
   $search_pieces = array();
 
+  if(!empty($_REQUEST['per_page'])){
+    $elements_per_page = $_REQUEST['per_page'];
+  }
 
 
 
