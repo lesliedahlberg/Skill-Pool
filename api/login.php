@@ -52,7 +52,7 @@
 
 
   //Get data from DB
-  $result = DB::queryFirstRow("SELECT id, hash, first_name, status, email FROM user WHERE email=%s;", $email);
+  $result = DB::queryFirstRow("SELECT id, hash, first_name, status, email, admin FROM user WHERE email=%s;", $email);
   $count = DB::count();
 
   if($count == 0)
@@ -73,6 +73,7 @@
       $_SESSION['id'] = $result['id'];
       $_SESSION['user_name'] = $result['first_name'];
       $_SESSION['email'] = $result['email'];
+      $_SESSION['admin'] = $result['admin'];
     }
     else
     {

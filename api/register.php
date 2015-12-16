@@ -118,7 +118,8 @@
                       'verification_code' => $hash,
                       'first_name' => $first_name,
                       'last_name' => $last_name,
-                      'status' => 0
+                      'status' => 0,
+                      'admin' => 0
   ));
 
 

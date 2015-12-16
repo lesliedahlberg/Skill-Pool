@@ -19,7 +19,9 @@
         <li <? if($nav_current_page=="board.php") echo 'class="active "' ?>><a href="board.php">Boards</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li <? if($nav_current_page=="admin.php") echo 'class="active "' ?>><a href="admin.php">Admin</a></li>
+        <? if($_SESSION['admin'] == 1): ?>
+          <li <? if($nav_current_page=="admin.php") echo 'class="active "' ?>><a href="admin.php">Admin</a></li>
+        <? endif;?>
         <li><a href="logout.php">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
