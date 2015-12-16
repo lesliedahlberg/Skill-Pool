@@ -3,7 +3,7 @@
 <html ng-app="admin" ng-controller="adminCtrl">
 
 <? require "inc/head.php"; ?>
-<body ng-init="getCategories();getUsers()">
+<body ng-cloak ng-init="getCategories();getUsers()">
 
   <? $nav_current_page = "admin.php";
   require "inc/nav.php" ?>
@@ -150,6 +150,7 @@
   <table class="table table-hover">
     <thead>
       <tr>
+        <th></th>
         <th>ID</th>
         <th>Full name</th>
         <th>Created</th>
@@ -159,6 +160,9 @@
     </thead>
     <tbody ng-repeat="user in users" >
       <tr>
+        <td><img class="img-responsive img-profile" ng-show="!user.photo_link" src="img/profile/default.png"/>
+            <img class="img-responsive img-profile" ng-show="user.photo_link" src="img/profile/{{user.photo_link}}"/>
+        </td>
         <td>{{user.id}}</td>
         <td>{{user.first_name}} {{user.last_name}}</td>
         <td>{{user.registration_date}}</td>
