@@ -144,6 +144,7 @@
             </tr>
           </table>
         </section>
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
       </div>
 
       <h1>Skills</h1>

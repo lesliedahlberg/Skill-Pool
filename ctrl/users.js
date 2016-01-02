@@ -72,7 +72,10 @@ angular.module('users', ['mgcrea.ngStrap']).controller('usersCtrl', function($sc
     .success(function (response) {
       if(response.success == true){
         $scope.user = response.result;
+
         $scope.user_message = response.message;
+
+
       }else {
         $scope.user_error = response.error;
       }
