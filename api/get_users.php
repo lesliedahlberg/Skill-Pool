@@ -20,8 +20,6 @@
     $elements_per_page = $_REQUEST['per_page'];
   }
 
-
-
   //Arguments
   if (!empty($_GET['all'])) {
     $result = DB::query("SELECT * FROM user");

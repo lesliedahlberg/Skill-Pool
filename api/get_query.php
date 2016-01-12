@@ -1,5 +1,5 @@
 
-<? //FILIP ?>
+<? //FILIP, LESLIE ?>
 <?
   //DB login
   require_once '../lib/php/meekrodb.class.php';
@@ -17,11 +17,6 @@
   foreach ($search_keys as $key => $value) {
     $result[] = DB::queryFirstField("SELECT name FROM skill WHERE soundex(name) like soundex(%s) AND name != %s",$value,$value);
   }
-
-
-
-
-
 
   //Set return statement
   if (!empty($errors)) {

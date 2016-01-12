@@ -13,7 +13,6 @@
     $skill_id = $_GET['skill_id'];
   }
 
-
   //Get data from DB
   $result = DB::queryFirstRow("SELECT * FROM skill WHERE id = %i", $skill_id);
 

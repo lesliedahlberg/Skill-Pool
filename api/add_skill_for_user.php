@@ -36,7 +36,6 @@
 
         $skill_id = DB::queryFirstRow("SELECT LAST_INSERT_ID() as id");
 
-
       }
 
       $user_has_skill = DB::queryFirstRow("SELECT * from user_skill WHERE skill_id=%i AND user_id=%i",$skill_id['id'], $_SESSION['id']);
@@ -52,8 +51,6 @@
       $errors['category_id'] = "Category required!";
     }
   }
-
-
 
   //Set return statement
   if (!empty($errors)) {

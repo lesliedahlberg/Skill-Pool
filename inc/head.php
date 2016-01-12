@@ -13,20 +13,16 @@
 
     <!-- JS -->
 
-    <script src='lib/js/lodash.min.js'></script>
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 
     <script src="lib/js/angular.min.js"></script>
 
-    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
 
 
 
     <script src="lib/js/angular-strap.min.js"></script>
     <script src="lib/js/angular-strap.tpl.min.js"></script>
-    <script src='lib/js/angular-simple-logger/angular-simple-logger.js'></script>
-    <script src='lib/js/angular-google-maps.min.js'></script>
 
 
 
