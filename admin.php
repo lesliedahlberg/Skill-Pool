@@ -41,7 +41,7 @@
           <div class="modal-footer">
             <span class="text-danger" ng-show="category_error">{{ category_error }}</span>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button ng-click="removeCategory(category.id)" type="button" class="btn btn-danger">Delete</button>
+            <button ng-click="removeCategory(category.id)" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
           </div>
         </div>
 
@@ -79,8 +79,8 @@
 
                     <div class="modal-footer">
                       <strong><span class="text-danger" ng-show="skill_error">{{ skill_error }}</span><strong>
-                      <button ng-click="resetErrorMessages()" type="button" class="btn btn-default" data-dismiss="modal" ng-click="getUsersFor(category.id)">Close</button>
-                      <button ng-click="removeSkillAndUserRelations(skill.id, category.id)" type="button" class="btn btn-danger">Delete</button>
+                      <button ng-click="resetErrorMessages();getUsersFor(category.id)" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button ng-click="removeSkillAndUserRelations(skill.id, category.id)" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
 
 
                     </div>
@@ -89,8 +89,8 @@
 
                 </div>
                 <div class="modal-footer" ng-hide="skillIsUsed" >
-                  <button ng-click="resetErrorMessages()" type="button" class="btn btn-default" data-dismiss="modal" ng-click="getUsersFor(category.id)">Close</button>
-                  <button ng-click="removeSkill(skill.id, category.id)" type="button" class="btn btn-danger">Delete</button>
+                  <button ng-click="resetErrorMessages();getUsersFor(category.id)" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button ng-click="removeSkill(skill.id, category.id)" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
                 </div>
               </div>
 
@@ -183,13 +183,13 @@
                 </div>
                 <div class="modal-body">
                   <p><strong>Warning!</strong></p>
-                  <p>Do you really want to delete user <strong>{{user.first_name}} {{user.last_name}} (ID: ({{user.id}}))</strong>?</p>
+                  <p>Do you really want to delete user <strong>{{user.first_name}} {{user.last_name}} (ID: {{user.id}})</strong>?</p>
 
                 </div>
                 <div class="modal-footer">
                   <span class="text-danger" ng-show="del_user_error">{{del_user_error}}</span>
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button ng-click="removeUser(user.id)" type="button" class="btn btn-danger">Delete</button>
+                  <button ng-click="removeUser(user.id)" type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
                 </div>
               </div>
 
