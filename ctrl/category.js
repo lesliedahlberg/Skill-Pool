@@ -2,7 +2,6 @@ angular.module('category', []).controller('categoryCtrl', function($scope, $http
 
   $scope.formData = {};
 
-
   $scope.getCategories = function (){
     $http.get("api/get_categories.php")
     .success(function (response) {
@@ -75,6 +74,7 @@ angular.module('category', []).controller('categoryCtrl', function($scope, $http
       }
     });
   }
+
   $scope.removeSkill = function (skillId, catId){
 
     $scope.sId = skillId;

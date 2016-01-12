@@ -1,4 +1,4 @@
-<? //FILIP ?>
+<? //FILIP, LESLIE ?>
 <?
   //DB login
   require_once '../lib/php/meekrodb.class.php';
@@ -19,12 +19,7 @@
     $errors['search'] = "No search query";
   }
 
-
-
   $result = DB::query("SELECT name  FROM `skill`".$query_add_on);
-
-
-
 
   //Set return statement
   if (!empty($errors)) {
