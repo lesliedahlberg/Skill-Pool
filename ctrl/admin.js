@@ -38,6 +38,7 @@ angular.module('admin', []).controller('adminCtrl', function($scope, $http) {
         }
       });
       $scope.getCategories();
+      $scope.getCategories();
   }
 
   $scope.getSkills = function (id){
