@@ -5,3 +5,6 @@ A social network for professionals created in AngularJS and PHP.
 - Set username and password for MySQL in /inc/db_credentials.php
 - Run install.php
 - Log in with admin:admin
+
+## Screenshots
+![Screenshot](screenshot_1.png "")
